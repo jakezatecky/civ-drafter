@@ -53,6 +53,7 @@ module.exports = ({ stage = 'local' }) => ({
     },
     devServer: {
         open: true,
+        watchFiles: ['src/**/*'],
     },
     plugins: [
         new HtmlWebpackPlugin({
