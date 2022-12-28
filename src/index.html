@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>React Boilerplate</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Force browsers to re-download this HTML file in case there are any changes -->
+    <!-- It is better to set this through the web server, if possible -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <%= htmlWebpackPlugin.tags.headTags %>
+  </head>
+  <body>
+    <div class="app" id="mount">
+      <span class="fa fa-circle-notch fa-spin"></span>
+    </div>
+    <%= env %>
+  </body>
+</html>
