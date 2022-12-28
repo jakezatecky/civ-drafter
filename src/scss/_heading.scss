@@ -1,0 +1,33 @@
+//
+// Heading
+// --------------------------------------------------
+
+header {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem .75rem;
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    color: $dark;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:hover{
+      color: $dark;
+    }
+  }
+
+  .logo {
+    width: 24px;
+    margin-right: .25rem;
+  }
+
+  .header-links {
+    margin-left: auto;
+  }
+}

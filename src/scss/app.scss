@@ -1,9 +1,22 @@
-$body-font-family: "Open Sans", sans-serif;
+// Vendor functions
+@import "../../node_modules/bootstrap/scss/functions";
 
-body {
-  font-family: $body-font-family;
-}
+// Variables and functions
+@import "variables";
 
-.app {
-  text-align: center;
+// Vendor variables
+@import "../../node_modules/bootstrap/scss/variables";
+
+// Vendor library
+@import "../../node_modules/bootstrap/scss/bootstrap";
+
+// Components
+@import "scaffolding";
+@import "forms";
+@import "heading";
+@import "footer";
+
+// Bootstrap overrides
+.accordion-item {
+  border-color: lighten($primary, 25%);
 }

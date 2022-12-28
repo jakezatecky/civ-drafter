@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en-US">
+<html lang="en-US">
   <head>
     <meta charset="utf-8">
-    <title>React Boilerplate</title>
+    <title>Civilization VI Draft Picker</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -12,14 +12,35 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
-    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
-    <link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="//fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
     <%= htmlWebpackPlugin.tags.headTags %>
   </head>
   <body>
-    <div class="app" id="mount">
+    <header>
+      <div class="container">
+        <a href="/" class="brand-link">
+          <img class="logo" src="assets/img/check.png">
+          Civilization VI Draft Picker
+        </a>
+
+        <div class="header-links">
+          <button type="button" class="btn btn-outline-dark">
+            <span class="fa-brands fa-patreon"></span> Donate
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container" id="mount">
       <span class="fa fa-circle-notch fa-spin"></span>
-    </div>
+    </main>
+
+    <footer class="footer">
+      <strong>Civilization</strong> is a registered trademark of <a href="https://www.take2games.com/">Take-Two Interactive Software, Inc.</a>
+      This website is not affiliated with Take-Two and makes no claims of ownership.
+    </footer>
     <%= env %>
   </body>
 </html>

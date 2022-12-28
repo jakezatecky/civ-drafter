@@ -1,0 +1,23 @@
+//
+// Scaffolding
+// --------------------------------------------------
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  margin-bottom: 1.5rem;
+  background: $header-bg;
+  border-bottom: 1px solid $header-border-color;
+}
+
+main {
+  height: 100%;
+}
