@@ -1,22 +1,19 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 
 import AutocompleteControl from 'js/components/Controls/AutocompleteControl';
 import SliderControl from 'js/components/Controls/SliderControl';
 import DraftResults from 'js/components/DraftResults';
+import LoadingIndicator from 'js/components/Utils/LoadingIndicator';
 import getLanguage from 'js/utils/getLanguage';
-
-// TODO: Store full results in JSON and fetch
-const leaders = [
-    { name: 'Hammurabi (Babylon)', value: 'hammurabi-babylon' },
-    { name: 'Mansa Musa (Mali)', value: 'mansa-musa-mali' },
-];
 
 class App extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
+            leaders: null,
             numPlayers: 6,
             numChoices: 3,
             bans: [],
@@ -35,6 +32,24 @@ class App extends Component {
         });
     }
 
+    componentDidMount() {
+        axios.get('assets/leaders.json').then((response) => {
+            const { data, status } = response;
+
+            if (status === 200) {
+                this.setState({
+                    leaders: data,
+                });
+            } else {
+                // TODO: Handle more gracefully
+                throw new Error('Non-200 response');
+            }
+        }).catch((error) => {
+            // TODO: Surface error to user
+            throw error;
+        });
+    }
+
     onSliderChange(key) {
         return (event) => {
             this.setSetting(key, event.target.value);
@@ -48,7 +63,12 @@ class App extends Component {
     onSubmit(event) {
         event.preventDefault();
 
-        const { numPlayers, numChoices, bans } = this.state;
+        const {
+            leaders,
+            numPlayers,
+            numChoices,
+            bans,
+        } = this.state;
 
         const totalChoices = numPlayers * numChoices;
         const availableLeaders = leaders.length - bans.length;
@@ -102,15 +122,15 @@ class App extends Component {
     }
 
     renderAdditionalSettings() {
-        const { bans } = this.state;
-        const leaderOptions = leaders.map(({ name, value }) => ({
-            value,
+        const { bans, leaders } = this.state;
+        const leaderOptions = leaders.map(({ name, image }) => ({
+            value: name,
             name,
             label: (
-                <span className="box-leader">
-                    <img alt={`${name} portrait}`} src={`assets/img/${value}.png`} />
-                    {` ${name}`}
-                </span>
+                <div className="leader-box">
+                    <img alt={`${name} portrait}`} className="leader-icon" src={`assets/img/leader-icons/${image}`} />
+                    <span className="leader-name">{`${name}`}</span>
+                </div>
             ),
         }));
 
@@ -142,7 +162,11 @@ class App extends Component {
     }
 
     render() {
-        const { results } = this.state;
+        const { leaders, results } = this.state;
+
+        if (leaders === null) {
+            return <LoadingIndicator />;
+        }
 
         return (
             <section className="draft-area">
