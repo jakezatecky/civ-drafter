@@ -19,12 +19,13 @@ class AutocompleteControl extends PureComponent {
     };
 
     render() {
-        const { label, options } = this.props;
+        const { label, options, ...otherProps } = this.props;
 
         return (
             <ThemeProvider theme={materialTheme}>
                 <Autocomplete
                     getOptionLabel={({ name }) => name}
+                    isOptionEqualToValue={(option, value) => option.value === value.value}
                     multiple
                     options={options}
                     renderInput={(params) => (
@@ -38,6 +39,7 @@ class AutocompleteControl extends PureComponent {
                             {option.label || option.name}
                         </Box>
                     )}
+                    {...otherProps}
                 />
             </ThemeProvider>
         );
