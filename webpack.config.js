@@ -10,6 +10,7 @@ function getEnvironmentParameters(stage) {
         env = JSON.parse(data);
     } catch (error) {
         if (error.code === 'ENOENT') {
+            // eslint-disable-next-line no-console
             console.log(`Environment file not found for stage '${stage}'. Skipping.`);
         } else {
             throw error;

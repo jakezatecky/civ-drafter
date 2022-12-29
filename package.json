@@ -9,7 +9,7 @@
     "release": "npm run test && npm run build",
     "test": "npm run test-script-format && npm run test-script-mocha && npm run test-style",
     "test-script-format": "eslint src/js/**/*.js test/**/*.js *.js",
-    "test-script-mocha": "mocha --require @babel/register --require global-jsdom/register --exit --reporter spec test/**/*.js",
+    "test-script-mocha": "cross-env NODE_PATH=./src mocha test/**/*.js",
     "test-style": "stylelint src/scss/**/*.scss"
   },
   "author": "Jake Zatecky",
@@ -36,6 +36,7 @@
     "@testing-library/react": "^13.4.0",
     "babel-loader": "^9.0.0",
     "chai": "^4.2.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.7.3",
     "eslint": "^8.27.0",
     "eslint-config-takiyon-react": "^2.0.0",
