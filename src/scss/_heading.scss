@@ -13,18 +13,18 @@ header {
   .brand-link {
     display: flex;
     align-items: center;
-    color: $dark;
     text-decoration: none;
+    color: $dark;
     font-weight: bold;
 
-    &:hover{
+    &:hover {
       color: $dark;
     }
   }
 
   .logo {
-    width: 24px;
     margin-right: .25rem;
+    width: 24px;
   }
 
   .header-links {

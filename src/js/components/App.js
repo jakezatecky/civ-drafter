@@ -7,7 +7,7 @@ import SliderControl from 'js/components/Controls/SliderControl';
 const leaders = [
     { name: 'Hammurabi (Babylon)', value: 'hammurabi-babylon' },
     { name: 'Mansa Musa (Mali)', value: 'mansa-musa-mali' },
-]
+];
 
 class App extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ class App extends Component {
             value,
             label: (
                 <span>
-                    <img src={`assets/img/${value}.png`} />
+                    <img alt={`${name} portrait}`} src={`assets/img/${value}.png`} />
                     {` ${name}`}
                 </span>
             ),
@@ -42,15 +42,15 @@ class App extends Component {
                                     defaultValue={6}
                                     id="num-players"
                                     label="Number of players"
-                                    min={1}
                                     max={12}
+                                    min={1}
                                 />
                                 <SliderControl
                                     defaultValue={3}
                                     id="num-choices"
                                     label="Number of choices"
-                                    min={1}
                                     max={6}
+                                    min={1}
                                 />
                             </Accordion.Body>
                         </Accordion.Item>
@@ -74,7 +74,7 @@ class App extends Component {
                     </Accordion>
 
                     <div className="d-grid gap-2 col-3 mx-auto">
-                        <button className="btn btn-primary">
+                        <button className="btn btn-primary" type="submit">
                             Draft!
                         </button>
                     </div>

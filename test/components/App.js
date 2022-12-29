@@ -2,12 +2,13 @@ import React from 'react';
 import { assert } from 'chai';
 import { render, screen } from '@testing-library/react';
 
-import App from '../../src/js/components/App';
+import App from 'js/components/App';
 
 describe('<App />', () => {
-    it('should render a hello message with `props.name`', () => {
-        render(<App name="Gregory" />);
+    it('should render a draft button', async () => {
+        render(<App />);
 
-        assert.equal(screen.getByRole('heading').textContent, 'Hello, Gregory!');
+        const submit = screen.findByRole('button', { name: 'Draft' });
+        assert.isNotNull(submit);
     });
 });

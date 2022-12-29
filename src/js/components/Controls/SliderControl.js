@@ -1,12 +1,13 @@
 import { kebabCase } from 'lodash';
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Slider from '@mui/material/Slider';
 import { ThemeProvider } from '@mui/material/styles';
 
 import materialTheme from 'js/components/materialTheme';
 
-class SliderControl extends Component {
+/* eslint-disable react/jsx-props-no-spreading */
+class SliderControl extends PureComponent {
     static propTypes = {
         label: PropTypes.string.isRequired,
         max: PropTypes.number.isRequired,
@@ -14,7 +15,12 @@ class SliderControl extends Component {
     };
 
     render() {
-        const { label, max, min, ...otherProps } = this.props;
+        const {
+            label,
+            max,
+            min,
+            ...otherProps
+        } = this.props;
 
         // Derive ID from label
         const id = otherProps.id || kebabCase(label);
@@ -27,7 +33,7 @@ class SliderControl extends Component {
 
         return (
             <div className="control-range">
-                <label htmlFor={id} className="form-label">
+                <label className="form-label" htmlFor={id}>
                     {label}
                 </label>
                 <ThemeProvider theme={materialTheme}>
