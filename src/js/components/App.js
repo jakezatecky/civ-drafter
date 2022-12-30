@@ -46,12 +46,12 @@ class App extends Component {
 
     onSliderChange(key) {
         return (event) => {
-            this.setSetting(key, event.target.value);
+            this.setState({ [key]: event.target.value });
         };
     }
 
     onBanChange(event, value) {
-        this.setSetting('bans', value);
+        this.setState({ bans: value });
     }
 
     onSubmit(event) {
@@ -87,13 +87,6 @@ class App extends Component {
             results: {
                 players: draftResults,
             },
-        });
-    }
-
-    setSetting(key, value) {
-        this.setState({
-            [key]: value,
-            results: null,
         });
     }
 
