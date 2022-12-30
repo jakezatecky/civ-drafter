@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import SliderControl from './Controls/SliderControl';
-import AutocompleteControl from './Controls/AutocompleteControl';
 
+import AutocompleteControl from 'js/components/Controls/AutocompleteControl';
+import SliderControl from 'js/components/Controls/SliderControl';
 import leaderShape from 'js/shapes/leaderShape';
 import getLanguage from 'js/utils/getLanguage';
 import draftLeaders, { NotEnoughLeadersError } from 'js/draftLeaders';

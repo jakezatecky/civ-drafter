@@ -12,16 +12,16 @@
 
 .draft-results-players,
 .draft-results-player-choices {
-  padding-left : 0;
+  padding-left: 0;
   list-style: none;
 }
 
 .draft-results-players {
   > li {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
     gap: .5rem;
+    align-items: center;
 
     + li {
       margin-top: 1rem;
@@ -34,7 +34,7 @@
     font-weight: bold;
 
     &::after {
-      content: ':'
+      content: ":";
     }
   }
 }
@@ -48,10 +48,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 18px;
     border: 1px solid $draft-choice-border;
     border-radius: 50rem;
     padding: .125rem .375rem;
+    font-size: 18px;
   }
 
   img {

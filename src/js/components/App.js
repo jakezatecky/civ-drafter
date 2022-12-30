@@ -52,7 +52,8 @@ class App extends Component {
         if (error) {
             return (
                 <div className="alert alert-danger">
-                    <strong>Error</strong>: {error}
+                    <strong>Error</strong>
+                    {`: ${error}`}
                 </div>
             );
         }
