@@ -120,19 +120,9 @@ class DraftSettings extends Component {
         );
     }
 
-    renderUserSettings() {
-        // TODO: Implement
-        return (
-            <Accordion.Item eventKey="2">
-                <Accordion.Header as="h3">User-specific settings</Accordion.Header>
-                <Accordion.Body>
-                    List all users and have DLC checks
-                </Accordion.Body>
-            </Accordion.Item>
-        );
-    }
-
     render() {
+        // TODO: Implement user-specific settings
+
         return (
             <div className="draft-settings">
                 <h2 className="sr-only">Draft selections</h2>
@@ -140,7 +130,6 @@ class DraftSettings extends Component {
                     <Accordion alwaysOpen defaultActiveKey={['0', '1']}>
                         {this.renderMainSettings()}
                         {this.renderAdditionalSettings()}
-                        {this.renderUserSettings()}
                     </Accordion>
                     <div className="form-submit-area">
                         <button className="btn btn-primary" type="submit">
