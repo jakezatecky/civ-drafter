@@ -1,5 +1,6 @@
 import language from 'js/constants/language';
 
+// TODO: Add `<Language>` component with Markdown support
 export default function getLanguage(key, variables = {}) {
     let message = language[key];
 
