@@ -132,7 +132,7 @@ class App extends Component {
             name,
             label: (
                 <div className="leader-box">
-                    <img alt={`${name} portrait}`} className="leader-icon" src={`assets/img/leader-icons/${image}`} />
+                    <img alt={`${name} portrait}`} className="leader-icon" src={`/assets/img/leader-icons/${image}`} />
                     <span className="leader-name">{`${name}`}</span>
                 </div>
             ),
@@ -182,7 +182,7 @@ class App extends Component {
                         {this.renderAdditionalSettings()}
                         {this.renderUserSettings()}
                     </Accordion>
-                    <div className="d-grid gap-2 col-3 mx-auto">
+                    <div className="form-submit-area">
                         <button className="btn btn-primary" type="submit">
                             Draft!
                         </button>
