@@ -6,7 +6,7 @@ import AutocompleteControl from './Controls/AutocompleteControl';
 
 import leaderShape from 'js/shapes/leaderShape';
 import getLanguage from 'js/utils/getLanguage';
-import draftLeaders from 'js/draftLeaders';
+import draftLeaders, { NotEnoughLeadersError } from 'js/draftLeaders';
 
 class DraftSettings extends Component {
     static propTypes = {
@@ -44,22 +44,20 @@ class DraftSettings extends Component {
         const { leaders, onSubmit } = this.props;
         const { numPlayers, numChoices, bans } = this.state;
 
-        const totalChoices = numPlayers * numChoices;
-        const availableLeaders = leaders.length - bans.length;
-        const notEnoughLeaders = totalChoices > availableLeaders;
-
-        if (notEnoughLeaders) {
-            onSubmit({
-                error: getLanguage('notEnoughLeaders', {
-                    totalChoices,
-                    availableLeaders,
-                }),
-            });
-        } else {
-            // TODO: Verify that multiple players can play different personas
+        try {
             const draftResults = draftLeaders(leaders, numPlayers, numChoices, bans);
-
             onSubmit({ players: draftResults });
+        } catch (error) {
+            if (error instanceof NotEnoughLeadersError) {
+                onSubmit({
+                    error: getLanguage('notEnoughLeaders', {
+                        totalChoices: error.totalChoices,
+                        availableLeaders: error.availableLeaders,
+                    }),
+                });
+            } else {
+                throw error;
+            }
         }
     }
 

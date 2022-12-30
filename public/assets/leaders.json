@@ -25,11 +25,13 @@
   },
   {
     "image": "Catherine_de_Medici_(Civ6).png",
-    "name": "Catherine de Medici (French)"
+    "name": "Catherine de Medici (French)",
+    "leaderId": "catherine"
   },
   {
     "image": "Catherine_de_Medici_(Magnificence)_(Civ6).png",
-    "name": "Catherine de Medici (Magnificence) (French)"
+    "name": "Catherine de Medici (Magnificence) (French)",
+    "leaderId": "catherine"
   },
   {
     "image": "Chandragupta_(Civ6).png",
@@ -49,11 +51,13 @@
   },
   {
     "image": "Eleanor_of_Aquitaine_(English)_(Civ6).png",
-    "name": "Eleanor of Aquitaine (English)"
+    "name": "Eleanor of Aquitaine (English)",
+    "leaderId": "eleanor"
   },
   {
     "image": "Eleanor_of_Aquitaine_(French)_(Civ6).png",
-    "name": "Eleanor of Aquitaine (French)"
+    "name": "Eleanor of Aquitaine (French)",
+    "leaderId": "eleanor"
   },
   {
     "image": "Frederick_Barbarossa_(Civ6).png",
@@ -117,11 +121,13 @@
   },
   {
     "image": "Kublai_Khan_(Chinese)_(Civ6).png",
-    "name": "Kublai Khan (Chinese)"
+    "name": "Kublai Khan (Chinese)",
+    "leaderId": "kublai-khan"
   },
   {
     "image": "Kublai_Khan_(Mongolian)_(Civ6).png",
-    "name": "Kublai Khan (Mongolian)"
+    "name": "Kublai Khan (Mongolian)",
+    "leaderId": "kublai-khan"
   },
   {
     "image": "Kupe_(Civ6).png",
@@ -197,11 +203,13 @@
   },
   {
     "image": "Saladin_(Civ6).png",
-    "name": "Saladin (Arabian)"
+    "name": "Saladin (Arabian)",
+    "leaderId": "saladin"
   },
   {
     "image": "Saladin_(Sultan)_(Civ6).png",
-    "name": "Saladin (Sultan) (Arabian)"
+    "name": "Saladin (Sultan) (Arabian)",
+    "leaderId": "saladin"
   },
   {
     "image": "Seondeok_(Civ6).png",
@@ -217,11 +225,13 @@
   },
   {
     "image": "Suleiman_(Civ6).png",
-    "name": "Suleiman (Ottoman)"
+    "name": "Suleiman (Ottoman)",
+    "leaderId": "suleiman"
   },
   {
     "image": "Suleiman_(Muhteşem)_(Civ6).png",
-    "name": "Suleiman (Muhteşem) (Ottoman)"
+    "name": "Suleiman (Muhteşem) (Ottoman)",
+    "leaderId": "suleiman"
   },
   {
     "image": "Tamar_(Civ6).png",
@@ -229,11 +239,13 @@
   },
   {
     "image": "Teddy_Roosevelt_(Civ6).png",
-    "name": "Teddy Roosevelt (American)"
+    "name": "Teddy Roosevelt (American)",
+    "leaderId": "teddy"
   },
   {
     "image": "Teddy_Roosevelt_(Rough_Rider)_(Civ6).png",
-    "name": "Teddy Roosevelt (Rough Rider) (American)"
+    "name": "Teddy Roosevelt (Rough Rider) (American)",
+    "leaderId": "teddy"
   },
   {
     "image": "Tokugawa_(Civ6).png",
