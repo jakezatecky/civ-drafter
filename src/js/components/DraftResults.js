@@ -1,15 +1,22 @@
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
+import leaderShape from 'js/shapes/leaderShape';
+
 class DraftResults extends PureComponent {
     static propTypes = {
         results: PropTypes.shape({
+            players: PropTypes.arrayOf(PropTypes.shape({
+                index: PropTypes.number.isRequired,
+                choices: PropTypes.arrayOf(leaderShape).isRequired,
+            })),
             error: PropTypes.string,
         }).isRequired,
     };
 
-    renderResults(results) {
-        const { error } = results;
+    render() {
+        const { results } = this.props;
+        const { error, players } = results;
 
         if (error) {
             return (
@@ -19,22 +26,25 @@ class DraftResults extends PureComponent {
             );
         }
 
-        return (
-            <p>These are your results...</p>
-        );
-    }
-
-    render() {
-        const { results } = this.props;
-
-        if (results === null) {
-            return null;
-        }
+        const formatted = players.map(({ index, choices }) => (
+            <li key={index}>
+                <h3>Player {index + 1}</h3>
+                <ul className="draft-results-player-choices">
+                    {choices.map(({ name, image }) => (
+                        <li key={name}>
+                            <img alt={`${name} icon`} src={`/assets/img/leader-icons/${image}`} />
+                            {name}
+                        </li>
+                    ))}
+                </ul>
+            </li>
+        ));
 
         return (
             <div className="draft-results">
-                <h2 className="sr-only">Draft results</h2>
-                {this.renderResults(results)}
+                <ul className="draft-results-players">
+                    {formatted}
+                </ul>
             </div>
         );
     }

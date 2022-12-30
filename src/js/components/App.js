@@ -7,6 +7,7 @@ import SliderControl from 'js/components/Controls/SliderControl';
 import DraftResults from 'js/components/DraftResults';
 import LoadingIndicator from 'js/components/Utils/LoadingIndicator';
 import getLanguage from 'js/utils/getLanguage';
+import draftLeaders from 'js/draftLeaders';
 
 class App extends Component {
     constructor(props) {
@@ -79,11 +80,14 @@ class App extends Component {
             return;
         }
 
-        // TODO: Implement randomization of choices
         // TODO: Verify that multiple players can play different personas
-        setTimeout(() => {
-            this.setState({ results: {} });
-        }, 500);
+        const draftResults = draftLeaders(leaders, numPlayers, numChoices, bans);
+
+        this.setState({
+            results: {
+                players: draftResults,
+            },
+        });
     }
 
     setSetting(key, value) {
