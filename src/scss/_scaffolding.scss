@@ -14,12 +14,6 @@ body {
   grid-template-rows: auto 1fr auto;
 }
 
-header {
-  margin-bottom: 1.5rem;
-  border-bottom: 1px solid $header-border-color;
-  background: $header-bg;
-}
-
 main {
   height: 100%;
   margin-bottom: 1rem;

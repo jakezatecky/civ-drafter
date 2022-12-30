@@ -11,16 +11,11 @@
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 // Components
-@import "scaffolding";
 @import "draft-results";
 @import "draft-settings";
+@import "footer";
 @import "forms";
 @import "heading";
 @import "loading-indicator";
-@import "footer";
-
-// TODO: Put in separate file, make color variables, and remove helper utilities
-// Bootstrap overrides
-.accordion-item {
-  border-color: lighten($primary, 25%);
-}
+@import "overrides";
+@import "scaffolding";

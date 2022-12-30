@@ -6,7 +6,12 @@ $primary: #a26638;
 $border-radius: 2px;
 
 $header-bg: #fefcfb;
+$header-color: #212529;
 $header-border-color: $primary;
+
+$accordion-border-color: lighten($primary, 25%);
+
+$draft-choice-border: #212529;
 
 $footer-bg: #f4f4f4;
 $footer-color: #6c757d;

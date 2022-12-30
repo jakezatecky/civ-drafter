@@ -3,6 +3,10 @@
 // --------------------------------------------------
 
 header {
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid $header-border-color;
+  background: $header-bg;
+
   .container {
     display: flex;
     align-items: center;
@@ -14,11 +18,11 @@ header {
     display: flex;
     align-items: center;
     text-decoration: none;
-    color: $dark;
+    color: $header-color;
     font-weight: bold;
 
     &:hover {
-      color: $dark;
+      color: $header-color;
     }
   }
 
