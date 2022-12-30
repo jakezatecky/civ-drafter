@@ -25,13 +25,6 @@ class App extends Component {
         this.onSubmit = this.onSubmit.bind(this);
     }
 
-    setSetting(key, value) {
-        this.setState({
-            [key]: value,
-            results: null,
-        });
-    }
-
     componentDidMount() {
         axios.get('assets/leaders.json').then((response) => {
             const { data, status } = response;
@@ -53,7 +46,7 @@ class App extends Component {
     onSliderChange(key) {
         return (event) => {
             this.setSetting(key, event.target.value);
-        }
+        };
     }
 
     onBanChange(event, value) {
@@ -91,6 +84,13 @@ class App extends Component {
         setTimeout(() => {
             this.setState({ results: {} });
         }, 500);
+    }
+
+    setSetting(key, value) {
+        this.setState({
+            [key]: value,
+            results: null,
+        });
     }
 
     renderMainSettings() {

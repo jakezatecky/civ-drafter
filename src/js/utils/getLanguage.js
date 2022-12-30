@@ -7,8 +7,8 @@ export default function getLanguage(key, variables = {}) {
         throw new Error(`Cannot find language for key ${key}!`);
     }
 
-    Object.keys(variables).forEach((key) => {
-        message = message.split(`{${key}}`).join(variables[key]);
+    Object.keys(variables).forEach((variableKey) => {
+        message = message.split(`{${variableKey}}`).join(variables[variableKey]);
     });
 
     return message;
