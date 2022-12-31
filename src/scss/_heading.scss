@@ -19,7 +19,9 @@ header {
     align-items: center;
     text-decoration: none;
     color: $header-color;
-    font-weight: bold;
+    font-family: $header-font;
+    font-size: 22px;
+    font-weight: 500;
 
     &:hover {
       color: $header-color;
@@ -27,8 +29,8 @@ header {
   }
 
   .logo {
-    margin-right: .25rem;
-    width: 24px;
+    margin-right: .375rem;
+    width: 32px;
   }
 
   .header-links {
