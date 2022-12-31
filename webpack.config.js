@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const fs = require('node:fs');
 const path = require('node:path');
 
@@ -28,6 +29,7 @@ module.exports = ({ stage = 'local' }) => ({
     output: {
         path: path.join(__dirname, '/public'),
         filename: 'assets/js/[name]-[contenthash].js',
+        publicPath: '/',
     },
     resolve: {
         modules: [
@@ -45,7 +47,7 @@ module.exports = ({ stage = 'local' }) => ({
             {
                 test: /\.s[ac]ss$/i,
                 use: [
-                    'style-loader',
+                    MiniCssExtractPlugin.loader,
                     'css-loader',
                     'sass-loader',
                 ],
@@ -57,6 +59,9 @@ module.exports = ({ stage = 'local' }) => ({
         watchFiles: ['src/**/*'],
     },
     plugins: [
+        new MiniCssExtractPlugin({
+            filename: 'assets/css/[name]-[contenthash].css',
+        }),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             filename: 'index.html',
