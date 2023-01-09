@@ -1,6 +1,6 @@
 {
-  "name": "react-boilerplate",
-  "version": "2.0.0",
+  "name": "civ-6-drafter",
+  "version": "0.1.0",
   "description": "A sensible, minimal, and server-agnostic boilerplate for React projects.",
   "main": "gulpfile.js",
   "scripts": {
