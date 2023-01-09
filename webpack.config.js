@@ -60,7 +60,7 @@ module.exports = ({ stage = 'local' }) => ({
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'assets/css/[name]-[contenthash].css',
+            filename: stage === 'prod' ? 'assets/css/[name]-[contenthash].css' : 'assets/css/[name].css',
         }),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
