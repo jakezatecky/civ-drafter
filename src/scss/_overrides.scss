@@ -2,6 +2,10 @@
 // Overrides
 // --------------------------------------------------
 
+.container {
+  max-width: $app-width;
+}
+
 .accordion-item {
   border-color: $accordion-border-color;
 }
