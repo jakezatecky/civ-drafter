@@ -119,8 +119,6 @@ class DraftSettings extends Component {
     }
 
     render() {
-        // TODO: Implement user-specific settings
-
         return (
             <div className="draft-settings">
                 <h2 className="sr-only">Draft selections</h2>
