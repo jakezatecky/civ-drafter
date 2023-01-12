@@ -6,6 +6,7 @@
   "scripts": {
     "build": "webpack",
     "build-prod": "webpack --env stage=prod",
+    "deploy": "npm run release-prod --loglevel=error && aws s3 sync public s3://civdrafter --delete --profile civilization",
     "dev-server": "webpack serve",
     "release": "npm run test && npm run build",
     "release-prod": "npm run test && cross-env npm run build-prod",
