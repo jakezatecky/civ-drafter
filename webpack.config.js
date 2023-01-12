@@ -58,6 +58,9 @@ module.exports = ({ stage = 'local' }) => ({
         open: true,
         watchFiles: ['src/**/*'],
     },
+    performance: {
+        hints: 'warning',
+    },
     plugins: [
         new MiniCssExtractPlugin({
             filename: stage === 'prod' ? 'assets/css/[name]-[contenthash].css' : 'assets/css/[name].css',
