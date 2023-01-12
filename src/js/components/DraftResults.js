@@ -26,14 +26,14 @@ class DraftResults extends PureComponent {
             );
         }
 
-        const formatted = players.map(({ index, choices }) => (
-            <li key={index}>
-                <h3>{`Player ${index + 1}`}</h3>
+        const formatted = players.map(({ index: playerIndex, choices }) => (
+            <li key={playerIndex}>
+                <h3>{`Player ${playerIndex + 1}`}</h3>
                 <ul className="draft-results-player-choices">
-                    {choices.map(({ name, image }) => (
-                        <li key={name}>
-                            <img alt={`${name} icon`} src={`/assets/img/leader-icons/${image}`} />
-                            {name}
+                    {choices.map(({ shortName, image }) => (
+                        <li key={`${shortName}`}>
+                            <img alt={`${shortName} icon`} src={`/assets/img/leader-icons/${image}`} />
+                            {shortName}
                         </li>
                     ))}
                 </ul>

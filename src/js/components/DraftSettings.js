@@ -92,13 +92,13 @@ class DraftSettings extends Component {
     renderAdditionalSettings() {
         const { leaders } = this.props;
         const { bans } = this.state;
-        const leaderOptions = leaders.map(({ name, image }) => ({
-            value: name,
-            name,
+        const leaderOptions = leaders.map(({ longName, image }) => ({
+            value: longName,
+            name: longName,
             label: (
                 <div className="leader-box">
                     <img alt={`${name} portrait}`} className="leader-icon" src={`/assets/img/leader-icons/${image}`} />
-                    <span className="leader-name">{`${name}`}</span>
+                    <span className="leader-name">{`${longName}`}</span>
                 </div>
             ),
         }));

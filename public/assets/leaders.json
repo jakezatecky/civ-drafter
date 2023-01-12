@@ -1,274 +1,339 @@
 [
   {
     "image": "Abraham_Lincoln_(Civ6).png",
-    "name": "Abraham Lincoln (American)"
+    "shortName": "Abraham Lincoln",
+    "longName": "Abraham Lincoln (American)"
   },
   {
     "image": "Alexander_(Civ6).png",
-    "name": "Alexander (Macedonian)"
+    "shortName": "Alexander",
+    "longName": "Alexander (Macedonian)"
   },
   {
     "image": "Amanitore_(Civ6).png",
-    "name": "Amanitore (Nubian)"
+    "shortName": "Amanitore",
+    "longName": "Amanitore (Nubian)"
   },
   {
     "image": "Ambiorix_(Civ6).png",
-    "name": "Ambiorix (Gallic)"
+    "shortName": "Ambiorix",
+    "longName": "Ambiorix (Gallic)"
   },
   {
     "image": "Basil_II_(Civ6).png",
-    "name": "Basil II (Byzantine)"
+    "shortName": "Basil II",
+    "longName": "Basil II (Byzantine)"
   },
   {
     "image": "Bà_Triệu_(Civ6).png",
-    "name": "Bà Triệu (Vietnamese)"
+    "shortName": "Bà Triệu",
+    "longName": "Bà Triệu (Vietnamese)"
   },
   {
     "image": "Catherine_de_Medici_(Civ6).png",
-    "name": "Catherine de Medici (French)",
+    "shortName": "Catherine de Medici (Black Queen)",
+    "longName": "Catherine de Medici (Black Queen) (French)",
     "leaderId": "catherine"
   },
   {
     "image": "Catherine_de_Medici_(Magnificence)_(Civ6).png",
-    "name": "Catherine de Medici (Magnificence) (French)",
+    "shortName": "Catherine de Medici (Magnificence)",
+    "longName": "Catherine de Medici (Magnificence) (French)",
     "leaderId": "catherine"
   },
   {
     "image": "Chandragupta_(Civ6).png",
-    "name": "Chandragupta (Indian)"
+    "shortName": "Chandragupta",
+    "longName": "Chandragupta (Indian)"
   },
   {
     "image": "Cleopatra_(Civ6).png",
-    "name": "Cleopatra (Egyptian)"
+    "shortName": "Cleopatra",
+    "longName": "Cleopatra (Egyptian)"
   },
   {
     "image": "Cyrus_(Civ6).png",
-    "name": "Cyrus (Persia)"
+    "shortName": "Cyrus",
+    "longName": "Cyrus (Persia)"
   },
   {
     "image": "Dido_(Civ6).png",
-    "name": "Dido (Phoenician)"
+    "shortName": "Dido",
+    "longName": "Dido (Phoenician)"
   },
   {
     "image": "Eleanor_of_Aquitaine_(English)_(Civ6).png",
-    "name": "Eleanor of Aquitaine (English)",
+    "shortName": "Eleanor of Aquitaine (English)",
+    "longName": "Eleanor of Aquitaine (English)",
     "leaderId": "eleanor"
   },
   {
     "image": "Eleanor_of_Aquitaine_(French)_(Civ6).png",
-    "name": "Eleanor of Aquitaine (French)",
+    "shortName": "Eleanor of Aquitaine (French)",
+    "longName": "Eleanor of Aquitaine (French)",
     "leaderId": "eleanor"
   },
   {
     "image": "Frederick_Barbarossa_(Civ6).png",
-    "name": "Frederick Barbarossa (German)"
+    "shortName": "Frederick Barbarossa",
+    "longName": "Frederick Barbarossa (German)"
   },
   {
     "image": "Gandhi_(Civ6).png",
-    "name": "Gandhi (India)"
+    "shortName": "Gandhi",
+    "longName": "Gandhi (India)"
   },
   {
     "image": "Genghis_Khan_(Civ6).png",
-    "name": "Genghis Khan (Mongolian)"
+    "shortName": "Genghis Khan",
+    "longName": "Genghis Khan (Mongolian)"
   },
   {
     "image": "Gilgamesh_(Civ6).png",
-    "name": "Gilgamesh (Sumerian)"
+    "shortName": "Gilgamesh",
+    "longName": "Gilgamesh (Sumerian)"
   },
   {
     "image": "Gitarja_(Civ6).png",
-    "name": "Gitarja (Indonesian)"
+    "shortName": "Gitarja",
+    "longName": "Gitarja (Indonesian)"
   },
   {
     "image": "Gorgo_(Civ6).png",
-    "name": "Gorgo (Greek)"
+    "shortName": "Gorgo",
+    "longName": "Gorgo (Greek)"
   },
   {
     "image": "Hammurabi_(Civ6).png",
-    "name": "Hammurabi (Babylonian)"
+    "shortName": "Hammurabi",
+    "longName": "Hammurabi (Babylonian)"
   },
   {
     "image": "Harald_Hardrada_(Civ6).png",
-    "name": "Harald Hardrada (Norwegian)"
+    "shortName": "Harald Hardrada",
+    "longName": "Harald Hardrada (Norwegian)"
   },
   {
     "image": "Hojo_Tokimune_(Civ6).png",
-    "name": "Hojo Tokimune (Japanese)"
+    "shortName": "Hojo Tokimune",
+    "longName": "Hojo Tokimune (Japanese)"
   },
   {
     "image": "Jadwiga_(Civ6).png",
-    "name": "Jadwiga (Polish)"
+    "shortName": "Jadwiga",
+    "longName": "Jadwiga (Polish)"
   },
   {
     "image": "Jayavarman_VII_(Civ6).png",
-    "name": "Jayavarman VII (Khmer)"
+    "shortName": "Jayavarman VII",
+    "longName": "Jayavarman VII (Khmer)"
   },
   {
     "image": "John_Curtin_(Civ6).png",
-    "name": "John Curtin (Australian)"
+    "shortName": "John Curtin",
+    "longName": "John Curtin (Australian)"
   },
   {
     "image": "João_III_(Civ6).png",
-    "name": "João III (Portuguese)"
+    "shortName": "João III",
+    "longName": "João III (Portuguese)"
   },
   {
     "image": "Julius_Caesar_(Civ6).png",
-    "name": "Julius Caesar (Roman)"
+    "shortName": "Julius Caesar",
+    "longName": "Julius Caesar (Roman)"
   },
   {
     "image": "Kristina_(Civ6).png",
-    "name": "Kristina (Swedish)"
+    "shortName": "Kristina",
+    "longName": "Kristina (Swedish)"
   },
   {
     "image": "Kublai_Khan_(Chinese)_(Civ6).png",
-    "name": "Kublai Khan (Chinese)",
+    "shortName": "Kublai Khan (Chinese)",
+    "longName": "Kublai Khan (Chinese)",
     "leaderId": "kublai-khan"
   },
   {
     "image": "Kublai_Khan_(Mongolian)_(Civ6).png",
-    "name": "Kublai Khan (Mongolian)",
+    "shortName": "Kublai Khan (Mongolian)",
+    "longName": "Kublai Khan (Mongolian)",
     "leaderId": "kublai-khan"
   },
   {
     "image": "Kupe_(Civ6).png",
-    "name": "Kupe (Māori)"
+    "shortName": "Kupe",
+    "longName": "Kupe (Māori)"
   },
   {
     "image": "Lady_Six_Sky_(Civ6).png",
-    "name": "Lady Six Sky (Mayan)"
+    "shortName": "Lady Six Sky",
+    "longName": "Lady Six Sky (Mayan)"
   },
   {
     "image": "Lautaro_(Civ6).png",
-    "name": "Lautaro (Mapuche)"
+    "shortName": "Lautaro",
+    "longName": "Lautaro (Mapuche)"
   },
   {
     "image": "Mansa_Musa_(Civ6).png",
-    "name": "Mansa Musa (Malian)"
+    "shortName": "Mansa Musa",
+    "longName": "Mansa Musa (Malian)"
   },
   {
     "image": "Matthias_Corvinus_(Civ6).png",
-    "name": "Matthias Corvinus (Hungarian)"
+    "shortName": "Matthias Corvinus",
+    "longName": "Matthias Corvinus (Hungarian)"
   },
   {
     "image": "Menelik_II_(Civ6).png",
-    "name": "Menelik II (Ethiopian)"
+    "shortName": "Menelik II",
+    "longName": "Menelik II (Ethiopian)"
   },
   {
     "image": "Montezuma_(Civ6).png",
-    "name": "Montezuma (Aztec)"
+    "shortName": "Montezuma",
+    "longName": "Montezuma (Aztec)"
   },
   {
     "image": "Mvemba_a_Nzinga_(Civ6).png",
-    "name": "Mvemba a Nzinga (Kongolese)"
+    "shortName": "Mvemba a Nzinga",
+    "longName": "Mvemba a Nzinga (Kongolese)"
   },
   {
     "image": "Nader_Shah_(Civ6).png",
-    "name": "Nader Shah (Persian)"
+    "shortName": "Nader Shah",
+    "longName": "Nader Shah (Persian)"
   },
   {
     "image": "Nzinga_Mbande_(Civ6).png",
-    "name": "Nzinga Mbande (Kongolese)"
+    "shortName": "Nzinga Mbande",
+    "longName": "Nzinga Mbande (Kongolese)"
   },
   {
     "image": "Pachacuti_(Civ6).png",
-    "name": "Pachacuti (Incan)"
+    "shortName": "Pachacuti",
+    "longName": "Pachacuti (Incan)"
   },
   {
     "image": "Pedro_II_(Civ6).png",
-    "name": "Pedro II (Brazilian)"
+    "shortName": "Pedro II",
+    "longName": "Pedro II (Brazilian)"
   },
   {
     "image": "Pericles_(Civ6).png",
-    "name": "Pericles (Pericles)"
+    "shortName": "Pericles",
+    "longName": "Pericles (Pericles)"
   },
   {
     "image": "Peter_(Civ6).png",
-    "name": "Peter (Russian)"
+    "shortName": "Peter",
+    "longName": "Peter (Russian)"
   },
   {
     "image": "Philip_II_(Civ6).png",
-    "name": "Philip II (Spanish)"
+    "shortName": "Philip II",
+    "longName": "Philip II (Spanish)"
   },
   {
     "image": "Poundmaker_(Civ6).png",
-    "name": "Poundmaker (Cree)"
+    "shortName": "Poundmaker",
+    "longName": "Poundmaker (Cree)"
   },
   {
     "image": "Qin_Shi_Huang_(Civ6).png",
-    "name": "Qin Shi Huang (Chinese)"
+    "shortName": "Qin Shi Huang",
+    "longName": "Qin Shi Huang (Chinese)"
   },
   {
     "image": "Robert_the_Bruce_(Civ6).png",
-    "name": "Robert the Bruce (Scottish)"
+    "shortName": "Robert the Bruce",
+    "longName": "Robert the Bruce (Scottish)"
   },
   {
     "image": "Saladin_(Civ6).png",
-    "name": "Saladin (Arabian)",
+    "shortName": "Saladin (Vizier)",
+    "longName": "Saladin (Vizier) (Arabian)",
     "leaderId": "saladin"
   },
   {
     "image": "Saladin_(Sultan)_(Civ6).png",
-    "name": "Saladin (Sultan) (Arabian)",
+    "shortName": "Saladin (Sultan)",
+    "longName": "Saladin (Sultan) (Arabian)",
     "leaderId": "saladin"
   },
   {
     "image": "Seondeok_(Civ6).png",
-    "name": "Seondeok (Korean)"
+    "shortName": "Seondeok",
+    "longName": "Seondeok (Korean)"
   },
   {
     "image": "Shaka_(Civ6).png",
-    "name": "Shaka (Zulu)"
+    "shortName": "Shaka",
+    "longName": "Shaka (Zulu)"
   },
   {
     "image": "Simón_Bolívar_(Civ6).png",
-    "name": "Simón Bolívar (Gran Colombian)"
+    "shortName": "Simón Bolívar",
+    "longName": "Simón Bolívar (Gran Colombian)"
   },
   {
     "image": "Suleiman_(Civ6).png",
-    "name": "Suleiman (Ottoman)",
+    "shortName": "Suleiman (Kanuni)",
+    "longName": "Suleiman (Kanuni) (Ottoman)",
     "leaderId": "suleiman"
   },
   {
     "image": "Suleiman_(Muhteşem)_(Civ6).png",
-    "name": "Suleiman (Muhteşem) (Ottoman)",
+    "shortName": "Suleiman (Muhteşem)",
+    "longName": "Suleiman (Muhteşem) (Ottoman)",
     "leaderId": "suleiman"
   },
   {
     "image": "Tamar_(Civ6).png",
-    "name": "Tamar (Georgian)"
+    "shortName": "Tamar",
+    "longName": "Tamar (Georgian)"
   },
   {
     "image": "Teddy_Roosevelt_(Civ6).png",
-    "name": "Teddy Roosevelt (American)",
+    "shortName": "Teddy Roosevelt (Bull Moose)",
+    "longName": "Teddy Roosevelt (Bull Moose) (American)",
     "leaderId": "teddy"
   },
   {
     "image": "Teddy_Roosevelt_(Rough_Rider)_(Civ6).png",
-    "name": "Teddy Roosevelt (Rough Rider) (American)",
+    "shortName": "Teddy Roosevelt (Rough Rider)",
+    "longName": "Teddy Roosevelt (Rough Rider) (American)",
     "leaderId": "teddy"
   },
   {
     "image": "Tokugawa_(Civ6).png",
-    "name": "Tokugawa (Japanese)"
+    "shortName": "Tokugawa",
+    "longName": "Tokugawa (Japanese)"
   },
   {
     "image": "Tomyris_(Civ6).png",
-    "name": "Tomyris (Scythian)"
+    "shortName": "Tomyris",
+    "longName": "Tomyris (Scythian)"
   },
   {
     "image": "Trajan_(Civ6).png",
-    "name": "Trajan (Roman)"
+    "shortName": "Trajan",
+    "longName": "Trajan (Roman)"
   },
   {
     "image": "Victoria_(Civ6).png",
-    "name": "Victoria (English)"
+    "shortName": "Victoria",
+    "longName": "Victoria (English)"
   },
   {
     "image": "Wilfrid_Laurier_(Civ6).png",
-    "name": "Wilfrid Laurier (Canadian)"
+    "shortName": "Wilfrid Laurier",
+    "longName": "Wilfrid Laurier (Canadian)"
   },
   {
     "image": "Wilhelmina_(Civ6).png",
-    "name": "Wilhelmina (Dutch)"
+    "shortName": "Wilhelmina",
+    "longName": "Wilhelmina (Dutch)"
   }
 ]

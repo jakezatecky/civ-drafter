@@ -28,7 +28,7 @@ function draftLeaders(leaders, numPlayers, numChoices, bans) {
     const flatBans = bans.map(({ name }) => name);
 
     // Remove banned leaders from the selection pool
-    const availablePool = leaders.filter(({ name }) => !flatBans.includes(name));
+    const availablePool = leaders.filter(({ longName }) => !flatBans.includes(longName));
 
     // Shuffle the available leaders for randomization
     const shuffledPool = shuffle(availablePool);
