@@ -1,7 +1,10 @@
+import random from 'lodash/random';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
+import { trollFactor } from 'js/constants/calculation';
 import leaderShape from 'js/shapes/leaderShape';
+import getLanguage from 'js/utils/getLanguage';
 
 class DraftResults extends PureComponent {
     static propTypes = {
@@ -13,6 +16,26 @@ class DraftResults extends PureComponent {
             error: PropTypes.string,
         }).isRequired,
     };
+
+    getPlayerChoices(players) {
+        // Must be more than one player and we must roll a zero
+        // Only then can Capn Crunch bless us
+        const timeToTroll = players.length > 1 && random(0, trollFactor) === 0;
+
+        if (!timeToTroll) {
+            return { trollLeader: null, players };
+        }
+
+        // Everybody's choices become the first player's first choice
+        const numChoices = players[0].choices.length;
+        const trollLeader = players[0].choices[0];
+        const newPlayerChoices = players.map(({ index }) => ({
+            index,
+            choices: Array(numChoices).fill(trollLeader),
+        }));
+
+        return { trollLeader, players: newPlayerChoices };
+    }
 
     render() {
         const { results } = this.props;
@@ -26,12 +49,14 @@ class DraftResults extends PureComponent {
             );
         }
 
-        const formatted = players.map(({ index: playerIndex, choices }) => (
+        const { trollLeader, players: actualPlayers } = this.getPlayerChoices(players);
+
+        const formatted = actualPlayers.map(({ index: playerIndex, choices }) => (
             <li key={playerIndex}>
                 <h3>{`Player ${playerIndex + 1}`}</h3>
                 <ul className="draft-results-player-choices">
-                    {choices.map(({ shortName, image }) => (
-                        <li key={`${shortName}`}>
+                    {choices.map(({ shortName, image }, choiceIndex) => (
+                        <li key={`${playerIndex}-${choiceIndex}-${shortName}`}>
                             <img alt={`${shortName} icon`} src={`/assets/img/leader-icons/${image}`} />
                             {shortName}
                         </li>
@@ -42,6 +67,12 @@ class DraftResults extends PureComponent {
 
         return (
             <div className="draft-results">
+                {trollLeader !== null ? (
+                    <div className="alert alert-warning">
+                        <span className="fa fa-exclamation-triangle" />
+                        {` ${getLanguage('oopsAllLeader', { leaderName: trollLeader.shortName })}`}
+                    </div>
+                ) : null}
                 <ul className="draft-results-players">
                     {formatted}
                 </ul>
