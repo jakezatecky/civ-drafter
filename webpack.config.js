@@ -59,7 +59,7 @@ module.exports = ({ stage = 'local' }) => ({
         watchFiles: ['src/**/*'],
     },
     performance: {
-        hints: 'warning',
+        hints: stage === 'prod' ? 'warning' : false,
     },
     plugins: [
         new MiniCssExtractPlugin({
