@@ -5,8 +5,10 @@
   "main": "gulpfile.js",
   "scripts": {
     "build": "webpack",
+    "build-prod": "webpack --env stage=prod",
     "dev-server": "webpack serve",
     "release": "npm run test && npm run build",
+    "release-prod": "npm run test && cross-env npm run build-prod",
     "test": "npm run test-script-format && npm run test-script-mocha && npm run test-style",
     "test-script-format": "eslint src/js/**/*.js test/**/*.js *.js",
     "test-script-mocha": "cross-env NODE_PATH=./src mocha test/**/*.js",
