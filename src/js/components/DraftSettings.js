@@ -97,7 +97,7 @@ class DraftSettings extends Component {
             name: longName,
             label: (
                 <div className="leader-box">
-                    <img alt={`${name} portrait}`} className="leader-icon" src={`/assets/img/leader-icons/${image}`} />
+                    <img alt={`${longName} portrait}`} className="leader-icon" src={`/assets/img/leader-icons/${image}`} />
                     <span className="leader-name">{`${longName}`}</span>
                 </div>
             ),

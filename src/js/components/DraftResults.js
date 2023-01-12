@@ -51,6 +51,7 @@ class DraftResults extends PureComponent {
 
         const { trollLeader, players: actualPlayers } = this.getPlayerChoices(players);
 
+        /* eslint-disable react/no-array-index-key */
         const formatted = actualPlayers.map(({ index: playerIndex, choices }) => (
             <li key={playerIndex}>
                 <h3>{`Player ${playerIndex + 1}`}</h3>
@@ -64,6 +65,7 @@ class DraftResults extends PureComponent {
                 </ul>
             </li>
         ));
+        /* eslint-enable react/no-array-index-key */
 
         return (
             <div className="draft-results">
