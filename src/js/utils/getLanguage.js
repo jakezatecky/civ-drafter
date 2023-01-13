@@ -1,6 +1,5 @@
 import language from 'js/constants/language';
 
-// TODO: Add `<Language>` component with Markdown support
 export default function getLanguage(key, variables = {}) {
     let message = language[key];
 
@@ -8,6 +7,7 @@ export default function getLanguage(key, variables = {}) {
         throw new Error(`Cannot find language for key ${key}!`);
     }
 
+    // Substitute any variables
     Object.keys(variables).forEach((variableKey) => {
         message = message.split(`{${variableKey}}`).join(variables[variableKey]);
     });

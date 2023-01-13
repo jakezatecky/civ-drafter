@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 
 import DraftResults from 'js/components/DraftResults';
 import DraftSettings from 'js/components/DraftSettings';
+import Alert from 'js/components/Utils/Alert';
 import LoadingIndicator from 'js/components/Utils/LoadingIndicator';
 import getLanguage from 'js/utils/getLanguage';
 
@@ -51,10 +52,9 @@ class App extends Component {
 
         if (error) {
             return (
-                <div className="alert alert-danger">
-                    <strong>Error</strong>
-                    {`: ${error}`}
-                </div>
+                <Alert type="danger">
+                    {error}
+                </Alert>
             );
         }
 

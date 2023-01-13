@@ -2,9 +2,9 @@ import random from 'lodash/random';
 import PropTypes from 'prop-types';
 import React, { PureComponent } from 'react';
 
+import Alert from 'js/components/Utils/Alert';
 import { trollFactor } from 'js/constants/calculation';
 import leaderShape from 'js/shapes/leaderShape';
-import getLanguage from 'js/utils/getLanguage';
 
 class DraftResults extends PureComponent {
     static propTypes = {
@@ -42,11 +42,7 @@ class DraftResults extends PureComponent {
         const { error, players } = results;
 
         if (error) {
-            return (
-                <div className="alert alert-danger">
-                    {error}
-                </div>
-            );
+            return <Alert type="danger">{error}</Alert>
         }
 
         const { trollLeader, players: actualPlayers } = this.getPlayerChoices(players);
@@ -70,10 +66,14 @@ class DraftResults extends PureComponent {
         return (
             <div className="draft-results">
                 {trollLeader !== null ? (
-                    <div className="alert alert-warning">
-                        <span className="fa fa-exclamation-triangle" />
-                        {` ${getLanguage('oopsAllLeader', { leaderName: trollLeader.shortName })}`}
-                    </div>
+                    <Alert
+                        language={{
+                            key: 'oopsAllSameLeader',
+                            variables: { leaderName: trollLeader.shortName },
+                        }}
+                        type="warning"
+                    >
+                    </Alert>
                 ) : null}
                 <ul className="draft-results-players">
                     {formatted}
