@@ -42,7 +42,7 @@ class DraftResults extends PureComponent {
         const { error, players } = results;
 
         if (error) {
-            return <Alert type="danger">{error}</Alert>
+            return <Alert type="danger">{error}</Alert>;
         }
 
         const { trollLeader, players: actualPlayers } = this.getPlayerChoices(players);
@@ -72,8 +72,7 @@ class DraftResults extends PureComponent {
                             variables: { leaderName: trollLeader.shortName },
                         }}
                         type="warning"
-                    >
-                    </Alert>
+                    />
                 ) : null}
                 <ul className="draft-results-players">
                     {formatted}

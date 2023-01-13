@@ -17,7 +17,7 @@ class Alert extends PureComponent {
         children: PropTypes.node,
         language: PropTypes.shape({
             key: PropTypes.string.isRequired,
-            variables: PropTypes.objectOf(PropTypes.any),
+            variables: PropTypes.objectOf(PropTypes.string),
         }),
         showPrefix: PropTypes.bool,
     };
@@ -42,7 +42,7 @@ class Alert extends PureComponent {
         ];
     }
 
-    renderMessage(){
+    renderMessage() {
         const { children, language } = this.props;
 
         if (children !== null) {
@@ -54,6 +54,8 @@ class Alert extends PureComponent {
 
             return <LanguageText keyName={key} variables={variables} />;
         }
+
+        return null;
     }
 
     render() {

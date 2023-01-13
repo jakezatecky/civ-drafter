@@ -9,7 +9,7 @@ class LanguageText extends PureComponent {
         keyName: PropTypes.string.isRequired,
 
         parseInline: PropTypes.bool,
-        variables: PropTypes.objectOf(PropTypes.any),
+        variables: PropTypes.objectOf(PropTypes.string),
     };
 
     static defaultProps = {
@@ -18,10 +18,10 @@ class LanguageText extends PureComponent {
     };
 
     render() {
-        const { keyName, variables } = this.props;
+        const { keyName, parseInline, variables } = this.props;
         const text = getLanguage(keyName, variables);
 
-        return <MarkdownText text={text} />;
+        return <MarkdownText parseInline={parseInline} text={text} />;
     }
 }
 
