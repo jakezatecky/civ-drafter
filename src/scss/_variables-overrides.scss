@@ -1,0 +1,37 @@
+//
+// Base variables (overrides vendors)
+// --------------------------------------------------
+
+// Primary themes
+$primary: #a26638;
+$primary-text: shade-color($primary, 10%);
+$primary-bg-subtle: tint-color($primary, 90%);
+
+// Less rounded corners, please
+$border-radius: 2px;
+
+// Let's use a font that does not have off-center issues
+// Looking at you, Bootstrap, who likes to use Segoe UI for Windows
+$font-family-base: "Work Sans", "Helvetica Neue", "Noto Sans", "Liberation Sans", arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+// Set the max container size (and thus app size) to around 992px
+// Note that Bootstrap's functions don't like if we repeat values, so earlier
+// values have to be smaller
+$app-width: 992px;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: $app-width - 2,
+  xl: $app-width - 1,
+  xxl: $app-width,
+);
+
+// Make the accordion actually use the primary app color
+$accordion-border-color: $primary;
+
+// Dark theme variables
+$primary-bg-subtle-dark: shade-color($primary, 80%);
+$primary-text-dark: tint-color($primary, 40%);
+$header-bg-dark: shade-color($primary, 80%);
+$link-color-dark: tint-color($primary, 40%);
+$link-hover-color-dark: tint-color($primary, 60%);

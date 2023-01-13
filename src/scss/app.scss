@@ -1,14 +1,18 @@
 // Vendor functions
-@import "../../node_modules/bootstrap/scss/functions";
+@import "~bootstrap/scss/functions";
 
-// Variables and functions
-@import "variables";
+// And vendor overrides
+@import "variables-overrides";
 
 // Vendor variables
-@import "../../node_modules/bootstrap/scss/variables";
+@import "~bootstrap/scss/variables";
 
 // Vendor library
-@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap/scss/bootstrap";
+
+// ...now use vendor variables for our own needs
+@import "theme-light";
+@import "theme-dark";
 
 // Components
 @import "draft-results";
@@ -17,6 +21,5 @@
 @import "forms";
 @import "heading";
 @import "loading-indicator";
-@import "overrides";
 @import "scaffolding";
 @import "utilities";

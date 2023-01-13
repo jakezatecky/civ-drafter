@@ -1,0 +1,35 @@
+//
+// Dark theme
+// --------------------------------------------------
+
+$header-color-dark: $gray-500;
+$footer-bg-dark: shade-color($primary, 85%);
+$footer-color-dark: $gray-300;
+
+$draft-player-border-dark: tint-color($body-bg-dark, 30%);
+$draft-player-border-hover-dark: tint-color($body-bg-dark, 60%);
+$draft-choice-border: $draft-player-border-hover-dark;
+
+[data-bs-theme="dark"] {
+  header {
+    background: $header-bg-dark;
+
+    .brand-link {
+      color: $header-color-dark;
+    }
+  }
+
+  .draft-results-players > li {
+    border-color: $draft-player-border-dark;
+
+    &:hover,
+    &:hover h3 {
+      border-color: $draft-player-border-hover-dark;
+    }
+  }
+
+  .footer {
+    background: $footer-bg-dark;
+    color: $footer-color-dark;
+  }
+}

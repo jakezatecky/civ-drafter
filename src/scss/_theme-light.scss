@@ -1,0 +1,16 @@
+//
+// Light theme
+// --------------------------------------------------
+
+$header-bg: tint-color($primary, 97%);
+$header-color: $dark;
+$header-border-color: $primary;
+
+// Stolen from Material UI
+// TODO: Sync material UI colors with Bootstrap
+$draft-player-border: #c0bbb8;
+$draft-player-border-hover: #20201f;
+$draft-choice-border: $draft-player-border-hover;
+
+$footer-bg: tint-color($primary, 92%);
+$footer-color: $secondary;
