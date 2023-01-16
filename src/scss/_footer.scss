@@ -33,7 +33,7 @@ footer {
     display: none;
   }
 
-  @media (min-width: 425px) {
+  @media (min-width: 505px) {
     flex-direction: row;
 
     > li + li::before {

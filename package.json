@@ -1,8 +1,8 @@
 {
-  "name": "civ-6-drafter",
+  "name": "civ-drafter",
   "version": "1.0.1",
-  "description": "A sensible, minimal, and server-agnostic boilerplate for React projects.",
-  "main": "gulpfile.js",
+  "description": "A modern, mobile-friendly drafting tool for Sid Meier's Civilization VI.",
+  "main": "webpack.config.js",
   "scripts": {
     "build": "webpack",
     "build-prod": "webpack --env stage=prod",
@@ -16,7 +16,7 @@
     "test-style": "stylelint src/scss/**/*.scss"
   },
   "author": "Jake Zatecky",
-  "license": "ISC",
+  "license": "GPL-3.0-or-later",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
