@@ -33,7 +33,7 @@ function draftLeaders(leaders, numPlayers, numChoices, bans) {
     // Shuffle the available leaders for randomization
     const shuffledPool = shuffle(availablePool);
 
-    // Compile the indexes of all personas.
+    // Compile the indexes of all personas
     const personas = {};
     shuffledPool.forEach(({ leaderId }, index) => {
         if (leaderId !== undefined) {
