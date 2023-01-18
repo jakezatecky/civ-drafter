@@ -14,7 +14,7 @@ describe('<App />', () => {
     it('should render a draft button', async () => {
         sinon.stub(axios, 'get').resolves(Promise.resolve([]));
 
-        render(<App />);
+        render(<App initialTheme="light" />);
 
         const submit = screen.findByRole('button', { name: 'Draft' });
         assert.isNotNull(submit);

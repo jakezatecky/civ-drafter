@@ -2,7 +2,7 @@
 // Dark theme
 // --------------------------------------------------
 
-$header-color-dark: $gray-500;
+$header-color-dark: $gray-400;
 $footer-bg-dark: shade-color($primary, 85%);
 $footer-color-dark: $gray-300;
 
@@ -14,7 +14,8 @@ $draft-choice-border: $draft-player-border-hover-dark;
   header {
     background: $header-bg-dark;
 
-    .brand-link {
+    .brand-link,
+    .brand-link:hover {
       color: $header-color-dark;
     }
   }

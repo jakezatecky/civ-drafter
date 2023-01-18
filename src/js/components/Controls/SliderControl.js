@@ -5,9 +5,12 @@ import Slider from '@mui/material/Slider';
 import { ThemeProvider } from '@mui/material/styles';
 
 import materialTheme from 'js/components/materialTheme';
+import ThemeContext from 'js/context/ThemeContext';
 
 /* eslint-disable react/jsx-props-no-spreading */
 class SliderControl extends PureComponent {
+    static contextType = ThemeContext;
+
     static propTypes = {
         label: PropTypes.string.isRequired,
         max: PropTypes.number.isRequired,
@@ -36,7 +39,7 @@ class SliderControl extends PureComponent {
                 <label className="form-label" htmlFor={id}>
                     {label}
                 </label>
-                <ThemeProvider theme={materialTheme}>
+                <ThemeProvider theme={materialTheme(this.context)}>
                     <Slider
                         aria-label={label}
                         id={id}

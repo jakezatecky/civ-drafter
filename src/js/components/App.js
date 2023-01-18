@@ -1,73 +1,53 @@
-import axios from 'axios';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
-import DraftResults from 'js/components/DraftResults';
-import DraftSettings from 'js/components/DraftSettings';
-import Alert from 'js/components/Utils/Alert';
-import LoadingIndicator from 'js/components/Utils/LoadingIndicator';
-import getLanguage from 'js/utils/getLanguage';
+import DraftArea from 'js/components/DraftArea';
+import ThemeContext from 'js/context/ThemeContext';
 
 class App extends Component {
+    static propTypes = {
+        initialTheme: PropTypes.string.isRequired,
+    };
+
     constructor(props) {
         super(props);
 
-        this.state = {
-            error: null,
-            leaders: null,
-            results: null,
-        };
-
-        this.onSubmit = this.onSubmit.bind(this);
+        this.state = { theme: props.initialTheme };
+        this.onThemeChange = this.onThemeChange.bind(this);
     }
 
     componentDidMount() {
-        const leadersPath = '/assets/leaders.json';
-
-        axios.get(leadersPath).then((response) => {
-            const { data, status } = response;
-
-            if (status === 200) {
-                this.setState({ leaders: data });
-            } else {
-                this.setState({
-                    error: getLanguage('non200Response', {
-                        resource: leadersPath,
-                        status,
-                    }),
-                });
-            }
-        }).catch((error) => {
-            this.setState({
-                error: error.message,
-            });
-        });
+        this.watchThemeChange();
     }
 
-    onSubmit(results) {
-        this.setState({ results });
+    onThemeChange(theme) {
+        this.setState({ theme });
+    }
+
+    /**
+     * Observe the HTML root for any theme changes.
+     *
+     * @returns {void}
+     */
+    watchThemeChange() {
+        const htmlRoot = document.querySelector('html');
+        const observer = new MutationObserver((mutationList) => {
+            mutationList.forEach((mutation) => {
+                if (mutation.type === 'attributes') {
+                    this.onThemeChange(htmlRoot.dataset.bsTheme);
+                }
+            });
+        });
+        observer.observe(htmlRoot, { attributes: true });
     }
 
     render() {
-        const { error, leaders, results } = this.state;
-
-        if (error) {
-            return (
-                <Alert type="danger">
-                    {error}
-                </Alert>
-            );
-        }
-
-        if (leaders === null) {
-            return <LoadingIndicator />;
-        }
+        const { theme } = this.state;
 
         return (
-            <section className="draft-area">
-                <h1 className="sr-only">Civilization drafter</h1>
-                <DraftSettings leaders={leaders} onSubmit={this.onSubmit} />
-                {results !== null ? <DraftResults results={results} /> : null}
-            </section>
+            <ThemeContext.Provider value={theme}>
+                <DraftArea />
+            </ThemeContext.Provider>
         );
     }
 }

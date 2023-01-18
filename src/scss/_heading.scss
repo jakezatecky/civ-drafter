@@ -34,5 +34,10 @@ header {
 
   .header-actions {
     margin-left: auto;
+
+    // stylelint-disable-next-line selector-class-pattern
+    .MuiFormControlLabel-root {
+      margin-right: .25rem;
+    }
   }
 }

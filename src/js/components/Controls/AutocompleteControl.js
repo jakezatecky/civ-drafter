@@ -4,9 +4,12 @@ import { Autocomplete, Box, TextField } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
 import materialTheme from 'js/components/materialTheme';
+import ThemeContext from 'js/context/ThemeContext';
 
 /* eslint-disable react/jsx-props-no-spreading */
 class AutocompleteControl extends PureComponent {
+    static contextType = ThemeContext;
+
     static propTypes = {
         label: PropTypes.node.isRequired,
         options: PropTypes.arrayOf(
@@ -22,7 +25,7 @@ class AutocompleteControl extends PureComponent {
         const { label, options, ...otherProps } = this.props;
 
         return (
-            <ThemeProvider theme={materialTheme}>
+            <ThemeProvider theme={materialTheme(this.context)}>
                 <Autocomplete
                     getOptionLabel={({ name }) => name}
                     isOptionEqualToValue={(option, value) => option.value === value.value}

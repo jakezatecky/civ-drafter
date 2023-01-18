@@ -16,4 +16,4 @@ function getTheme(mode = 'light') {
     });
 }
 
-export default getTheme();
+export default getTheme;
