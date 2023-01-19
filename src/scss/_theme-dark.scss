@@ -23,6 +23,10 @@ $draft-choice-border: $draft-player-border-hover-dark;
   .draft-results-players > li {
     border-color: $draft-player-border-dark;
 
+    h3 {
+      border-color: $draft-player-border-dark;
+    }
+
     &:hover,
     &:hover h3 {
       border-color: $draft-player-border-hover-dark;
