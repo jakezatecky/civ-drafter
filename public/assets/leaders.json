@@ -289,14 +289,16 @@
   },
   {
     "image": "Qin_Shi_Huang_(Civ6).png",
-    "shortName": "Qin Shi Huang",
-    "longName": "Qin Shi Huang (Chinese)",
+    "shortName": "Qin Shi Huang (Mandate of Heaven)",
+    "longName": "Qin Shi Huang (Mandate of Heaven) (Chinese)",
+    "leaderId": "qin-shi-huang",
     "dlc": "Vanilla"
   },
   {
     "image": "Qin_Shi_Huang_(Unifier)_(Civ6).png",
     "shortName": "Qin Shi Huang (Unifier)",
     "longName": "Qin Shi Huang (Unifier) (Chinese)",
+    "leaderId": "qin-shi-huang",
     "dlc": "Leader Pass"
   },
   {
