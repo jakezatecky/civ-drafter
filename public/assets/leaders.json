@@ -294,6 +294,12 @@
     "dlc": "Vanilla"
   },
   {
+    "image": "Qin_Shi_Huang_(Unifier)_(Civ6).png",
+    "shortName": "Qin Shi Huang (Unifier)",
+    "longName": "Qin Shi Huang (Unifier) (Chinese)",
+    "dlc": "Leader Pass"
+  },
+  {
     "image": "Robert_the_Bruce_(Civ6).png",
     "shortName": "Robert the Bruce",
     "longName": "Robert the Bruce (Scottish)",
@@ -400,5 +406,17 @@
     "shortName": "Wilhelmina",
     "longName": "Wilhelmina (Dutch)",
     "dlc": "Rise and Fall"
+  },
+  {
+    "image": "Wu_Zetian_(Civ6).png",
+    "shortName": "Wu Zetian",
+    "longName": "Wu Zetian (Chiense)",
+    "dlc": "Leader Pass"
+  },
+  {
+    "image": "Yongle_(Civ6).png",
+    "shortName": "Yongle",
+    "longName": "Yongle (Chinese)",
+    "dlc": "Leader Pass"
   }
 ]
