@@ -58,6 +58,7 @@ class ThemeSwitcher extends Component {
                 <FormControlLabel
                     control={<Switch checked={darkMode} color="default" onChange={this.onChange} />}
                     label={label}
+                    title="Toggle theme"
                 />
             </ThemeProvider>
         );
