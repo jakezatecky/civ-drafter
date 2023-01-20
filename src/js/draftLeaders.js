@@ -12,6 +12,46 @@ class NotEnoughLeadersError extends Error {
 }
 
 /**
+ * De-duplicate the randomized pool by allowing only one leader for a given duplicate attribute.
+ *
+ * For example, when `attributeKey === 'civilization'`, we reduce the pool to allow for only one
+ * leader with `civilization === 'Chinese'`.
+ *
+ * @param {Array} leaderPool
+ * @param {String} attributeKey
+ *
+ * @returns {Array}
+ */
+function deduplicateByAttribute(leaderPool, attributeKey) {
+    const reducedPool = [...leaderPool];
+
+    // Compile the indexes of all leaders by attribute
+    const indexMap = {};
+    leaderPool.forEach((leader, index) => {
+        const value = leader[attributeKey];
+
+        if (indexMap[value] === undefined) {
+            indexMap[value] = [];
+        }
+
+        indexMap[value].push(index);
+    });
+
+    // Reduce each attribute to one leader
+    Object.keys(indexMap).forEach((value) => {
+        // Keep the first leader, as we have already shuffled the list
+        // Use the remaining indexes to remove the other leaders
+        delete indexMap[value][0];
+        indexMap[value].forEach((leaderIndex) => {
+            delete reducedPool[leaderIndex];
+        });
+    });
+
+    // Now filter out all deleted entries
+    return reducedPool.filter((leader) => leader !== undefined);
+}
+
+/**
  * Return a random list of `numChoices` for each player, after removing all bans and randomizing
  * personas.
  *
@@ -33,30 +73,11 @@ function draftLeaders(leaders, numPlayers, numChoices, bans) {
     // Shuffle the available leaders for randomization
     const shuffledPool = shuffle(availablePool);
 
-    // Compile the indexes of all personas
-    const personas = {};
-    shuffledPool.forEach(({ leaderId }, index) => {
-        if (leaderId !== undefined) {
-            if (personas[leaderId] === undefined) {
-                personas[leaderId] = [];
-            }
-
-            personas[leaderId].push(index);
-        }
-    });
-
-    // Reduce each leader to one persona
-    Object.keys(personas).forEach((leaderId) => {
-        // Keep the first persona, as we have already shuffled the list
-        // Use the remaining indexes to remove the other personas
-        delete personas[leaderId][0];
-        personas[leaderId].forEach((leaderIndex) => {
-            delete shuffledPool[leaderIndex];
-        });
-    });
-
-    // Now filter out all deleted entries
-    const finalPool = shuffledPool.filter((leader) => leader !== undefined);
+    // Reduce pool to one leader per civilization and leader ID
+    const finalPool = deduplicateByAttribute(
+        deduplicateByAttribute(shuffledPool, 'civilization'),
+        'id'
+    );
 
     // Ensure we have enough leaders to satisfy the total choices
     const totalChoices = numPlayers * numChoices;
