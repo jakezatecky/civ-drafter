@@ -76,7 +76,7 @@ function draftLeaders(leaders, numPlayers, numChoices, bans) {
     // Reduce pool to one leader per civilization and leader ID
     const finalPool = deduplicateByAttribute(
         deduplicateByAttribute(shuffledPool, 'civilization'),
-        'id'
+        'id',
     );
 
     // Ensure we have enough leaders to satisfy the total choices
