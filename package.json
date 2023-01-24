@@ -5,11 +5,11 @@
   "main": "webpack.config.js",
   "scripts": {
     "build": "webpack",
-    "build-prod": "webpack --env stage=prod",
+    "build-prod": "cross-env NODE_ENV=production webpack",
     "deploy": "npm run release-prod --loglevel=error && aws s3 sync public s3://civdrafter --delete --profile civilization",
     "dev-server": "webpack serve",
     "release": "npm run test && npm run build",
-    "release-prod": "npm run test && cross-env npm run build-prod",
+    "release-prod": "npm run test && npm run build-prod",
     "test": "npm run test-script-format && npm run test-script-mocha && npm run test-style",
     "test-script-format": "eslint src/js/**/*.js test/**/*.js *.js",
     "test-script-mocha": "cross-env NODE_PATH=./src mocha test/**/*.js",
