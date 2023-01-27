@@ -11,8 +11,8 @@
     "release": "npm run test && npm run build",
     "release-prod": "npm run test && npm run build-prod",
     "test": "npm run test-script-format && npm run test-script-mocha && npm run test-style",
-    "test-script-format": "eslint src/js/**/*.js test/**/*.js *.js",
-    "test-script-mocha": "cross-env NODE_PATH=./src mocha test/**/*.js",
+    "test-script-format": "eslint src/js/**/*.{js,jsx} test/**/*.{js,jsx} *.{js,jsx}",
+    "test-script-mocha": "cross-env NODE_PATH=./src mocha test/**/*.{js,jsx}",
     "test-style": "stylelint src/scss/**/*.scss"
   },
   "author": "Jake Zatecky",
