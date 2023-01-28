@@ -62,7 +62,7 @@ class DraftSettings extends Component {
 
         try {
             // Save draft settings for future re-use
-            localStorage.setItem('draftSettings', JSON.stringify(this.state))
+            localStorage.setItem('draftSettings', JSON.stringify(this.state));
 
             const draftResults = draftLeaders(leaders, numPlayers, numChoices, bans);
             onSubmit({ players: draftResults });
