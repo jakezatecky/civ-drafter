@@ -8,6 +8,23 @@ import leaderShape from 'js/shapes/leaderShape';
 import getLanguage from 'js/utils/getLanguage';
 import draftLeaders, { NotEnoughLeadersError } from 'js/draftLeaders';
 
+const defaultSettings = {
+    numPlayers: 6,
+    numChoices: 3,
+    bans: [],
+};
+
+/**
+ * Fetch any draft settings from the user's previous run.
+ *
+ * @returns {Object}
+ */
+function getStoredSettings() {
+    const storedSettings = localStorage.getItem('draftSettings');
+
+    return storedSettings !== null ? JSON.parse(storedSettings) : {};
+}
+
 class DraftSettings extends Component {
     static propTypes = {
         leaders: PropTypes.arrayOf(leaderShape).isRequired,
@@ -18,9 +35,8 @@ class DraftSettings extends Component {
         super(props);
 
         this.state = {
-            numPlayers: 6,
-            numChoices: 3,
-            bans: [],
+            ...defaultSettings,
+            ...getStoredSettings(),
         };
 
         this.onSliderChange = this.onSliderChange.bind(this);
@@ -45,6 +61,9 @@ class DraftSettings extends Component {
         const { numPlayers, numChoices, bans } = this.state;
 
         try {
+            // Save draft settings for future re-use
+            localStorage.setItem('draftSettings', JSON.stringify(this.state))
+
             const draftResults = draftLeaders(leaders, numPlayers, numChoices, bans);
             onSubmit({ players: draftResults });
         } catch (error) {

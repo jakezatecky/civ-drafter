@@ -15,31 +15,61 @@ class AutocompleteControl extends PureComponent {
         options: PropTypes.arrayOf(
             PropTypes.shape({
                 name: PropTypes.string.isRequired,
-                label: PropTypes.node,
                 value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+
+                label: PropTypes.node,
             }),
         ).isRequired,
     };
 
+    constructor(props) {
+        super(props);
+
+        this.optionMap = this.getOptionMap(props);
+    }
+
+    /**
+     * Material UI's autocomplete component's idiotic design requires that the `value` property also
+     * have all attributes of the original option, rather than referencing the original option for
+     * those attributes.
+     *
+     * This means we cannot have simple values, like an array of strings, without creating a map
+     * object for the functions to reference.
+     *
+     * @param {Object} options
+     *
+     * @returns {Object}
+     */
+    getOptionMap({ options }) {
+        const optionMap = {};
+
+        options.forEach((option) => {
+            const { value } = option;
+            optionMap[value] = option;
+        });
+
+        return optionMap;
+    }
+
     render() {
         const { label, options, ...otherProps } = this.props;
+        const formattedOptions = options.map(({ value }) => value);
 
         return (
             <ThemeProvider theme={materialTheme(this.context)}>
                 <Autocomplete
-                    getOptionLabel={({ name }) => name}
-                    isOptionEqualToValue={(option, value) => option.value === value.value}
+                    getOptionLabel={(value) => this.optionMap[value].name}
                     multiple
-                    options={options}
+                    options={formattedOptions}
                     renderInput={(params) => (
                         <TextField
                             {...params}
                             label={label}
                         />
                     )}
-                    renderOption={(props, option) => (
+                    renderOption={(props, value) => (
                         <Box component="li" {...props}>
-                            {option.label || option.name}
+                            {this.optionMap[value].label || this.optionMap[value].name}
                         </Box>
                     )}
                     {...otherProps}
