@@ -12,9 +12,10 @@
 ### Features
 
 * Ability to ban specific leaders
-* Support for latest leaders, up to the [Leader Pass](https://civilization.fandom.com/wiki/Civilization_VI:_Leader_Pass) DLC
-* Mobile-first web design
+* Support for the latest leaders, up to the [Leader Pass](https://civilization.fandom.com/wiki/Civilization_VI:_Leader_Pass) DLC
 * Light and dark themes
+* Remembers draft settings when returning to the site
+* Mobile-first web design
 * Clean, accessible, and aesthetic look
 
 ## Support the Project
