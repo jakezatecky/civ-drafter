@@ -61,14 +61,11 @@ function deduplicateByAttribute(leaderPool, attributeKey) {
  * @param {Array} leaders
  * @param {Number} numPlayers
  * @param {Number} numChoices
- * @param {Array} bans
+ * @param {String[]} bans
  */
 function draftLeaders(leaders, numPlayers, numChoices, bans) {
-    // Flatten bans to leader names for simple comparison
-    const flatBans = bans.map(({ name }) => name);
-
     // Remove banned leaders from the selection pool
-    const availablePool = leaders.filter(({ longName }) => !flatBans.includes(longName));
+    const availablePool = leaders.filter(({ longName }) => !bans.includes(longName));
 
     // Shuffle the available leaders for randomization
     const shuffledPool = shuffle(availablePool);
