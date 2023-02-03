@@ -1,0 +1,6 @@
+Civilization Drafter is maintained by a fan of the Civilization series. It receives regular updates that you can observe through GitHub.
+
+Author: Jake Zatecky
+Location: Earth, Milky Way
+Interests: Science, technology, and gaming
+GitHub: https://github.com/jakezatecky/civ-drafter
