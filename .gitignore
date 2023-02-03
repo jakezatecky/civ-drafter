@@ -2,5 +2,6 @@
 /public/assets/css
 /public/assets/js
 /public/index.html
+/public/sitemap.xml
 package-lock.json
 yarn.lock
