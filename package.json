@@ -55,7 +55,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "global-jsdom": "^8.6.0",
     "html-webpack-plugin": "^5.5.0",
-    "jsdom": "^20.0.0",
+    "jsdom": "^21.1.0",
     "mini-css-extract-plugin": "^2.7.2",
     "mocha": "^10.0.0",
     "postcss": "^8.4.20",
