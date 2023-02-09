@@ -49,13 +49,14 @@ class ThemeSwitcher extends Component {
         const darkMode = theme === 'dark';
         const label = (
             <span className="theme-label">
-                <span aria-label="Dark mode" className="fa fa-circle-half-stroke" />
+                <span className="fa fa-circle-half-stroke" />
             </span>
         );
 
         return (
             <ThemeProvider theme={materialTheme(theme)}>
                 <FormControlLabel
+                    aria-label="Dark mode"
                     control={<Switch checked={darkMode} color="default" onChange={this.onChange} />}
                     label={label}
                     title="Toggle theme"
