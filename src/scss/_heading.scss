@@ -38,13 +38,13 @@ header {
   }
 
   .header-actions {
-    @media (min-width: 380px) {
-      margin-left: auto;
-    }
-
     // stylelint-disable-next-line selector-class-pattern
     .MuiFormControlLabel-root {
       margin-right: 0;
+    }
+
+    @media (min-width: 380px) {
+      margin-left: auto;
     }
   }
 }
