@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('node:path');
+const webpack = require('webpack');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const environment = process.env.NODE_ENV;
 const isProduction = environment === 'production';
@@ -55,6 +57,15 @@ module.exports = () => ({
             filename: 'index.html',
             inject: false,
             minify: false,
+        }),
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true,
+            maximumFileSizeToCacheInBytes: isProduction ? 2097152 : 1024 * 1024 * 10,
+        }),
+        new webpack.DefinePlugin({
+            // For now, skip service worker usage in development
+            REGISTER_SERVICE_WORKER: JSON.stringify(true),
         }),
     ],
 });
