@@ -144,7 +144,7 @@ class DraftSettings extends Component {
     render() {
         return (
             <div className="draft-settings">
-                <h2 className="sr-only">Draft selections</h2>
+                <h2 className="visually-hidden">Draft selections</h2>
                 <form className="form" onSubmit={this.onSubmit}>
                     <Accordion alwaysOpen defaultActiveKey={['0', '1']}>
                         {this.renderMainSettings()}

@@ -65,7 +65,7 @@ class DraftResults extends PureComponent {
 
         return (
             <div className="draft-results">
-                <h2 className="sr-only">Draft results</h2>
+                <h2 className="visually-hidden">Draft results</h2>
                 {trollLeader !== null ? (
                     <Alert
                         language={{

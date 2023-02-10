@@ -64,7 +64,7 @@ class DraftArea extends Component {
 
         return (
             <section className="draft-area">
-                <h1 className="sr-only">Civilization drafter</h1>
+                <h1 className="visually-hidden">Civilization drafter</h1>
                 <DraftSettings leaders={leaders} onSubmit={this.onSubmit} />
                 {results !== null ? <DraftResults results={results} /> : null}
             </section>
