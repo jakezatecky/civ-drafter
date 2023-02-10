@@ -1,6 +1,7 @@
 {
-    "name": "Civ 6 Drafter",
+    "name": "Civilization VI Drafter",
     "short_name": "Civ 6 Drafter",
+    "description": "A multiplayer drafting tool for Sid Meier's Civilization VI",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
@@ -8,11 +9,25 @@
             "type": "image/png"
         },
         {
+            "src": "/android-maskable-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
             "src": "/android-chrome-512x512.png",
             "sizes": "512x512",
             "type": "image/png"
+        },
+        {
+            "src": "/android-maskable-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
         }
     ],
+    "start_url": "/",
+    "scope": "/",
     "theme_color": "#a26638",
     "background_color": "#a26638",
     "display": "standalone"
