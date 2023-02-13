@@ -17,6 +17,7 @@
 * Remembers draft settings when returning to the site
 * Mobile-first web design
 * Clean, accessible, and aesthetic look
+* Installable as a Progressive Web App
 
 ## Support the Project
 
