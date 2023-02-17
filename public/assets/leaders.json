@@ -80,6 +80,14 @@
     "dlc": "Vanilla"
   },
   {
+    "id": "Cleopatra",
+    "shortName": "Cleopatra (Ptolemaic)",
+    "longName": "Cleopatra (Ptolemaic) (Egyptian)",
+    "civilization": "Egyptian",
+    "image": "Cleopatra_(Ptolemaic)_(Civ6).png",
+    "dlc": "Leader Pass"
+  },
+  {
     "id": "Cyrus",
     "shortName": "Cyrus",
     "longName": "Cyrus (Persian)",
@@ -392,6 +400,14 @@
     "dlc": "Leader Pass"
   },
   {
+    "id": "Ramses II",
+    "shortName": "Ramses II",
+    "longName": "Ramses II (Egyptian)",
+    "civilization": "Egyptian",
+    "image": "Ramses_II_(Civ6).png",
+    "dlc": "Leader Pass"
+  },
+  {
     "id": "Robert the Bruce",
     "shortName": "Robert the Bruce",
     "longName": "Robert the Bruce (Scottish)",
@@ -453,6 +469,14 @@
     "longName": "Suleiman (Muhteşem) (Ottoman)",
     "civilization": "Ottoman",
     "image": "Suleiman_(Muhteşem)_(Civ6).png",
+    "dlc": "Leader Pass"
+  },
+  {
+    "id": "Sundiata Keita",
+    "shortName": "Sundiata Keita",
+    "longName": "Sundiata Keita (Malian)",
+    "civilization": "Malian",
+    "image": "Sundiata_Keita_(Civ6).png",
     "dlc": "Leader Pass"
   },
   {
