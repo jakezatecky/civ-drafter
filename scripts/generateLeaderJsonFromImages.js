@@ -1,7 +1,7 @@
 const fs = require('node:fs');
 
 const imagePath = './data/leader-images';
-const jsonPath = './public/assets/leaders.json';
+const jsonPath = './src/json/leaders.json';
 
 /**
  * Generate a JSON array of image paths and labels from the PNGs pulled from the Civ wiki.
