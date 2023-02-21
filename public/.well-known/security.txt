@@ -1,0 +1,3 @@
+Contact: mailto:security@civilizationdrafter.com
+Expires: 2024-01-01T05:00:00.000Z
+Canonical: https://civilizationdrafter.com/.well-known/security.txt
