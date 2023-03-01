@@ -65,7 +65,7 @@ module.exports = () => ({
         }),
         new webpack.DefinePlugin({
             // For now, skip service worker usage in development
-            REGISTER_SERVICE_WORKER: JSON.stringify(true),
+            REGISTER_SERVICE_WORKER: JSON.stringify(isProduction),
         }),
     ],
 });
