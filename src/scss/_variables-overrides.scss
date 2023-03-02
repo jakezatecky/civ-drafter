@@ -9,7 +9,7 @@ $primary-bg-subtle: tint-color($primary, 90%);
 $link-color: shade-color($primary, 5%);
 
 // Less rounded corners, please
-$border-radius: 2px;
+$border-radius: 4px;
 
 // Let's use a font that does not have off-center issues
 // Looking at you, Bootstrap, who likes to use Segoe UI for Windows
