@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import DraftSettings from 'js/components/DraftSettings';
 import DraftResults from 'js/components/DraftResults';
 import leaders from 'json/leaders.json';
+import DraftActions from './DraftActions';
 
 class DraftArea extends Component {
     constructor(props) {
@@ -26,6 +27,7 @@ class DraftArea extends Component {
             <section className="draft-area">
                 <h1 className="visually-hidden">Civilization drafter</h1>
                 <DraftSettings leaders={leaders} onSubmit={this.onSubmit} />
+                <DraftActions results={results} />
                 {results !== null ? <DraftResults results={results} /> : null}
             </section>
         );

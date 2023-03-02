@@ -145,16 +145,11 @@ class DraftSettings extends Component {
         return (
             <div className="draft-settings">
                 <h2 className="visually-hidden">Draft selections</h2>
-                <form className="form" onSubmit={this.onSubmit}>
+                <form className="form" id="draft-form" onSubmit={this.onSubmit}>
                     <Accordion alwaysOpen defaultActiveKey={['0', '1']}>
                         {this.renderMainSettings()}
                         {this.renderAdditionalSettings()}
                     </Accordion>
-                    <div className="form-submit-area">
-                        <button className="btn btn-primary" type="submit">
-                            Draft!
-                        </button>
-                    </div>
                 </form>
             </div>
         );

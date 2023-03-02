@@ -1,19 +1,12 @@
 import random from 'lodash/random';
-import PropTypes from 'prop-types';
 import React from 'react';
 
 import Alert from 'js/components/Utils/Alert';
 import { trollFactor } from 'js/constants/calculation';
-import leaderShape from 'js/shapes/leaderShape';
+import draftResultsShape from 'js/shapes/draftResultsShape';
 
 const propTypes = {
-    results: PropTypes.shape({
-        players: PropTypes.arrayOf(PropTypes.shape({
-            index: PropTypes.number.isRequired,
-            choices: PropTypes.arrayOf(leaderShape).isRequired,
-        })),
-        error: PropTypes.string,
-    }).isRequired,
+    results: draftResultsShape.isRequired,
 };
 
 function getPlayerChoices(players) {

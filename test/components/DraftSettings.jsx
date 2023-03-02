@@ -47,14 +47,17 @@ describe('<DraftSettings />', () => {
         }));
 
         render((
-            <DraftSettings
-                leaders={baseLeaders}
-                onSubmit={({ players }) => {
-                    results.push(
-                        players.map(({ choices }) => choices[0]),
-                    );
-                }}
-            />
+            <>
+                <DraftSettings
+                    leaders={baseLeaders}
+                    onSubmit={({ players }) => {
+                        results.push(
+                            players.map(({ choices }) => choices[0]),
+                        );
+                    }}
+                />
+                <button form="draft-form" type="submit">Draft!</button>
+            </>
         ));
 
         const user = userEvent.setup();
