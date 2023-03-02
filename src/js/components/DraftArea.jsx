@@ -1,9 +1,9 @@
 import React, { useCallback, useState } from 'react';
 
-import DraftSettings from 'js/components/DraftSettings';
+import DraftActions from 'js/components/DraftActions';
 import DraftResults from 'js/components/DraftResults';
+import DraftSettings from 'js/components/DraftSettings';
 import leaders from 'json/leaders.json';
-import DraftActions from './DraftActions';
 
 function DraftArea() {
     const [results, setResults] = useState(null);

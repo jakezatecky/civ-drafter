@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import DraftArea from 'js/components/DraftArea';
-import ThemeContext from 'js/context/ThemeContext';
+import ThemeContext from 'js/contexts/ThemeContext';
 
 class App extends Component {
     static propTypes = {

@@ -5,7 +5,7 @@ import Slider from '@mui/material/Slider';
 import { ThemeProvider } from '@mui/material/styles';
 
 import materialTheme from 'js/components/materialTheme';
-import ThemeContext from 'js/context/ThemeContext';
+import ThemeContext from 'js/contexts/ThemeContext';
 
 const propTypes = {
     label: PropTypes.string.isRequired,
