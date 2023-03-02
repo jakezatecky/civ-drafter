@@ -7,16 +7,16 @@
 
 ## About
 
-**Civilization Drafter** is a [web-based application](https://civilizationdrafter.com/) that allows users to draft from a random set of civilizations for multiplayer play. It supports all the latest leaders from Civilization VI. It is freely available under the [GPLv3 license](https://raw.githubusercontent.com/jakezatecky/civ-drafter/main/COPYING).
+**Civilization Drafter** is a [web application](https://civilizationdrafter.com/) that allows users to draft from a random set of civilizations for multiplayer play. It supports all DLC leaders from Civilization VI and is freely available under the [GPLv3 license](https://raw.githubusercontent.com/jakezatecky/civ-drafter/main/COPYING).
 
 ### Features
 
-* Ability to ban specific leaders
+* Ban specific leaders
+* Copy results to the clipboard as an image (requires Chromium or Webkit browser)
 * Support for the latest leaders, up to the [Leader Pass](https://civilization.fandom.com/wiki/Civilization_VI:_Leader_Pass) DLC
-* Light and dark themes
 * Remembers draft settings when returning to the site
-* Mobile-first web design
-* Clean, accessible, and aesthetic look
+* Light and dark themes (defaults to system setting)
+* Clean, accessible, and mobile-friendly design
 * Installable as a Progressive Web App
 
 ## Support the Project
