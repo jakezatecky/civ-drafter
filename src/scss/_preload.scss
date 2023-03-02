@@ -1,0 +1,8 @@
+//
+// Preload
+// --------------------------------------------------
+
+// Give the some initial height to lessen the Cumulative Layout Shift on page load
+.preload-area {
+  height: 450px;
+}
