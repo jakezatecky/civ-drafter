@@ -1,36 +1,26 @@
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-class RawHtml extends PureComponent {
-    static propTypes = {
-        html: PropTypes.string.isRequired,
+const propTypes = {
+    html: PropTypes.string.isRequired,
 
-        className: PropTypes.string,
-    };
+    className: PropTypes.string,
+};
+const defaultProps = {
+    className: 'html-wrapper',
+};
 
-    static defaultProps = {
-        className: 'html-wrapper',
-    };
+function RawHtml({ html, className }) {
+    const element = useRef(null);
 
-    componentDidMount() {
-        this.setInnerHtml();
-    }
+    useEffect(() => {
+        element.current.innerHTML = html;
+    });
 
-    componentDidUpdate() {
-        this.setInnerHtml();
-    }
-
-    setInnerHtml() {
-        const { html } = this.props;
-
-        this.c.innerHTML = html;
-    }
-
-    render() {
-        const { className } = this.props;
-
-        return <div className={className} ref={(c) => { this.c = c; }} />;
-    }
+    return <div className={className} ref={element} />;
 }
+
+RawHtml.propTypes = propTypes;
+RawHtml.defaultProps = defaultProps;
 
 export default RawHtml;

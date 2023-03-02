@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { PureComponent } from 'react';
+import React from 'react';
 
 import LanguageText from 'js/components/Utils/LanguageText';
 
@@ -10,26 +10,25 @@ const prefixMap = {
     danger: <span key="danger" className="fa fa-exclamation-triangle" />,
 };
 
-class Alert extends PureComponent {
-    static propTypes = {
-        type: PropTypes.oneOf(['info', 'warning', 'success', 'danger']).isRequired,
+const propTypes = {
+    type: PropTypes.oneOf(['info', 'warning', 'success', 'danger']).isRequired,
 
-        children: PropTypes.node,
-        language: PropTypes.shape({
-            key: PropTypes.string.isRequired,
-            variables: PropTypes.objectOf(PropTypes.string),
-        }),
-        showPrefix: PropTypes.bool,
-    };
+    children: PropTypes.node,
+    language: PropTypes.shape({
+        key: PropTypes.string.isRequired,
+        variables: PropTypes.objectOf(PropTypes.string),
+    }),
+    showPrefix: PropTypes.bool,
+};
+const defaultProps = {
+    children: null,
+    language: null,
+    showPrefix: true,
+};
 
-    static defaultProps = {
-        children: null,
-        language: null,
-        showPrefix: true,
-    };
-
-    renderPrefix(type) {
-        const { showPrefix } = this.props;
+function Alert(props) {
+    function renderPrefix(type) {
+        const { showPrefix } = props;
 
         if (!showPrefix) {
             return null;
@@ -42,8 +41,8 @@ class Alert extends PureComponent {
         ];
     }
 
-    renderMessage() {
-        const { children, language } = this.props;
+    function renderMessage() {
+        const { children, language } = props;
 
         if (children !== null) {
             return children;
@@ -58,16 +57,17 @@ class Alert extends PureComponent {
         return null;
     }
 
-    render() {
-        const { type } = this.props;
+    const { type } = props;
 
-        return (
-            <div className={`alert alert-${type}`} role="alert">
-                {this.renderPrefix(type)}
-                {this.renderMessage()}
-            </div>
-        );
-    }
+    return (
+        <div className={`alert alert-${type}`} role="alert">
+            {renderPrefix(type)}
+            {renderMessage()}
+        </div>
+    );
 }
+
+Alert.propTypes = propTypes;
+Alert.defaultProps = defaultProps;
 
 export default Alert;
