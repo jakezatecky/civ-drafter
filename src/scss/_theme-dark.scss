@@ -2,7 +2,11 @@
 // Dark theme
 // --------------------------------------------------
 
-$header-color-dark: $gray-400;
+$header-bg-dark: shade-color($primary, 80%);
+$header-color-dark: $gray-300;
+$header-action-hover-bg-dark: shade-color($primary, 60%);
+$header-action-focus-bg-dark: shade-color($primary, 50%);
+
 $footer-bg-dark: shade-color($primary, 85%);
 $footer-color-dark: $gray-300;
 
@@ -15,8 +19,20 @@ $draft-choice-border: $draft-player-border-hover-dark;
     background: $header-bg-dark;
 
     .brand-link,
-    .brand-link:hover {
+    .brand-link:hover,
+    .theme-switcher {
       color: $header-color-dark;
+    }
+  }
+
+  .header-actions > .theme-switcher {
+    &:hover {
+      background: $header-action-hover-bg-dark;
+    }
+
+    &:active,
+    &:focus {
+      background: $header-action-focus-bg-dark;
     }
   }
 

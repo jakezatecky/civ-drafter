@@ -5,6 +5,8 @@
 $header-bg: tint-color($primary, 97%);
 $header-color: $dark;
 $header-border-color: $primary;
+$header-action-hover-bg: $gray-300;
+$header-action-focus-bg: $gray-400;
 
 // Stolen from Material UI
 $draft-player-border: #c0bbb8;

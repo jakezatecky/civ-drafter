@@ -11,10 +11,9 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding: 1rem .75rem;
 
-    @media (min-width: 380px) {
+    @media (min-width: 350px) {
       flex-direction: row;
     }
   }
@@ -37,15 +36,35 @@ header {
     width: 38px;
     height: 38px;
   }
+}
 
-  .header-actions {
-    // stylelint-disable-next-line selector-class-pattern
-    .MuiFormControlLabel-root {
-      margin-right: 0;
+.header-actions {
+  > .theme-switcher {
+    display: flex;
+    align-items: center;
+    transition: all .25s ease-out;
+    border: 0;
+    border-radius: 50%;
+    background: none;
+    padding: .5rem;
+    color: $header-color;
+    font-size: 20px;
+
+    &:hover {
+      background: $header-action-hover-bg;
     }
 
-    @media (min-width: 380px) {
-      margin-left: auto;
+    &:active,
+    &:focus {
+      background: $header-action-focus-bg;
     }
+
+    &.theme-dark {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (min-width: 350px) {
+    margin-left: auto;
   }
 }
