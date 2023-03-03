@@ -43,6 +43,9 @@ module.exports = () => {
         },
         devServer: {
             open: true,
+            headers: {
+                'Cache-Control': 'no-store',
+            },
             watchFiles: ['src/**/*'],
         },
         performance: {
