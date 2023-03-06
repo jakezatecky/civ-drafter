@@ -2,7 +2,7 @@
 @import "~bootstrap/scss/functions";
 
 // And vendor overrides
-@import "variables-overrides";
+@import "variables-base";
 
 // Vendor variables
 @import "~bootstrap/scss/variables";
@@ -10,7 +10,7 @@
 // Vendor library
 @import "bootstrap";
 
-// ...now use vendor variables for our own needs
+// Now use vendor variables for our own needs
 @import "theme-light";
 @import "theme-dark";
 
