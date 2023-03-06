@@ -2,11 +2,12 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 
+import draftLeaders, { NotEnoughLeadersError } from 'js/calculation/draftLeaders';
+import withTrollResults from 'js/calculation/withTrollResults';
 import AutocompleteControl from 'js/components/Controls/AutocompleteControl';
 import SliderControl from 'js/components/Controls/SliderControl';
 import leaderShape from 'js/shapes/leaderShape';
 import getLanguage from 'js/utils/getLanguage';
-import draftLeaders, { NotEnoughLeadersError } from 'js/draftLeaders';
 
 const defaultSettings = {
     numPlayers: 6,
@@ -23,6 +24,17 @@ function getStoredSettings() {
     const storedSettings = localStorage.getItem('draftSettings');
 
     return storedSettings !== null ? JSON.parse(storedSettings) : {};
+}
+
+/**
+ * Save draft settings for future re-use.
+ *
+ * @param {Object} draftSettings
+ *
+ * @returns {void}
+ */
+function saveSettings(draftSettings) {
+    localStorage.setItem('draftSettings', JSON.stringify(draftSettings));
 }
 
 class DraftSettings extends Component {
@@ -61,11 +73,11 @@ class DraftSettings extends Component {
         const { numPlayers, numChoices, bans } = this.state;
 
         try {
-            // Save draft settings for future re-use
-            localStorage.setItem('draftSettings', JSON.stringify(this.state));
+            saveSettings(this.state);
 
-            const draftResults = draftLeaders(leaders, numPlayers, numChoices, bans);
-            onSubmit({ players: draftResults });
+            const players = [...Array(numPlayers)].map((player, index) => `Player ${index + 1}`);
+            const results = draftLeaders(leaders, { players, numChoices, bans });
+            onSubmit(withTrollResults(results));
         } catch (error) {
             if (error instanceof NotEnoughLeadersError) {
                 onSubmit({

@@ -59,11 +59,13 @@ function deduplicateByAttribute(leaderPool, attributeKey) {
  * This function handles that deleting all other personas
  *
  * @param {Array} leaders
- * @param {Number} numPlayers
+ * @param {Object[]} players
  * @param {Number} numChoices
  * @param {String[]} bans
+ *
+ * @returns {Object[]}
  */
-function draftLeaders(leaders, numPlayers, numChoices, bans) {
+function draftLeaders(leaders, { players, numChoices, bans }) {
     // Remove banned leaders from the selection pool
     const availablePool = leaders.filter(({ longName }) => !bans.includes(longName));
 
@@ -77,7 +79,7 @@ function draftLeaders(leaders, numPlayers, numChoices, bans) {
     );
 
     // Ensure we have enough leaders to satisfy the total choices
-    const totalChoices = numPlayers * numChoices;
+    const totalChoices = players.length * numChoices;
     const notEnoughLeaders = totalChoices > finalPool.length;
 
     if (notEnoughLeaders) {
@@ -85,16 +87,12 @@ function draftLeaders(leaders, numPlayers, numChoices, bans) {
     }
 
     // Constructing the available player choices
-    const playerChoices = [...Array(numPlayers)];
-    playerChoices.forEach((player, index) => {
-        // Extract  the next `numChoices` leaders from the pool
-        playerChoices[index] = {
-            index,
-            choices: finalPool.slice(index * numChoices, (index + 1) * numChoices),
-        };
-    });
+    return players.map((name, index) => ({
+        name,
 
-    return playerChoices;
+        // Extract the next `numChoices` leaders from the pool
+        choices: finalPool.slice(index * numChoices, (index + 1) * numChoices),
+    }));
 }
 
 export { NotEnoughLeadersError };

@@ -64,6 +64,7 @@ describe('<DraftSettings />', () => {
         const submit = await screen.findByText('Draft!');
 
         // Randomizing 20 times should be sufficient for testing purposes
+        // (2/3)^20 = ~0.03% chance the banned leader could evade this test if the code is improper
         await Promise.all([...Array(20)].map(async () => {
             await user.click(submit);
         }));
