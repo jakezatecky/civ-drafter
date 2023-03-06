@@ -6,6 +6,7 @@ import draftLeaders, { NotEnoughLeadersError } from 'js/calculation/draftLeaders
 import withTrollResults from 'js/calculation/withTrollResults';
 import AutocompleteControl from 'js/components/Controls/AutocompleteControl';
 import SliderControl from 'js/components/Controls/SliderControl';
+import SettingsSection from 'js/components/Settings/SettingsSection';
 import leaderShape from 'js/shapes/leaderShape';
 import getLanguage from 'js/utils/getLanguage';
 
@@ -96,27 +97,24 @@ class DraftSettings extends Component {
         const { numPlayers, numChoices } = this.state;
 
         return (
-            <Accordion.Item eventKey="0">
-                <Accordion.Header as="h3">Main settings</Accordion.Header>
-                <Accordion.Body>
-                    <SliderControl
-                        id="num-players"
-                        label="Number of players"
-                        max={12}
-                        min={1}
-                        value={numPlayers}
-                        onChange={this.onSliderChange('numPlayers')}
-                    />
-                    <SliderControl
-                        id="num-choices"
-                        label="Number of choices"
-                        max={6}
-                        min={1}
-                        value={numChoices}
-                        onChange={this.onSliderChange('numChoices')}
-                    />
-                </Accordion.Body>
-            </Accordion.Item>
+            <SettingsSection eventKey="0" header="Main settings">
+                <SliderControl
+                    id="num-players"
+                    label="Number of players"
+                    max={12}
+                    min={1}
+                    value={numPlayers}
+                    onChange={this.onSliderChange('numPlayers')}
+                />
+                <SliderControl
+                    id="num-choices"
+                    label="Number of choices"
+                    max={6}
+                    min={1}
+                    value={numChoices}
+                    onChange={this.onSliderChange('numChoices')}
+                />
+            </SettingsSection>
         );
     }
 
@@ -139,17 +137,14 @@ class DraftSettings extends Component {
         }));
 
         return (
-            <Accordion.Item eventKey="1">
-                <Accordion.Header as="h3">Additional settings</Accordion.Header>
-                <Accordion.Body>
-                    <AutocompleteControl
-                        label="Banned leaders"
-                        options={leaderOptions}
-                        value={bans}
-                        onChange={this.onBanChange}
-                    />
-                </Accordion.Body>
-            </Accordion.Item>
+            <SettingsSection eventKey="1" header="Additional settings">
+                <AutocompleteControl
+                    label="Banned leaders"
+                    options={leaderOptions}
+                    value={bans}
+                    onChange={this.onBanChange}
+                />
+            </SettingsSection>
         );
     }
 
