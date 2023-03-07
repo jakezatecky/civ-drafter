@@ -5,7 +5,7 @@
     "longName": "Abraham Lincoln (American)",
     "civilization": "American",
     "image": "Abraham_Lincoln_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Leader Pass"]
   },
   {
     "id": "Alexander",
@@ -13,7 +13,7 @@
     "longName": "Alexander (Macedonian)",
     "civilization": "Macedonian",
     "image": "Alexander_(Civ6).png",
-    "dlc": "Persia and Macedon Civilization & Scenario Pack"
+    "dlc": ["Persia and Macedon Civilization & Scenario Pack"]
   },
   {
     "id": "Amanitore",
@@ -21,7 +21,7 @@
     "longName": "Amanitore (Nubian)",
     "civilization": "Nubian",
     "image": "Amanitore_(Civ6).png",
-    "dlc": "Nubia Civilization & Scenario Pack"
+    "dlc": ["Nubia Civilization & Scenario Pack"]
   },
   {
     "id": "Ambiorix",
@@ -29,7 +29,7 @@
     "longName": "Ambiorix (Gallic)",
     "civilization": "Gallic",
     "image": "Ambiorix_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Basil II",
@@ -37,7 +37,7 @@
     "longName": "Basil II (Byzantine)",
     "civilization": "Byzantine",
     "image": "Basil_II_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Bà Triệu",
@@ -45,7 +45,7 @@
     "longName": "Bà Triệu (Vietnamese)",
     "civilization": "Vietnamese",
     "image": "Bà_Triệu_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Catherine de Medici",
@@ -53,7 +53,7 @@
     "longName": "Catherine de Medici (Black Queen) (French)",
     "civilization": "French",
     "image": "Catherine_de_Medici_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Catherine de Medici",
@@ -61,7 +61,7 @@
     "longName": "Catherine de Medici (Magnificence) (French)",
     "civilization": "French",
     "image": "Catherine_de_Medici_(Magnificence)_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Chandragupta",
@@ -69,7 +69,7 @@
     "longName": "Chandragupta (Indian)",
     "civilization": "Indian",
     "image": "Chandragupta_(Civ6).png",
-    "dlc": "Rise and Fall"
+    "dlc": ["Rise and Fall"]
   },
   {
     "id": "Cleopatra",
@@ -77,7 +77,7 @@
     "longName": "Cleopatra (Egyptian)",
     "civilization": "Egyptian",
     "image": "Cleopatra_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Cleopatra",
@@ -85,7 +85,7 @@
     "longName": "Cleopatra (Ptolemaic) (Egyptian)",
     "civilization": "Egyptian",
     "image": "Cleopatra_(Ptolemaic)_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Leader Pass"]
   },
   {
     "id": "Cyrus",
@@ -93,7 +93,7 @@
     "longName": "Cyrus (Persian)",
     "civilization": "Persian",
     "image": "Cyrus_(Civ6).png",
-    "dlc": "Persia and Macedon Civilization & Scenario Pack"
+    "dlc": ["Persia and Macedon Civilization & Scenario Pack"]
   },
   {
     "id": "Dido",
@@ -101,7 +101,7 @@
     "longName": "Dido (Phoenician)",
     "civilization": "Phoenician",
     "image": "Dido_(Civ6).png",
-    "dlc": "Gathering Storm"
+    "dlc": ["Gathering Storm"]
   },
   {
     "id": "Eleanor of Aquitaine",
@@ -109,7 +109,7 @@
     "longName": "Eleanor of Aquitaine (English)",
     "civilization": "English",
     "image": "Eleanor_of_Aquitaine_(English)_(Civ6).png",
-    "dlc": "Gathering Storm"
+    "dlc": ["Gathering Storm"]
   },
   {
     "id": "Eleanor of Aquitaine",
@@ -117,7 +117,7 @@
     "longName": "Eleanor of Aquitaine (French)",
     "civilization": "French",
     "image": "Eleanor_of_Aquitaine_(French)_(Civ6).png",
-    "dlc": "Gathering Storm"
+    "dlc": ["Gathering Storm"]
   },
   {
     "id": "Frederick Barbarossa",
@@ -125,7 +125,7 @@
     "longName": "Frederick Barbarossa (German)",
     "civilization": "German",
     "image": "Frederick_Barbarossa_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Gandhi",
@@ -133,7 +133,7 @@
     "longName": "Gandhi (India)",
     "civilization": "India",
     "image": "Gandhi_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Genghis Khan",
@@ -141,7 +141,7 @@
     "longName": "Genghis Khan (Mongolian)",
     "civilization": "Mongolian",
     "image": "Genghis_Khan_(Civ6).png",
-    "dlc": "Rise and Fall"
+    "dlc": ["Rise and Fall"]
   },
   {
     "id": "Gilgamesh",
@@ -149,7 +149,7 @@
     "longName": "Gilgamesh (Sumerian)",
     "civilization": "Sumerian",
     "image": "Gilgamesh_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Gitarja",
@@ -157,7 +157,7 @@
     "longName": "Gitarja (Indonesian)",
     "civilization": "Indonesian",
     "image": "Gitarja_(Civ6).png",
-    "dlc": "Khmer and Indonesian Civilization & Scenario Pack"
+    "dlc": ["Khmer and Indonesian Civilization & Scenario Pack"]
   },
   {
     "id": "Gorgo",
@@ -165,7 +165,7 @@
     "longName": "Gorgo (Greek)",
     "civilization": "Greek",
     "image": "Gorgo_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Hammurabi",
@@ -173,7 +173,7 @@
     "longName": "Hammurabi (Babylonian)",
     "civilization": "Babylonian",
     "image": "Hammurabi_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Harald Hardrada",
@@ -181,7 +181,7 @@
     "longName": "Harald Hardrada (Norwegian)",
     "civilization": "Norwegian",
     "image": "Harald_Hardrada_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Hojo Tokimune",
@@ -189,7 +189,7 @@
     "longName": "Hojo Tokimune (Japanese)",
     "civilization": "Japanese",
     "image": "Hojo_Tokimune_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Jadwiga",
@@ -197,7 +197,7 @@
     "longName": "Jadwiga (Polish)",
     "civilization": "Polish",
     "image": "Jadwiga_(Civ6).png",
-    "dlc": "Poland Civilization & Scenario Pack"
+    "dlc": ["Poland Civilization & Scenario Pack"]
   },
   {
     "id": "Jayavarman VII",
@@ -205,7 +205,7 @@
     "longName": "Jayavarman VII (Khmer)",
     "civilization": "Khmer",
     "image": "Jayavarman_VII_(Civ6).png",
-    "dlc": "Khmer and Indonesian Civilization & Scenario Pack"
+    "dlc": ["Khmer and Indonesian Civilization & Scenario Pack"]
   },
   {
     "id": "John Curtin",
@@ -213,7 +213,7 @@
     "longName": "John Curtin (Australian)",
     "civilization": "Australian",
     "image": "John_Curtin_(Civ6).png",
-    "dlc": "Australia Civilization & Scenario Pack"
+    "dlc": ["Australia Civilization & Scenario Pack"]
   },
   {
     "id": "João III",
@@ -221,7 +221,7 @@
     "longName": "João III (Portuguese)",
     "civilization": "Portuguese",
     "image": "João_III_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Julius Caesar",
@@ -229,7 +229,7 @@
     "longName": "Julius Caesar (Roman)",
     "civilization": "Roman",
     "image": "Julius_Caesar_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Leader Pass"]
   },
   {
     "id": "Kristina",
@@ -237,7 +237,7 @@
     "longName": "Kristina (Swedish)",
     "civilization": "Swedish",
     "image": "Kristina_(Civ6).png",
-    "dlc": "Gathering Storm"
+    "dlc": ["Gathering Storm"]
   },
   {
     "id": "Kublai Khan",
@@ -245,7 +245,7 @@
     "longName": "Kublai Khan (Chinese)",
     "civilization": "Chinese",
     "image": "Kublai_Khan_(Chinese)_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Kublai Khan",
@@ -253,7 +253,7 @@
     "longName": "Kublai Khan (Mongolian)",
     "civilization": "Mongolian",
     "image": "Kublai_Khan_(Mongolian)_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Kupe",
@@ -261,7 +261,7 @@
     "longName": "Kupe (Māori)",
     "civilization": "Māori",
     "image": "Kupe_(Civ6).png",
-    "dlc": "Gathering Storm"
+    "dlc": ["Gathering Storm"]
   },
   {
     "id": "Lady Six Sky",
@@ -269,7 +269,7 @@
     "longName": "Lady Six Sky (Mayan)",
     "civilization": "Mayan",
     "image": "Lady_Six_Sky_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Lautaro",
@@ -277,7 +277,7 @@
     "longName": "Lautaro (Mapuche)",
     "civilization": "Mapuche",
     "image": "Lautaro_(Civ6).png",
-    "dlc": "Rise and Fall"
+    "dlc": ["Rise and Fall"]
   },
   {
     "id": "Mansa Musa",
@@ -285,7 +285,7 @@
     "longName": "Mansa Musa (Malian)",
     "civilization": "Malian",
     "image": "Mansa_Musa_(Civ6).png",
-    "dlc": "Gathering Storm"
+    "dlc": ["Gathering Storm"]
   },
   {
     "id": "Matthias Corvinus",
@@ -293,7 +293,7 @@
     "longName": "Matthias Corvinus (Hungarian)",
     "civilization": "Hungarian",
     "image": "Matthias_Corvinus_(Civ6).png",
-    "dlc": "Gathering Storm"
+    "dlc": ["Gathering Storm"]
   },
   {
     "id": "Menelik II",
@@ -301,7 +301,7 @@
     "longName": "Menelik II (Ethiopian)",
     "civilization": "Ethiopian",
     "image": "Menelik_II_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Montezuma",
@@ -309,7 +309,7 @@
     "longName": "Montezuma (Aztec)",
     "civilization": "Aztec",
     "image": "Montezuma_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Mvemba a Nzinga",
@@ -317,7 +317,7 @@
     "longName": "Mvemba a Nzinga (Kongolese)",
     "civilization": "Kongolese",
     "image": "Mvemba_a_Nzinga_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Nader Shah",
@@ -325,7 +325,7 @@
     "longName": "Nader Shah (Persian)",
     "civilization": "Persian",
     "image": "Nader_Shah_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Persia and Macedon Civilization & Scenario Pack", "Leader Pass"]
   },
   {
     "id": "Nzinga Mbande",
@@ -333,7 +333,7 @@
     "longName": "Nzinga Mbande (Kongolese)",
     "civilization": "Kongolese",
     "image": "Nzinga_Mbande_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Leader Pass"]
   },
   {
     "id": "Pachacuti",
@@ -341,7 +341,7 @@
     "longName": "Pachacuti (Incan)",
     "civilization": "Incan",
     "image": "Pachacuti_(Civ6).png",
-    "dlc": "Gathering Storm"
+    "dlc": ["Gathering Storm"]
   },
   {
     "id": "Pedro II",
@@ -349,7 +349,7 @@
     "longName": "Pedro II (Brazilian)",
     "civilization": "Brazilian",
     "image": "Pedro_II_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Pericles",
@@ -357,7 +357,7 @@
     "longName": "Pericles (Pericles)",
     "civilization": "Pericles",
     "image": "Pericles_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Peter",
@@ -365,7 +365,7 @@
     "longName": "Peter (Russian)",
     "civilization": "Russian",
     "image": "Peter_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Philip II",
@@ -373,7 +373,7 @@
     "longName": "Philip II (Spanish)",
     "civilization": "Spanish",
     "image": "Philip_II_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Poundmaker",
@@ -381,7 +381,7 @@
     "longName": "Poundmaker (Cree)",
     "civilization": "Cree",
     "image": "Poundmaker_(Civ6).png",
-    "dlc": "Rise and Fall"
+    "dlc": ["Rise and Fall"]
   },
   {
     "id": "Qin Shi Huang",
@@ -389,7 +389,7 @@
     "longName": "Qin Shi Huang (Mandate of Heaven) (Chinese)",
     "civilization": "Chinese",
     "image": "Qin_Shi_Huang_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Qin Shi Huang",
@@ -397,7 +397,7 @@
     "longName": "Qin Shi Huang (Unifier) (Chinese)",
     "civilization": "Chinese",
     "image": "Qin_Shi_Huang_(Unifier)_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Leader Pass"]
   },
   {
     "id": "Ramses II",
@@ -405,7 +405,7 @@
     "longName": "Ramses II (Egyptian)",
     "civilization": "Egyptian",
     "image": "Ramses_II_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Leader Pass"]
   },
   {
     "id": "Robert the Bruce",
@@ -413,7 +413,7 @@
     "longName": "Robert the Bruce (Scottish)",
     "civilization": "Scottish",
     "image": "Robert_the_Bruce_(Civ6).png",
-    "dlc": "Rise and Fall"
+    "dlc": ["Rise and Fall"]
   },
   {
     "id": "Saladin",
@@ -421,7 +421,7 @@
     "longName": "Saladin (Vizier) (Arabian)",
     "civilization": "Arabian",
     "image": "Saladin_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Saladin",
@@ -429,7 +429,7 @@
     "longName": "Saladin (Sultan) (Arabian)",
     "civilization": "Arabian",
     "image": "Saladin_(Sultan)_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Leader Pass"]
   },
   {
     "id": "Seondeok",
@@ -437,7 +437,7 @@
     "longName": "Seondeok (Korean)",
     "civilization": "Korean",
     "image": "Seondeok_(Civ6).png",
-    "dlc": "Rise and Fall"
+    "dlc": ["Rise and Fall"]
   },
   {
     "id": "Shaka",
@@ -445,7 +445,7 @@
     "longName": "Shaka (Zulu)",
     "civilization": "Zulu",
     "image": "Shaka_(Civ6).png",
-    "dlc": "Rise and Fall"
+    "dlc": ["Rise and Fall"]
   },
   {
     "id": "Simón Bolívar",
@@ -453,7 +453,7 @@
     "longName": "Simón Bolívar (Gran Colombian)",
     "civilization": "Gran Colombian",
     "image": "Simón_Bolívar_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Suleiman",
@@ -461,7 +461,7 @@
     "longName": "Suleiman (Kanuni) (Ottoman)",
     "civilization": "Ottoman",
     "image": "Suleiman_(Civ6).png",
-    "dlc": "Gathering Storm"
+    "dlc": ["Gathering Storm"]
   },
   {
     "id": "Suleiman",
@@ -469,7 +469,7 @@
     "longName": "Suleiman (Muhteşem) (Ottoman)",
     "civilization": "Ottoman",
     "image": "Suleiman_(Muhteşem)_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Gathering Storm", "Leader Pass"]
   },
   {
     "id": "Sundiata Keita",
@@ -477,7 +477,7 @@
     "longName": "Sundiata Keita (Malian)",
     "civilization": "Malian",
     "image": "Sundiata_Keita_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Gathering Storm", "Leader Pass"]
   },
   {
     "id": "Tamar",
@@ -485,7 +485,7 @@
     "longName": "Tamar (Georgian)",
     "civilization": "Georgian",
     "image": "Tamar_(Civ6).png",
-    "dlc": "Rise and Fall"
+    "dlc": ["Rise and Fall"]
   },
   {
     "id": "Teddy Roosevelt",
@@ -493,7 +493,7 @@
     "longName": "Teddy Roosevelt (Bull Moose) (American)",
     "civilization": "American",
     "image": "Teddy_Roosevelt_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Teddy Roosevelt",
@@ -501,7 +501,7 @@
     "longName": "Teddy Roosevelt (Rough Rider) (American)",
     "civilization": "American",
     "image": "Teddy_Roosevelt_(Rough_Rider)_(Civ6).png",
-    "dlc": "New Frontier Pass"
+    "dlc": ["New Frontier Pass"]
   },
   {
     "id": "Tokugawa",
@@ -509,7 +509,7 @@
     "longName": "Tokugawa (Japanese)",
     "civilization": "Japanese",
     "image": "Tokugawa_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Leader Pass"]
   },
   {
     "id": "Tomyris",
@@ -517,7 +517,7 @@
     "longName": "Tomyris (Scythian)",
     "civilization": "Scythian",
     "image": "Tomyris_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Trajan",
@@ -525,7 +525,7 @@
     "longName": "Trajan (Roman)",
     "civilization": "Roman",
     "image": "Trajan_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Victoria",
@@ -533,7 +533,7 @@
     "longName": "Victoria (English)",
     "civilization": "English",
     "image": "Victoria_(Civ6).png",
-    "dlc": "Vanilla"
+    "dlc": ["Vanilla"]
   },
   {
     "id": "Wilfrid Laurier",
@@ -541,7 +541,7 @@
     "longName": "Wilfrid Laurier (Canadian)",
     "civilization": "Canadian",
     "image": "Wilfrid_Laurier_(Civ6).png",
-    "dlc": "Gathering Storm"
+    "dlc": ["Gathering Storm"]
   },
   {
     "id": "Wilhelmina",
@@ -549,7 +549,7 @@
     "longName": "Wilhelmina (Dutch)",
     "civilization": "Dutch",
     "image": "Wilhelmina_(Civ6).png",
-    "dlc": "Rise and Fall"
+    "dlc": ["Rise and Fall"]
   },
   {
     "id": "Wu Zetian",
@@ -557,7 +557,7 @@
     "longName": "Wu Zetian (Chinese)",
     "civilization": "Chinese",
     "image": "Wu_Zetian_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Leader Pass"]
   },
   {
     "id": "Yongle",
@@ -565,6 +565,6 @@
     "longName": "Yongle (Chinese)",
     "civilization": "Chinese",
     "image": "Yongle_(Civ6).png",
-    "dlc": "Leader Pass"
+    "dlc": ["Leader Pass"]
   }
 ]
