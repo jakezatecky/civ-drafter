@@ -3,7 +3,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import DraftSettings from 'js/components/DraftSettings';
+import DraftArea from 'js/components/DraftArea';
 
 const baseLeaders = [
     {
@@ -32,54 +32,46 @@ const baseLeaders = [
     },
 ];
 
-describe('<DraftSettings />', () => {
+describe('<DraftArea />', () => {
     afterEach(() => {
         localStorage.removeItem('draftSettings');
     });
 
     // https://github.com/jakezatecky/civ-drafter/issues/7
     it('should not include banned leaders in the results', async () => {
-        const bannedRuler = 'Alexander (Macedonian)';
-        const results = [];
-
         // Define settings through `localStorage`
         localStorage.setItem('draftSettings', JSON.stringify({
             numPlayers: 2,
             numChoices: 1,
-            bans: [bannedRuler],
+            bans: ['Alexander (Macedonian)'],
         }));
 
-        render((
-            <>
-                <DraftSettings
-                    leaders={baseLeaders}
-                    onSubmit={({ players }) => {
-                        results.push(
-                            players.map(({ choices }) => choices[0]),
-                        );
-                    }}
-                />
-                <button form="draft-form" type="submit">Draft!</button>
-            </>
-        ));
+        render(<DraftArea leaders={baseLeaders} />);
 
         const user = userEvent.setup();
         const submit = await screen.findByText('Draft!');
+
+        let numBannedAppeared = 0;
+        let numAllowedAppeared = 0;
 
         // Randomizing 20 times should be sufficient for testing purposes
         // (2/3)^20 = ~0.03% chance the banned leader could evade this test if the code is improper
         await Promise.all([...Array(20)].map(async () => {
             await user.click(submit);
+            const bannedElement = await screen.queryByText('Alexander');
+            const allowedElement = await screen.queryByText('Abraham Lincoln');
+
+            if (bannedElement !== null) {
+                numBannedAppeared += 1;
+            }
+
+            if (allowedElement !== null) {
+                numAllowedAppeared += 1;
+            }
         }));
 
         // Confirm that banned ruler does not appear in the list, but Abraham Lincoln does
-        const hasBannedRuler = results.some(
-            (playerSet) => playerSet.some(({ longName }) => longName === bannedRuler),
-        );
-        const hasAllowedRuler = results.some(
-            (playerSet) => playerSet.some(({ longName }) => longName === 'Abraham Lincoln (American)'),
-        );
-        assert.isFalse(hasBannedRuler);
-        assert.isTrue(hasAllowedRuler);
+        assert.equal(numBannedAppeared, 0);
+        assert.equal(numAllowedAppeared, 20);
     });
 });

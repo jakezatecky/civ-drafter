@@ -1,14 +1,35 @@
+import PropTypes from 'prop-types';
 import React, { useCallback, useState } from 'react';
 
+import draftLeaders, { NotEnoughLeadersError } from 'js/calculation/draftLeaders';
+import withTrollResults from 'js/calculation/withTrollResults';
 import DraftActions from 'js/components/DraftActions';
 import DraftResults from 'js/components/DraftResults';
 import DraftSettings from 'js/components/DraftSettings';
-import leaders from 'json/leaders.json';
+import getLanguage from 'js/utils/getLanguage';
+import leaderShape from '../shapes/leaderShape';
 
-function DraftArea() {
+const propTypes = {
+    leaders: PropTypes.arrayOf(leaderShape).isRequired,
+};
+
+function DraftArea({ leaders }) {
     const [results, setResults] = useState(null);
-    const onSubmit = useCallback((formResults) => {
-        setResults(formResults);
+    const onSubmit = useCallback((settings) => {
+        try {
+            setResults(withTrollResults(draftLeaders(leaders, settings)));
+        } catch (error) {
+            if (error instanceof NotEnoughLeadersError) {
+                setResults({
+                    error: getLanguage('notEnoughLeaders', {
+                        totalChoices: error.totalChoices,
+                        availableLeaders: error.availableLeaders,
+                    }),
+                });
+            } else {
+                throw error;
+            }
+        }
     }, []);
 
     return (
@@ -20,5 +41,7 @@ function DraftArea() {
         </section>
     );
 }
+
+DraftArea.propTypes = propTypes;
 
 export default DraftArea;

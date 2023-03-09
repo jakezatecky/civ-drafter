@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import DraftArea from 'js/components/DraftArea';
 import ThemeContext from 'js/contexts/ThemeContext';
+import leaders from 'json/leaders.json';
 
 const propTypes = {
     initialTheme: PropTypes.string.isRequired,
@@ -27,7 +28,7 @@ function App({ initialTheme }) {
 
     return (
         <ThemeContext.Provider value={theme}>
-            <DraftArea />
+            <DraftArea leaders={leaders} />
         </ThemeContext.Provider>
     );
 }
