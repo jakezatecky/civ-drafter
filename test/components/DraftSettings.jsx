@@ -12,6 +12,7 @@ const baseLeaders = [
         shortName: 'Abraham Lincoln',
         longName: 'Abraham Lincoln (American)',
         image: 'blank.png',
+        dlc: ['Vanilla'],
     },
     {
         id: 'Alexander',
@@ -19,6 +20,7 @@ const baseLeaders = [
         shortName: 'Alexander',
         longName: 'Alexander (Macedonian)',
         image: 'blank.png',
+        dlc: ['Vanilla'],
     },
     {
         id: 'Amanitore',
@@ -26,6 +28,7 @@ const baseLeaders = [
         shortName: 'Amanitore',
         longName: 'Amanitore (Nubian)',
         image: 'blank.png',
+        dlc: ['Vanilla'],
     },
 ];
 

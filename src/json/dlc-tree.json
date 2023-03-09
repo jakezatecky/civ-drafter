@@ -1,0 +1,49 @@
+[
+  {
+    "disabled": true,
+    "value": "Vanilla",
+    "label": "Vanilla"
+  },
+  {
+    "value": "Rise and Fall",
+    "label": "Rise and Fall"
+  },
+  {
+    "value": "Gathering Storm",
+    "label": "Gathering Storm"
+  },
+  {
+    "value": "Scenario Packs",
+    "label": "Scenario Packs",
+    "children": [
+      {
+        "value": "Australia Civilization & Scenario Pack",
+        "label": "Australia Civilization & Scenario Pack"
+      },
+      {
+        "value": "Khmer and Indonesia Civilization & Scenario Pack",
+        "label": "Khmer and Indonesia Civilization & Scenario Pack"
+      },
+      {
+        "value": "Poland Civilization & Scenario Pack",
+        "label": "Poland Civilization & Scenario Pack"
+      },
+      {
+        "value": "Persia and Macedon Civilization & Scenario Pack",
+        "label": "Persia and Macedon Civilization & Scenario Pack"
+      },
+      {
+        "value": "Nubia Civilization & Scenario Pack",
+        "label": "Nubia Civilization & Scenario Pack"
+      }
+    ]
+  },
+  {
+    "value": "New Frontier Pass",
+    "label": "New Frontier Pass"
+  },
+  {
+    "value": "Leader Pass",
+    "label": "Leader Pass"
+  }
+]

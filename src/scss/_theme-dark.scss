@@ -36,6 +36,16 @@ $draft-choice-border: $draft-player-border-hover-dark;
     }
   }
 
+  .draft-settings-dlc {
+    .react-checkbox-tree {
+      border-color: $draft-player-border-dark;
+
+      &:hover {
+        border-color: $draft-player-border-hover-dark;
+      }
+    }
+  }
+
   .draft-results-players > li {
     border-color: $draft-player-border-dark;
 

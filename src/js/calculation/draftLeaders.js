@@ -78,21 +78,48 @@ function draftLeaders(leaders, { players, numChoices, bans }) {
         'id',
     );
 
+    // Calculate the worst-case scenario of picking leaders, where the players with the most DLC
+    // snatch all the non-DLC leaders and leave no leaders for the less DLC-endowed players
+    const minimumPotential = finalPool.filter(({ dlc: requiredDlc }) => (
+        players.every(({ enabledDlc: playerDlc }) => (
+            requiredDlc.every((dlc) => playerDlc.includes(dlc))
+        ))
+    ));
+
     // Ensure we have enough leaders to satisfy the total choices
     const totalChoices = players.length * numChoices;
-    const notEnoughLeaders = totalChoices > finalPool.length;
+    const notEnoughLeaders = totalChoices > minimumPotential.length;
 
     if (notEnoughLeaders) {
-        throw new NotEnoughLeadersError(totalChoices, finalPool.length);
+        throw new NotEnoughLeadersError(totalChoices, minimumPotential.length);
     }
 
     // Constructing the available player choices
-    return players.map((name, index) => ({
-        name,
+    return players.map(({ name, enabledDlc }) => {
+        const choices = [];
+        let numExtracted = 0;
 
         // Extract the next `numChoices` leaders from the pool
-        choices: finalPool.slice(index * numChoices, (index + 1) * numChoices),
-    }));
+        finalPool.some((leader, index) => {
+            // Quota satisfied; pull out
+            if (numExtracted === numChoices) {
+                return true;
+            }
+
+            const { dlc: requiredDlc } = leader;
+
+            if (requiredDlc.every((dlc) => enabledDlc.includes(dlc))) {
+                // Player has DLC; draft leader
+                numExtracted += 1;
+                choices.push(leader);
+                delete finalPool[index];
+            }
+
+            return false;
+        });
+
+        return { name, choices };
+    });
 }
 
 export { NotEnoughLeadersError };

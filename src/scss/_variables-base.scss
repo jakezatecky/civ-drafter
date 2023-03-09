@@ -7,6 +7,7 @@ $primary: #a26638;
 $primary-text: shade-color($primary, 10%);
 $primary-bg-subtle: tint-color($primary, 90%);
 $link-color: shade-color($primary, 5%);
+$rct-icon-color: $primary;
 
 // Less rounded corners, please
 $border-radius: 4px;

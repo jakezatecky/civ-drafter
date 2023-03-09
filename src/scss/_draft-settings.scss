@@ -2,6 +2,46 @@
 // Draft settings
 // --------------------------------------------------
 
-.leader-icon {
+.draft-settings-bans .leader-icon {
   margin-right: .25rem;
+}
+
+.draft-settings-players {
+  @include media-breakpoint-up(sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include media-breakpoint-up(lg) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .25rem;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+
+  > li {
+    padding: .5rem;
+  }
+
+  h4 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .react-checkbox-tree {
+    border: 1px solid $draft-player-border;
+    padding: .25rem;
+
+    &:hover {
+      border-color: $draft-player-border-hover;
+    }
+
+    // Let's pretend this is not hierarchical tree
+    .rct-collapse {
+      display: none;
+    }
+  }
 }

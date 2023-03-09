@@ -15,6 +15,7 @@
 * Copy results to the clipboard as an image (requires Chromium or Webkit browser)
 * Support for the latest leaders, up to the [Leader Pass](https://civilization.fandom.com/wiki/Civilization_VI:_Leader_Pass) DLC
 * Remembers draft settings when returning to the site
+* Restrict DLC leaders to certain players
 * Light and dark themes (defaults to system setting)
 * Clean, accessible, and mobile-friendly design
 * Installable as a Progressive Web App
