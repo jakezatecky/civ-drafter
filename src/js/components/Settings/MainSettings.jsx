@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
-import React from 'react';
-import SliderControl from '../Controls/SliderControl';
+import React, { useContext } from 'react';
+
+import SliderControl from 'js/components/Controls/SliderControl';
+import { LanguageContext } from 'js/contexts';
 
 const propTypes = {
     numChoices: PropTypes.number.isRequired,
@@ -15,11 +17,13 @@ function MainSettings({
     onNumChoicesChange,
     onNumPlayersChange,
 }) {
+    const language = useContext(LanguageContext);
+
     return (
         <>
             <SliderControl
                 id="num-players"
-                label="Number of players"
+                label={language('settings.numPlayers')}
                 max={12}
                 min={1}
                 value={numPlayers}
@@ -27,7 +31,7 @@ function MainSettings({
             />
             <SliderControl
                 id="num-choices"
-                label="Number of choices"
+                label={language('settings.numChoices')}
                 max={6}
                 min={1}
                 value={numChoices}

@@ -1,0 +1,32 @@
+{
+  "mainHeader": "Civilization drafter",
+  "theme": {
+    "switchDark": "Switch to dark theme",
+    "switchLight": "Switch to light theme"
+  },
+  "actions": {
+    "draft": "Draft!",
+    "copyToClipboard": "Copy to clipboard"
+  },
+  "leaderAltText": "{name} portrait",
+  "loading": "Loading...",
+  "settings": {
+    "header": "Draft selections",
+    "main": "Main settings",
+    "numPlayers": "Number of players",
+    "numChoices": "Number of choices",
+    "secondary": "Additional settings",
+    "bans": "Banned leaders",
+    "player": "Player settings"
+  },
+  "results": {
+    "header": "Draft results"
+  },
+  "error": {
+    "non200Response": "Expected a 200 response for {resource}. Got {status} instead.",
+    "notEnoughLeaders": "The settings call for {totalChoices} total choices, but there are only {availableLeaders} leaders available after randomization and DLC exclusion. Adjust the settings and try again."
+  },
+  "easterEgg": {
+    "oopsAllSameLeader": "**Oops!** All {leaderName}!"
+  }
+}

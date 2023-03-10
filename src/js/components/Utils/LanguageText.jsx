@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 
-import getLanguage from 'js/utils/getLanguage';
 import MarkdownText from 'js/components/Utils/MarkdownText';
+import { LanguageContext } from 'js/contexts';
 
 const propTypes = {
     keyName: PropTypes.string.isRequired,
@@ -15,11 +15,10 @@ const defaultProps = {
     variables: {},
 };
 
-function LanguageText(props) {
-    const { keyName, parseInline, variables } = props;
-    const text = getLanguage(keyName, variables);
+function LanguageText({ keyName, parseInline, variables }) {
+    const language = useContext(LanguageContext);
 
-    return <MarkdownText parseInline={parseInline} text={text} />;
+    return <MarkdownText parseInline={parseInline} text={language(keyName, variables)} />;
 }
 
 LanguageText.propTypes = propTypes;

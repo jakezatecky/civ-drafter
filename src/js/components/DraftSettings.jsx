@@ -3,11 +3,12 @@ import React, { Component } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 
 import Bans from 'js/components/Settings/Bans';
+import MainSettings from 'js/components/Settings/MainSettings';
 import Players from 'js/components/Settings/Players';
 import SettingsSection from 'js/components/Settings/SettingsSection';
 import leaderShape from 'js/shapes/leaderShape';
+import { LanguageContext } from 'js/contexts';
 import allDlc from 'json/dlc.json';
-import MainSettings from './Settings/MainSettings';
 
 const defaultSettings = {
     numPlayers: 6,
@@ -53,6 +54,8 @@ function generatePlayers(numPlayers, startIndex = 1) {
 }
 
 class DraftSettings extends Component {
+    static contextType = LanguageContext;
+
     static propTypes = {
         leaders: PropTypes.arrayOf(leaderShape).isRequired,
         onSubmit: PropTypes.func.isRequired,
@@ -132,6 +135,7 @@ class DraftSettings extends Component {
     }
 
     render() {
+        const language = this.context;
         const { leaders } = this.props;
         const {
             numPlayers,
@@ -142,10 +146,10 @@ class DraftSettings extends Component {
 
         return (
             <div className="draft-settings">
-                <h2 className="visually-hidden">Draft selections</h2>
+                <h2 className="visually-hidden">{language('settings.header')}</h2>
                 <form className="form" id="draft-form" onSubmit={this.onSubmit}>
                     <Accordion alwaysOpen defaultActiveKey={['0', '1']}>
-                        <SettingsSection eventKey="0" header="Main settings">
+                        <SettingsSection eventKey="0" header={language('settings.main')}>
                             <MainSettings
                                 numChoices={numChoices}
                                 numPlayers={numPlayers}
@@ -153,10 +157,10 @@ class DraftSettings extends Component {
                                 onNumPlayersChange={this.onNumPlayersChange}
                             />
                         </SettingsSection>
-                        <SettingsSection eventKey="1" header="Additional settings">
+                        <SettingsSection eventKey="1" header={language('settings.secondary')}>
                             <Bans bans={bans} leaders={leaders} onChange={this.onBansChange} />
                         </SettingsSection>
-                        <SettingsSection eventKey="2" header="Player settings">
+                        <SettingsSection eventKey="2" header={language('settings.player')}>
                             <Players players={players} onChange={this.onPlayersChange} />
                         </SettingsSection>
                     </Accordion>

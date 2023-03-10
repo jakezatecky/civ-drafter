@@ -4,6 +4,9 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import DraftArea from 'js/components/DraftArea';
+import getLanguageResolver from 'js/utils/getLanguageResolver';
+import { LanguageContext } from 'js/contexts';
+import english from 'json/language/en.json';
 
 const baseLeaders = [
     {
@@ -32,6 +35,14 @@ const baseLeaders = [
     },
 ];
 
+function wrapper({ children }) {
+    return (
+        <LanguageContext.Provider value={getLanguageResolver(english)}>
+            {children}
+        </LanguageContext.Provider>
+    );
+}
+
 describe('<DraftArea />', () => {
     afterEach(() => {
         localStorage.removeItem('draftSettings');
@@ -46,7 +57,7 @@ describe('<DraftArea />', () => {
             bans: ['Alexander (Macedonian)'],
         }));
 
-        render(<DraftArea leaders={baseLeaders} />);
+        render(<DraftArea leaders={baseLeaders} />, { wrapper });
 
         const user = userEvent.setup();
         const submit = await screen.findByText('Draft!');

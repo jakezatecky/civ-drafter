@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { LanguageContext } from 'js/contexts';
 
 function LoadingIndicator() {
+    const language = useContext(LanguageContext);
+
     return (
         <div className="loading-indicator">
-            <span aria-label="Loading..." className="fa-solid fa-circle-notch fa-spin" />
+            <span aria-label={language('loading')} className="fa-solid fa-circle-notch fa-spin" />
         </div>
     );
 }

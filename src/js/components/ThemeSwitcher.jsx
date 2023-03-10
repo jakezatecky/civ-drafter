@@ -2,10 +2,13 @@ import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import React, {
     useCallback,
+    useContext,
     useEffect,
     useRef,
     useState,
 } from 'react';
+
+import { LanguageContext } from 'js/contexts';
 
 const propTypes = {
     initialTheme: PropTypes.string.isRequired,
@@ -20,6 +23,7 @@ function saveTheme(theme) {
 }
 
 function ThemeSwitcher({ initialTheme }) {
+    const language = useContext(LanguageContext);
     const [theme, setTheme] = useState(initialTheme);
     const isFirstRender = useRef(true);
     const isDarkMode = theme === 'dark';
@@ -45,7 +49,7 @@ function ThemeSwitcher({ initialTheme }) {
         setTheme(isDarkMode ? 'light' : 'dark');
     }, [theme]);
 
-    const label = isDarkMode ? 'Switch to light theme' : 'Switch to dark theme';
+    const label = isDarkMode ? language('theme.switchLight') : language('theme.switchDark');
     const className = classNames({
         'theme-switcher': true,
         'theme-dark': isDarkMode,

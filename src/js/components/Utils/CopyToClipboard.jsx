@@ -1,7 +1,9 @@
 import html2canvas from 'html2canvas';
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 import rgb2hex from 'rgb2hex';
+
+import { LanguageContext } from 'js/contexts';
 
 function hasClipboardApi() {
     return typeof ClipboardItem !== 'undefined' && 'write' in navigator.clipboard;
@@ -12,6 +14,9 @@ const propTypes = {
 };
 
 function CopyToClipboard({ domSelector }) {
+    const language = useContext(LanguageContext);
+    const copyText = language('actions.copyToClipboard');
+
     function onCopy() {
         const resultsArea = document.querySelector(domSelector);
 
@@ -43,9 +48,9 @@ function CopyToClipboard({ domSelector }) {
 
     return (
         <button
-            aria-label="Copy to Clipboard"
+            aria-label={copyText}
             className="btn btn-primary btn-copy"
-            title="Copy to Clipboard"
+            title={copyText}
             type="button"
             onClick={onCopy}
         >

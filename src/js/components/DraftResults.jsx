@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Alert from 'js/components/Utils/Alert';
 import draftResultsShape from 'js/shapes/draftResultsShape';
+import { LanguageContext } from 'js/contexts';
 
 const propTypes = {
     results: draftResultsShape.isRequired,
 };
 
 function DraftResults({ results }) {
+    const language = useContext(LanguageContext);
     const { error, players, trollLeader } = results;
 
     if (error) {
@@ -30,11 +32,11 @@ function DraftResults({ results }) {
 
     return (
         <div className="draft-results">
-            <h2 className="visually-hidden">Draft results</h2>
+            <h2 className="visually-hidden">{language('results.header')}</h2>
             {trollLeader !== undefined ? (
                 <Alert
                     language={{
-                        key: 'oopsAllSameLeader',
+                        key: 'easterEgg.oopsAllSameLeader',
                         variables: { leaderName: trollLeader.shortName },
                     }}
                     type="warning"

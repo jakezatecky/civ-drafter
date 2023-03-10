@@ -4,7 +4,7 @@ import { Autocomplete, Box, TextField } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
 import materialTheme from 'js/components/materialTheme';
-import ThemeContext from 'js/contexts/ThemeContext';
+import { ThemeContext } from 'js/contexts';
 
 const propTypes = {
     label: PropTypes.node.isRequired,

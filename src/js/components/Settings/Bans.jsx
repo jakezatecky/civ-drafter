@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 
 import AutocompleteControl from 'js/components/Controls/AutocompleteControl';
 import leaderShape from 'js/shapes/leaderShape';
+import { LanguageContext } from 'js/contexts';
 
 const propTypes = {
     bans: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -11,13 +12,14 @@ const propTypes = {
 };
 
 function Bans({ bans, leaders, onChange }) {
+    const language = useContext(LanguageContext);
     const leaderOptions = leaders.map(({ longName, image }) => ({
         value: longName,
         name: longName,
         label: (
             <div className="leader-box">
                 <img
-                    alt={`${longName} portrait}`}
+                    alt={language('leaderAltText', { name: longName })}
                     className="leader-icon"
                     src={`/assets/img/leader-icons/${image}`}
                 />
@@ -29,7 +31,7 @@ function Bans({ bans, leaders, onChange }) {
     return (
         <div className="draft-settings-bans">
             <AutocompleteControl
-                label="Banned leaders"
+                label={language('settings.bans')}
                 options={leaderOptions}
                 value={bans}
                 onChange={onChange}
