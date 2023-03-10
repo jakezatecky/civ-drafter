@@ -4,6 +4,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import App from 'js/components/App';
+import wrapper from '../languageWrapper';
 
 describe('<App />', () => {
     afterEach(() => {
@@ -11,7 +12,7 @@ describe('<App />', () => {
     });
 
     it('should render a draft button', async () => {
-        render(<App initialTheme="light" />);
+        render(<App initialTheme="light" />, { wrapper });
 
         const submit = await screen.findByRole('button', { name: 'Draft!' });
         assert.isNotNull(submit);

@@ -4,9 +4,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import DraftArea from 'js/components/DraftArea';
-import getLanguageResolver from 'js/utils/getLanguageResolver';
-import { LanguageContext } from 'js/contexts';
-import english from 'json/language/en.json';
+import wrapper from '../languageWrapper';
 
 const baseLeaders = [
     {
@@ -34,14 +32,6 @@ const baseLeaders = [
         dlc: ['Vanilla'],
     },
 ];
-
-function wrapper({ children }) {
-    return (
-        <LanguageContext.Provider value={getLanguageResolver(english)}>
-            {children}
-        </LanguageContext.Provider>
-    );
-}
 
 describe('<DraftArea />', () => {
     afterEach(() => {
