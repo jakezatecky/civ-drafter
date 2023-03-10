@@ -2,9 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import DraftArea from 'js/components/DraftArea';
-import { LanguageContext, ThemeContext } from 'js/contexts';
-import getLanguageResolver from 'js/utils/getLanguageResolver';
-import english from 'json/language/en.json';
+import { ThemeContext } from 'js/contexts';
 import leaders from 'json/leaders.json';
 
 const propTypes = {
@@ -30,9 +28,7 @@ function App({ initialTheme }) {
 
     return (
         <ThemeContext.Provider value={theme}>
-            <LanguageContext.Provider value={getLanguageResolver(english)}>
-                <DraftArea leaders={leaders} />
-            </LanguageContext.Provider>
+            <DraftArea leaders={leaders} />
         </ThemeContext.Provider>
     );
 }
