@@ -74,8 +74,8 @@ function draftLeaders(leaders, { players, numChoices, bans }) {
 
     // Reduce pool to one leader per civilization and leader ID
     const finalPool = deduplicateByAttribute(
-        deduplicateByAttribute(shuffledPool, 'civilization'),
-        'id',
+        deduplicateByAttribute(shuffledPool, 'id'),
+        'civilization',
     );
 
     // Calculate the worst-case scenario of picking leaders, where the players with the most DLC
