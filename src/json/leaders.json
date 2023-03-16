@@ -280,6 +280,14 @@
     "dlc": ["Rise and Fall"]
   },
   {
+    "id": "Ludwig II",
+    "shortName": "Ludwig II",
+    "longName": "Ludwig II (German)",
+    "civilization": "German",
+    "image": "Ludwig_II_(Civ6).png",
+    "dlc": ["Leader Pass"]
+  },
+  {
     "id": "Mansa Musa",
     "shortName": "Mansa Musa",
     "longName": "Mansa Musa (Malian)",
@@ -432,6 +440,14 @@
     "dlc": ["Leader Pass"]
   },
   {
+    "id": "Sejong",
+    "shortName": "Sejong",
+    "longName": "Sejong (Korean)",
+    "civilization": "Korean",
+    "image": "Sejong_(Civ6).png",
+    "dlc": ["Rise and Fall", "Leader Pass"]
+  },
+  {
     "id": "Seondeok",
     "shortName": "Seondeok",
     "longName": "Seondeok (Korean)",
@@ -502,6 +518,14 @@
     "civilization": "American",
     "image": "Teddy_Roosevelt_(Rough_Rider)_(Civ6).png",
     "dlc": ["New Frontier Pass"]
+  },
+  {
+    "id": "Theodora",
+    "shortName": "Theodora",
+    "longName": "Theodora (Byzantine)",
+    "civilization": "Byzantine",
+    "image": "Theodora_(Civ6).png",
+    "dlc": ["New Frontier Pass", "Leader Pass"]
   },
   {
     "id": "Tokugawa",
