@@ -1,5 +1,6 @@
 const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 const path = require('node:path');
+const Webpack = require('webpack');
 const WorkboxPlugin = require('workbox-webpack-plugin');
 
 const environment = process.env.NODE_ENV;
@@ -46,6 +47,9 @@ module.exports = () => {
             hints: isProduction ? 'warning' : false,
         },
         plugins: [
+            new Webpack.DefinePlugin({
+                REGISTER_SERVICE_WORKER: JSON.stringify(isProduction),
+            }),
             new HtmlBundlerPlugin({
                 extractComments: true,
                 entry: {
