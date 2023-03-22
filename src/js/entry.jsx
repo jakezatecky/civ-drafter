@@ -8,7 +8,6 @@ import getLanguageResolver from 'js/utils/getLanguageResolver';
 import { LanguageContext } from 'js/contexts';
 import registerServiceWorker from 'js/registerServiceWorker';
 import english from 'json/language/en.json';
-import 'scss/app.scss';
 
 const initialTheme = getInitialTheme();
 
