@@ -3,7 +3,7 @@
 // --------------------------------------------------
 
 .leader-icon {
-  margin-right: .25rem;
+  margin-right: 0.25rem;
 }
 
 .draft-settings-players {
@@ -17,13 +17,13 @@
 
   display: grid;
   grid-template-columns: 1fr;
-  gap: .25rem;
-  margin-bottom: 0;
+  gap: 0.25rem;
   padding-left: 0;
+  margin-bottom: 0;
   list-style: none;
 
   > li {
-    padding: .5rem;
+    padding: 0.5rem;
   }
 
   h4 {
@@ -32,8 +32,8 @@
   }
 
   .react-checkbox-tree {
+    padding: 0.25rem;
     border: 1px solid $draft-player-border;
-    padding: .25rem;
 
     &:hover {
       border-color: $draft-player-border-hover;

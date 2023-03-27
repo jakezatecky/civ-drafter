@@ -35,10 +35,10 @@
 
     display: flex;
     flex-direction: column;
+    padding: 0.5rem;
     border: 1px solid $draft-player-border;
     border-bottom-width: 2px;
     border-radius: $border-radius;
-    padding: .5rem;
 
     &:hover,
     &:hover h3 {
@@ -47,7 +47,7 @@
 
     + li {
       @include media-breakpoint-up(lg) {
-        margin-top: .5rem;
+        margin-top: 0.5rem;
       }
 
       margin-top: 1rem;
@@ -59,10 +59,10 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      padding: 0 0.5rem;
       margin-bottom: 0;
-      border-right: 2px solid $draft-player-border;
-      padding: 0 .5rem;
       font-size: 18px;
+      border-right: 2px solid $draft-player-border;
     }
 
     flex-shrink: 0;
@@ -74,25 +74,25 @@
 
 .draft-results-player-choices {
   @include media-breakpoint-up(lg) {
-    padding: 0 .5rem;
+    padding: 0 0.5rem;
   }
 
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
-  gap: .5rem;
+  gap: 0.5rem;
 
   > li {
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0.125rem 0.325rem 0.125rem 0.25rem;
+    font-size: 18px;
     border: 1px solid $draft-choice-border;
     border-radius: 50rem;
-    padding: .125rem .325rem .125rem .25rem;
-    font-size: 18px;
   }
 
   img {
-    margin-right: .25rem;
+    margin-right: 0.25rem;
   }
 }

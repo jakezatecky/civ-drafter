@@ -4,14 +4,14 @@
 
 header {
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid $header-border-color;
   background: $header-bg;
+  border-bottom: 1px solid $header-border-color;
 
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem .75rem;
+    padding: 1rem 0.75rem;
 
     @media (min-width: 350px) {
       flex-direction: row;
@@ -21,10 +21,10 @@ header {
   .brand-link {
     display: flex;
     align-items: center;
-    text-decoration: none;
-    color: $header-color;
     font-size: 22px;
     font-weight: 600;
+    color: $header-color;
+    text-decoration: none;
 
     &:hover {
       color: $header-color;
@@ -32,9 +32,9 @@ header {
   }
 
   .logo {
-    margin-right: .5rem;
     width: 38px;
     height: 38px;
+    margin-right: 0.5rem;
   }
 }
 
@@ -42,13 +42,13 @@ header {
   > .theme-switcher {
     display: flex;
     align-items: center;
-    transition: all .25s ease-out;
+    padding: 0.5rem;
+    font-size: 20px;
+    color: $header-color;
+    background: none;
     border: 0;
     border-radius: 50%;
-    background: none;
-    padding: .5rem;
-    color: $header-color;
-    font-size: 20px;
+    transition: all 0.25s ease-out;
 
     &:hover {
       background: $header-action-hover-bg;
