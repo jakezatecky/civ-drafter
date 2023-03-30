@@ -138,8 +138,8 @@
   {
     "id": "Gandhi",
     "shortName": "Gandhi",
-    "longName": "Gandhi (India)",
-    "civilization": "India",
+    "longName": "Gandhi (Indian)",
+    "civilization": "Indian",
     "image": "Gandhi_(Civ6).png",
     "dlc": ["Vanilla"]
   },
