@@ -2,8 +2,14 @@
 // Draft settings
 // --------------------------------------------------
 
+.leader-box {
+  display: flex;
+  align-items: center;
+}
+
 .leader-icon {
-  margin-right: 0.25rem;
+  margin-right: 0.5rem;
+  margin-left: -0.25rem;
 }
 
 .draft-settings-players {
