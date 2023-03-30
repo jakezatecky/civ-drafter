@@ -120,6 +120,14 @@
     "dlc": ["Gathering Storm"]
   },
   {
+    "id": "Elizabeth I",
+    "shortName": "Elizabeth I",
+    "longName": "Elizabeth I (English)",
+    "civilization": "English",
+    "image": "Elizabeth_I_(Civ6).png",
+    "dlc": ["Leader Pass"]
+  },
+  {
     "id": "Frederick Barbarossa",
     "shortName": "Frederick Barbarossa",
     "longName": "Frederick Barbarossa (German)",
@@ -177,11 +185,19 @@
   },
   {
     "id": "Harald Hardrada",
-    "shortName": "Harald Hardrada",
-    "longName": "Harald Hardrada (Norwegian)",
+    "shortName": "Harald Hardrada (Konge)",
+    "longName": "Harald Hardrada (Konge) (Norwegian)",
     "civilization": "Norwegian",
     "image": "Harald_Hardrada_(Civ6).png",
     "dlc": ["Vanilla"]
+  },
+  {
+    "id": "Harald Hardrada",
+    "shortName": "Harald Hardrada (Varangian)",
+    "longName": "Harald Hardrada (Varangian) (Norwegian)",
+    "civilization": "Norwegian",
+    "image": "Harald_Hardrada_(Varangian)_(Civ6).png",
+    "dlc": ["Leader Pass"]
   },
   {
     "id": "Hojo Tokimune",
@@ -553,11 +569,19 @@
   },
   {
     "id": "Victoria",
-    "shortName": "Victoria",
-    "longName": "Victoria (English)",
+    "shortName": "Victoria (Age of Empire)",
+    "longName": "Victoria (Age of Empire) (English)",
     "civilization": "English",
     "image": "Victoria_(Civ6).png",
     "dlc": ["Vanilla"]
+  },
+  {
+    "id": "Victoria",
+    "shortName": "Victoria (Age of Steam)",
+    "longName": "Victoria (Age of Steam) (English)",
+    "civilization": "English",
+    "image": "Victoria_(Age_of_Steam)_(Civ6).png",
+    "dlc": ["Leader Pass"]
   },
   {
     "id": "Wilfrid Laurier",
