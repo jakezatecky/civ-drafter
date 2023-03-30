@@ -1,6 +1,6 @@
 {
   "name": "civ-drafter",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "A modern, mobile-friendly drafting tool for Sid Meier's Civilization VI.",
   "main": "webpack.config.js",
   "scripts": {
