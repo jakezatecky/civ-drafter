@@ -18,7 +18,7 @@ function Players({ players, onChange }) {
             <h4>{name}</h4>
             <CheckboxTree
                 checked={enabledDlc}
-                expanded={[name]}
+                expanded={[]}
                 id={`setting-player-dlc-${playerIndex}`}
                 nodes={dlcNodes}
                 showNodeIcon={false}
