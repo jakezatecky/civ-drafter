@@ -56,10 +56,10 @@ module.exports = () => {
                     index: 'src/index.html',
                 },
                 js: {
-                    filename: isProduction ? 'assets/js/app-[contenthash].js' : 'assets/js/app.js',
+                    filename: 'assets/js/app-[contenthash].js',
                 },
                 css: {
-                    filename: isProduction ? 'assets/css/[name]-[contenthash].css' : 'assets/css/[name].css',
+                    filename: 'assets/css/[name]-[contenthash].css',
                 },
             }),
         ],
