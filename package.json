@@ -68,7 +68,7 @@
     "sass": "^1.57.1",
     "sass-loader": "^13.2.0",
     "sharp": "^0.32.0",
-    "sinon": "^15.0.1",
+    "sinon": "^16.0.0",
     "style-loader": "^3.3.1",
     "stylelint": "^15.3.0",
     "stylelint-config-takiyon": "^3.0.0",
