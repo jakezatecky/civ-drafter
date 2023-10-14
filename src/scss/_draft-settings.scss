@@ -12,7 +12,7 @@
   margin-left: -0.25rem;
 }
 
-.draft-settings-players {
+.draft-settings-players > ol {
   @include media-breakpoint-up(sm) {
     grid-template-columns: 1fr 1fr;
   }
@@ -32,14 +32,15 @@
     padding: 0.5rem;
   }
 
-  h4 {
-    font-size: 16px;
-    font-weight: bold;
+  .form-control {
+    width: 100%;
+    margin-bottom: 1rem;
   }
 
   .react-checkbox-tree {
     padding: 0.25rem;
     border: 1px solid $draft-player-border;
+    border-radius: $border-radius;
 
     &:hover {
       border-color: $draft-player-border-hover;

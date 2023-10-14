@@ -16,8 +16,9 @@ function DraftResults({ results }) {
         return <Alert type="danger">{error}</Alert>;
     }
 
-    const formatted = players.map(({ name: playerName, choices }) => (
-        <li key={playerName}>
+    /* eslint-disable react/no-array-index-key */
+    const formatted = players.map(({ name: playerName, choices }, playerIndex) => (
+        <li key={playerIndex}>
             <h3>{playerName}</h3>
             <ul className="draft-results-player-choices">
                 {choices.map(({ id: choiceId, shortName, image }) => (
@@ -29,6 +30,7 @@ function DraftResults({ results }) {
             </ul>
         </li>
     ));
+    /* eslint-enable react/no-array-index-key */
 
     return (
         <div className="draft-results">

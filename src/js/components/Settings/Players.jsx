@@ -1,7 +1,8 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { useContext } from 'react';
 import CheckboxTree from 'react-checkbox-tree';
 
+import { LanguageContext } from 'js/contexts';
 import dlcNodes from 'json/dlc-tree.json';
 
 const propTypes = {
@@ -13,23 +14,43 @@ const propTypes = {
 };
 
 function Players({ players, onChange }) {
+    const language = useContext(LanguageContext);
+    const onNameChange = (playerIndex) => (
+        (event) => {
+            onChange(playerIndex, 'name')(event.target.value);
+        }
+    );
+
+    /* eslint-disable react/no-array-index-key */
     const playerList = players.map(({ name, enabledDlc }, playerIndex) => (
-        <li key={name}>
-            <h4>{name}</h4>
-            <CheckboxTree
-                checked={enabledDlc}
-                expanded={[]}
-                id={`setting-player-dlc-${playerIndex}`}
-                nodes={dlcNodes}
-                showNodeIcon={false}
-                onCheck={onChange(playerIndex)}
+        <li key={playerIndex}>
+            <h4 className="visually-hidden">
+                {name}
+            </h4>
+            <input
+                aria-label={language('settings.playerName')}
+                className="form-control"
+                type="text"
+                value={name}
+                onChange={onNameChange(playerIndex)}
             />
+            <div aria-label={language('settings.playerDlc')} className="draft-settings-dlc">
+                <CheckboxTree
+                    checked={enabledDlc}
+                    expanded={[]}
+                    id={`setting-player-dlc-${playerIndex}`}
+                    nodes={dlcNodes}
+                    showNodeIcon={false}
+                    onCheck={onChange(playerIndex, 'enabledDlc')}
+                />
+            </div>
         </li>
     ));
+    /* eslint-enable react/no-array-index-key */
 
     return (
-        <div className="draft-settings-dlc">
-            <ol className="draft-settings-players">{playerList}</ol>
+        <div className="draft-settings-players">
+            <ol>{playerList}</ol>
         </div>
     );
 }

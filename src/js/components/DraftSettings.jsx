@@ -88,7 +88,7 @@ class DraftSettings extends Component {
         const changes = { numPlayers: value };
 
         if (value < numPlayers) {
-            // We lost a player; remove the DLC settings
+            // We lost a player; remove the player's settings
             changes.players = players.slice(0, value);
         } else if (value > numPlayers) {
             // More players added; generate from default
@@ -109,15 +109,15 @@ class DraftSettings extends Component {
         this.setState({ bans: value });
     }
 
-    onPlayersChange(playerIndex) {
-        return (checked) => {
+    onPlayersChange(playerIndex, settingsKey) {
+        return (newValue) => {
             const { players } = this.state;
 
-            // Update the enabled DLC for this individual player
+            // Update the individual player setting
             this.setState({
                 players: [
                     ...players.slice(0, playerIndex),
-                    { ...players[playerIndex], enabledDlc: checked },
+                    { ...players[playerIndex], [settingsKey]: newValue },
                     ...players.slice(playerIndex + 1),
                 ],
             });
@@ -148,7 +148,7 @@ class DraftSettings extends Component {
             <div className="draft-settings">
                 <h2 className="visually-hidden">{language('settings.header')}</h2>
                 <form className="form" id="draft-form" onSubmit={this.onSubmit}>
-                    <Accordion alwaysOpen defaultActiveKey={['0', '1']}>
+                    <Accordion alwaysOpen defaultActiveKey={['0', '1', '2']}>
                         <SettingsSection eventKey="0" header={language('settings.main')}>
                             <MainSettings
                                 numChoices={numChoices}

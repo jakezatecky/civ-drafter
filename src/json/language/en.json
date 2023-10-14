@@ -17,7 +17,9 @@
     "numChoices": "Number of choices",
     "secondary": "Additional settings",
     "bans": "Banned leaders",
-    "player": "Player settings"
+    "player": "Player settings",
+    "playerName": "Player name",
+    "playerDlc": "Enabled DLC"
   },
   "results": {
     "header": "Draft results"
