@@ -36,7 +36,8 @@ $draft-choice-border: $draft-player-border-hover-dark;
     }
   }
 
-  .draft-settings-dlc {
+  .draft-settings-players {
+    .form-control,
     .react-checkbox-tree {
       border-color: $draft-player-border-dark;
 
