@@ -148,7 +148,7 @@ class DraftSettings extends Component {
             <div className="draft-settings">
                 <h2 className="visually-hidden">{language('settings.header')}</h2>
                 <form className="form" id="draft-form" onSubmit={this.onSubmit}>
-                    <Accordion alwaysOpen defaultActiveKey={['0', '1', '2']}>
+                    <Accordion alwaysOpen defaultActiveKey={['0', '1']}>
                         <SettingsSection eventKey="0" header={language('settings.main')}>
                             <MainSettings
                                 numChoices={numChoices}
