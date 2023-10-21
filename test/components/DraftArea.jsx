@@ -31,6 +31,14 @@ const baseLeaders = [
         image: 'blank.png',
         dlc: ['Vanilla'],
     },
+    {
+        id: 'Teddy Roosevelt',
+        shortName: 'Teddy Roosevelt (Bull Moose)',
+        longName: 'Teddy Roosevelt (Bull Moose) (American)',
+        civilization: 'American',
+        image: 'blank.png',
+        dlc: ['Vanilla'],
+    },
 ];
 
 describe('<DraftArea />', () => {
@@ -45,6 +53,7 @@ describe('<DraftArea />', () => {
             numPlayers: 2,
             numChoices: 1,
             bans: ['Alexander (Macedonian)'],
+            duplications: [],
         }));
 
         render(<DraftArea leaders={baseLeaders} />, { wrapper });
@@ -60,7 +69,7 @@ describe('<DraftArea />', () => {
         await Promise.all([...Array(20)].map(async () => {
             await user.click(submit);
             const bannedElement = await screen.queryByText('Alexander');
-            const allowedElement = await screen.queryByText('Abraham Lincoln');
+            const allowedElement = await screen.queryByText('Amanitore');
 
             if (bannedElement !== null) {
                 numBannedAppeared += 1;
@@ -71,8 +80,31 @@ describe('<DraftArea />', () => {
             }
         }));
 
-        // Confirm that banned ruler does not appear in the list, but Abraham Lincoln does
+        // Confirm that banned ruler does not appear in the list, but Amanitore does
         assert.equal(numBannedAppeared, 0);
         assert.equal(numAllowedAppeared, 20);
+    });
+
+    it('should allow multiple leaders per civilization when set', async () => {
+        // Define settings through `localStorage`
+        localStorage.setItem('draftSettings', JSON.stringify({
+            numPlayers: 4,
+            numChoices: 1,
+            bans: [],
+            duplications: ['civilization'],
+        }));
+
+        render(<DraftArea leaders={baseLeaders} />, { wrapper });
+
+        const user = userEvent.setup();
+        const submit = await screen.findByText('Draft!');
+
+        await user.click(submit);
+        const abraham = await screen.queryByText('Abraham Lincoln');
+        const teddy = await screen.queryByText('Teddy Roosevelt (Bull Moose)');
+
+        // Confirm that both men appear in the result
+        assert.isNotNull(abraham);
+        assert.isNotNull(teddy);
     });
 });

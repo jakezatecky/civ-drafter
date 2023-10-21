@@ -16,6 +16,7 @@
 * Remembers draft settings when returning to the site
 * Restrict DLC leaders to certain players
 * Change the names of players
+* Options to allow duplicate civilizations and leaders
 * Light and dark themes (defaults to system setting)
 * Clean, accessible, and mobile-friendly design
 * Installable as a Progressive Web App

@@ -52,31 +52,55 @@ function deduplicateByAttribute(leaderPool, attributeKey) {
 }
 
 /**
+ * See `deduplicateByAttribute`.
+ *
+ * @param {Object[]} leaderPool
+ * @param {String[]} attributes
+ *
+ * @returns {Array}
+ */
+function deduplicateByAttributes(leaderPool, attributes) {
+    return attributes.reduce(
+        (pool, attributeKey) => deduplicateByAttribute(pool, attributeKey),
+        leaderPool,
+    );
+}
+
+/**
  * Return a random list of `numChoices` for each player, after removing all bans and randomizing
  * personas.
  *
  * Some leaders have multiple personas, but the game will not permit more than one in a single game.
- * This function handles that deleting all other personas
+ * This function handles that deleting all other personas, if the user leaves the default settings.
  *
  * @param {Array} leaders
  * @param {Object[]} players
  * @param {Number} numChoices
  * @param {String[]} bans
+ * @param {String[]} duplications
  *
  * @returns {Object[]}
  */
-function draftLeaders(leaders, { players, numChoices, bans }) {
+function draftLeaders(leaders, {
+    players,
+    numChoices,
+    bans,
+    duplications,
+}) {
     // Remove banned leaders from the selection pool
     const availablePool = leaders.filter(({ longName }) => !bans.includes(longName));
 
     // Shuffle the available leaders for randomization
     const shuffledPool = shuffle(availablePool);
 
-    // Reduce pool to one leader per civilization and leader ID
-    const finalPool = deduplicateByAttribute(
-        deduplicateByAttribute(shuffledPool, 'id'),
-        'civilization',
+    // Determine which, if any, attributes we will group the pool by
+    // By default Civilization restricts players to one leader per persona AND civilization, but
+    // players can relax those restrictions.
+    const uniqueAttributes = ['civilization', 'id'];
+    const deduplicationAttributes = uniqueAttributes.filter(
+        (attribute) => !duplications.includes(attribute),
     );
+    const finalPool = deduplicateByAttributes(shuffledPool, deduplicationAttributes);
 
     // Calculate the worst-case scenario of picking leaders, where the players with the most DLC
     // snatch all the non-DLC leaders and leave no leaders for the less DLC-endowed players

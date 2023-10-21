@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+import CheckboxTree from 'react-checkbox-tree';
 
 import Bans from 'js/components/Settings/Bans';
 import MainSettings from 'js/components/Settings/MainSettings';
@@ -10,10 +11,13 @@ import leaderShape from 'js/shapes/leaderShape';
 import { LanguageContext } from 'js/contexts';
 import allDlc from 'json/dlc.json';
 
+import duplicationNodes from 'json/duplication-tree.json';
+
 const defaultSettings = {
     numPlayers: 6,
     numChoices: 3,
     bans: [],
+    duplications: [],
 };
 
 /**
@@ -78,6 +82,7 @@ class DraftSettings extends Component {
         this.onNumPlayersChange = this.onNumPlayersChange.bind(this);
         this.onNumChoicesChange = this.onNumChoicesChange.bind(this);
         this.onBansChange = this.onBansChange.bind(this);
+        this.onDuplicationsChange = this.onDuplicationsChange.bind(this);
         this.onPlayersChange = this.onPlayersChange.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
     }
@@ -109,6 +114,10 @@ class DraftSettings extends Component {
         this.setState({ bans: value });
     }
 
+    onDuplicationsChange(checked) {
+        this.setState({ duplications: checked });
+    }
+
     onPlayersChange(playerIndex, settingsKey) {
         return (newValue) => {
             const { players } = this.state;
@@ -129,9 +138,8 @@ class DraftSettings extends Component {
         saveSettings(this.state);
 
         const { onSubmit } = this.props;
-        const { players, numChoices, bans } = this.state;
 
-        onSubmit({ players, numChoices, bans });
+        onSubmit(this.state);
     }
 
     render() {
@@ -141,6 +149,7 @@ class DraftSettings extends Component {
             numPlayers,
             numChoices,
             bans,
+            duplications,
             players,
         } = this.state;
 
@@ -159,6 +168,16 @@ class DraftSettings extends Component {
                         </SettingsSection>
                         <SettingsSection eventKey="1" header={language('settings.secondary')}>
                             <Bans bans={bans} leaders={leaders} onChange={this.onBansChange} />
+                            <div aria-label={language('settings.playerDlc')} className="draft-settings-duplications">
+                                <CheckboxTree
+                                    checked={duplications}
+                                    expanded={[]}
+                                    id="settings-duplications"
+                                    nodes={duplicationNodes}
+                                    showNodeIcon={false}
+                                    onCheck={this.onDuplicationsChange}
+                                />
+                            </div>
                         </SettingsSection>
                         <SettingsSection eventKey="2" header={language('settings.player')}>
                             <Players players={players} onChange={this.onPlayersChange} />

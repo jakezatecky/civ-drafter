@@ -1,0 +1,10 @@
+[
+  {
+    "value": "civilization",
+    "label": "Allow multiple leaders per civilization"
+  },
+  {
+    "value": "id",
+    "label": "Allow multiple personalities per leader"
+  }
+]

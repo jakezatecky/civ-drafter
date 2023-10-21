@@ -12,6 +12,27 @@
   margin-left: -0.25rem;
 }
 
+.draft-settings {
+  .draft-settings-duplications {
+    margin-top: 1rem;
+  }
+
+  .react-checkbox-tree {
+    padding: 0.25rem;
+    border: 1px solid $draft-player-border;
+    border-radius: $border-radius;
+
+    &:hover {
+      border-color: $draft-player-border-hover;
+    }
+
+    // Let's pretend this is not hierarchical tree
+    .rct-collapse {
+      display: none;
+    }
+  }
+}
+
 .draft-settings-players > ol {
   @include media-breakpoint-up(sm) {
     grid-template-columns: 1fr 1fr;
@@ -39,21 +60,6 @@
 
     &:hover {
       border-color: $draft-player-border-hover;
-    }
-  }
-
-  .react-checkbox-tree {
-    padding: 0.25rem;
-    border: 1px solid $draft-player-border;
-    border-radius: $border-radius;
-
-    &:hover {
-      border-color: $draft-player-border-hover;
-    }
-
-    // Let's pretend this is not hierarchical tree
-    .rct-collapse {
-      display: none;
     }
   }
 }
