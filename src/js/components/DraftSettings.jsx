@@ -1,5 +1,9 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React, {
+    useCallback,
+    useContext,
+    useState,
+} from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 
 import Bans from 'js/components/Settings/Bans';
@@ -7,8 +11,8 @@ import Duplications from 'js/components/Settings/Duplications';
 import MainSettings from 'js/components/Settings/MainSettings';
 import Players from 'js/components/Settings/Players';
 import SettingsSection from 'js/components/Settings/SettingsSection';
-import leaderShape from 'js/shapes/leaderShape';
 import { LanguageContext } from 'js/contexts';
+import leaderShape from 'js/shapes/leaderShape';
 import allDlc from 'json/dlc.json';
 
 const defaultSettings = {
@@ -55,39 +59,38 @@ function generatePlayers(numPlayers, startIndex = 1) {
     }));
 }
 
-class DraftSettings extends Component {
-    static contextType = LanguageContext;
-
-    static propTypes = {
-        leaders: PropTypes.arrayOf(leaderShape).isRequired,
-        onSubmit: PropTypes.func.isRequired,
+function getInitialState() {
+    const state = {
+        ...defaultSettings,
+        ...getStoredSettings(),
     };
+    const { numPlayers, players } = state;
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            ...defaultSettings,
-            ...getStoredSettings(),
-        };
-
-        const { numPlayers, players } = this.state;
-
-        if (players === undefined) {
-            this.state.players = generatePlayers(numPlayers);
-        }
-
-        this.onNumPlayersChange = this.onNumPlayersChange.bind(this);
-        this.onNumChoicesChange = this.onNumChoicesChange.bind(this);
-        this.onBansChange = this.onBansChange.bind(this);
-        this.onDuplicationsChange = this.onDuplicationsChange.bind(this);
-        this.onPlayersChange = this.onPlayersChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+    if (players === undefined) {
+        state.players = generatePlayers(numPlayers);
     }
 
-    onNumPlayersChange(event) {
+    return state;
+}
+
+const propTypes = {
+    leaders: PropTypes.arrayOf(leaderShape).isRequired,
+    onSubmit: PropTypes.func.isRequired,
+};
+
+function DraftSettings({ leaders, onSubmit }) {
+    const language = useContext(LanguageContext);
+    const [state, setState] = useState(getInitialState());
+    const {
+        bans,
+        duplications,
+        numChoices,
+        numPlayers,
+        players,
+    } = state;
+
+    const onNumPlayersChange = useCallback((event) => {
         const { target: { value } } = event;
-        const { numPlayers, players } = this.state;
         const changes = { numPlayers: value };
 
         if (value < numPlayers) {
@@ -101,81 +104,67 @@ class DraftSettings extends Component {
             ];
         }
 
-        this.setState(changes);
-    }
+        setState({ ...state, ...changes });
+    }, [state]);
 
-    onNumChoicesChange(event) {
-        this.setState({ numChoices: event.target.value });
-    }
+    const onNumChoicesChange = useCallback((event) => {
+        setState({ ...state, numChoices: event.target.value });
+    }, [state]);
 
-    onBansChange(event, value) {
-        this.setState({ bans: value });
-    }
+    const onBansChange = useCallback((event, value) => {
+        setState({ ...state, bans: value });
+    }, [state]);
 
-    onDuplicationsChange(checked) {
-        this.setState({ duplications: checked });
-    }
+    const onDuplicationsChange = useCallback((checked) => {
+        setState({ ...state, duplications: checked });
+    }, [state]);
 
-    onPlayersChange(playerIndex, settingsKey) {
-        return (newValue) => {
-            const { players } = this.state;
-
+    const onPlayersChange = useCallback((playerIndex, settingsKey) => (
+        (newValue) => {
             // Update the individual player setting
-            this.setState({
+            setState({
+                ...state,
                 players: [
                     ...players.slice(0, playerIndex),
                     { ...players[playerIndex], [settingsKey]: newValue },
                     ...players.slice(playerIndex + 1),
                 ],
             });
-        };
-    }
+        }
+    ), [state]);
 
-    onSubmit(event) {
+    const onFormSubmit = useCallback((event) => {
         event.preventDefault();
-        saveSettings(this.state);
+        saveSettings(state);
+        onSubmit(state);
+    }, [onSubmit, state]);
 
-        const { onSubmit } = this.props;
-
-        onSubmit(this.state);
-    }
-
-    render() {
-        const language = this.context;
-        const { leaders } = this.props;
-        const {
-            numPlayers,
-            numChoices,
-            bans,
-            duplications,
-            players,
-        } = this.state;
-
-        return (
-            <div className="draft-settings">
-                <h2 className="visually-hidden">{language('settings.header')}</h2>
-                <form className="form" id="draft-form" onSubmit={this.onSubmit}>
-                    <Accordion alwaysOpen defaultActiveKey={['0', '1']}>
-                        <SettingsSection eventKey="0" header={language('settings.main')}>
-                            <MainSettings
-                                numChoices={numChoices}
-                                numPlayers={numPlayers}
-                                onNumChoicesChange={this.onNumChoicesChange}
-                                onNumPlayersChange={this.onNumPlayersChange}
-                            />
-                        </SettingsSection>
-                        <SettingsSection eventKey="1" header={language('settings.secondary')}>
-                            <Bans bans={bans} leaders={leaders} onChange={this.onBansChange} />
-                            <Duplications duplications={duplications} onChange={this.onDuplicationsChange} />
-                        </SettingsSection>
-                        <SettingsSection eventKey="2" header={language('settings.player')}>
-                            <Players players={players} onChange={this.onPlayersChange} />
-                        </SettingsSection>
-                    </Accordion>
-                </form>
-            </div>
-        );
-    }
+    return (
+        <div className="draft-settings">
+            <h2 className="visually-hidden">{language('settings.header')}</h2>
+            <form className="form" id="draft-form" onSubmit={onFormSubmit}>
+                <Accordion alwaysOpen defaultActiveKey={['0', '1']}>
+                    <SettingsSection eventKey="0" header={language('settings.main')}>
+                        <MainSettings
+                            numChoices={numChoices}
+                            numPlayers={numPlayers}
+                            onNumChoicesChange={onNumChoicesChange}
+                            onNumPlayersChange={onNumPlayersChange}
+                        />
+                    </SettingsSection>
+                    <SettingsSection eventKey="1" header={language('settings.secondary')}>
+                        <Bans bans={bans} leaders={leaders} onChange={onBansChange} />
+                        <Duplications duplications={duplications} onChange={onDuplicationsChange} />
+                    </SettingsSection>
+                    <SettingsSection eventKey="2" header={language('settings.player')}>
+                        <Players players={players} onChange={onPlayersChange} />
+                    </SettingsSection>
+                </Accordion>
+            </form>
+        </div>
+    );
 }
+
+DraftSettings.propTypes = propTypes;
 
 export default DraftSettings;
