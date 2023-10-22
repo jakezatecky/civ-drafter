@@ -12,7 +12,7 @@ class NotEnoughLeadersError extends Error {
 }
 
 /**
- * De-duplicate the randomized pool by allowing only one leader for a given duplicate attribute.
+ * De-duplicate the randomized pool by allowing only one leader for a given attribute.
  *
  * For example, when `attributeKey === 'civilization'`, we reduce the pool to allow for only one
  * leader with `civilization === 'Chinese'`.
@@ -67,11 +67,8 @@ function deduplicateByAttributes(leaderPool, attributes) {
 }
 
 /**
- * Return a random list of `numChoices` for each player, after removing all bans and randomizing
- * personas.
- *
- * Some leaders have multiple personas, but the game will not permit more than one in a single game.
- * This function handles that deleting all other personas, if the user leaves the default settings.
+ * Return a random list of `numChoices` for each player, after removing all bans, shuffling the
+ * available pool, and pruning leaders if the caller does not allow duplications.
  *
  * @param {Array} leaders
  * @param {Object[]} players

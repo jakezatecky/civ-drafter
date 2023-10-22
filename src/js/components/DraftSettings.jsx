@@ -1,17 +1,15 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import CheckboxTree from 'react-checkbox-tree';
 
 import Bans from 'js/components/Settings/Bans';
+import Duplications from 'js/components/Settings/Duplications';
 import MainSettings from 'js/components/Settings/MainSettings';
 import Players from 'js/components/Settings/Players';
 import SettingsSection from 'js/components/Settings/SettingsSection';
 import leaderShape from 'js/shapes/leaderShape';
 import { LanguageContext } from 'js/contexts';
 import allDlc from 'json/dlc.json';
-
-import duplicationNodes from 'json/duplication-tree.json';
 
 const defaultSettings = {
     numPlayers: 6,
@@ -168,16 +166,7 @@ class DraftSettings extends Component {
                         </SettingsSection>
                         <SettingsSection eventKey="1" header={language('settings.secondary')}>
                             <Bans bans={bans} leaders={leaders} onChange={this.onBansChange} />
-                            <div aria-label={language('settings.playerDlc')} className="draft-settings-duplications">
-                                <CheckboxTree
-                                    checked={duplications}
-                                    expanded={[]}
-                                    id="settings-duplications"
-                                    nodes={duplicationNodes}
-                                    showNodeIcon={false}
-                                    onCheck={this.onDuplicationsChange}
-                                />
-                            </div>
+                            <Duplications duplications={duplications} onChange={this.onDuplicationsChange} />
                         </SettingsSection>
                         <SettingsSection eventKey="2" header={language('settings.player')}>
                             <Players players={players} onChange={this.onPlayersChange} />

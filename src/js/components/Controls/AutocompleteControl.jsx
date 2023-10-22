@@ -3,8 +3,8 @@ import React, { useContext } from 'react';
 import { Autocomplete, Box, TextField } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
-import materialTheme from 'js/components/materialTheme';
 import { ThemeContext } from 'js/contexts';
+import materialTheme from 'js/utils/materialTheme';
 
 const propTypes = {
     label: PropTypes.node.isRequired,
