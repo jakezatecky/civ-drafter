@@ -51,7 +51,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.3",
     "eslint": "^8.27.0",
-    "eslint-config-takiyon-react": "^3.0.0",
+    "eslint-config-takiyon-react": "^4.0.0",
     "eslint-import-resolver-webpack": "^0.13.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
