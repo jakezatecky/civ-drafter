@@ -54,6 +54,7 @@ module.exports = () => {
                 extractComments: true,
                 entry: {
                     index: 'src/index.html',
+                    404: 'src/404.html',
                 },
                 js: {
                     filename: 'assets/js/app-[contenthash].js',
