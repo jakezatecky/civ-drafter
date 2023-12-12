@@ -11,12 +11,8 @@ const propTypes = {
     className: PropTypes.string,
     parseInline: PropTypes.bool,
 };
-const defaultProps = {
-    className: null,
-    parseInline: true,
-};
 
-function MarkdownText({ className, parseInline, text }) {
+function MarkdownText({ text, className = null, parseInline = true }) {
     const classes = classNames({
         'markdown-wrapper': true,
         'markdown-wrapper-inline': parseInline,
@@ -29,6 +25,5 @@ function MarkdownText({ className, parseInline, text }) {
 }
 
 MarkdownText.propTypes = propTypes;
-MarkdownText.defaultProps = defaultProps;
 
 export default MarkdownText;

@@ -7,11 +7,8 @@ import draftResultsShape from 'js/shapes/draftResultsShape';
 const propTypes = {
     results: draftResultsShape,
 };
-const defaultProps = {
-    results: null,
-};
 
-function DraftActions({ results }) {
+function DraftActions({ results = null }) {
     const language = useContext(LanguageContext);
     const hasDraftResults = results !== null && results.error === undefined;
 
@@ -28,6 +25,5 @@ function DraftActions({ results }) {
 }
 
 DraftActions.propTypes = propTypes;
-DraftActions.defaultProps = defaultProps;
 
 export default DraftActions;

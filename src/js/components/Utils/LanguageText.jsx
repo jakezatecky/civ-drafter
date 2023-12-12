@@ -10,18 +10,17 @@ const propTypes = {
     parseInline: PropTypes.bool,
     variables: PropTypes.objectOf(PropTypes.string),
 };
-const defaultProps = {
-    parseInline: true,
-    variables: {},
-};
 
-function LanguageText({ keyName, parseInline, variables }) {
+function LanguageText({
+    keyName,
+    parseInline = true,
+    variables = {},
+}) {
     const language = useContext(LanguageContext);
 
     return <MarkdownText parseInline={parseInline} text={language(keyName, variables)} />;
 }
 
 LanguageText.propTypes = propTypes;
-LanguageText.defaultProps = defaultProps;
 
 export default LanguageText;

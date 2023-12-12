@@ -6,11 +6,8 @@ const propTypes = {
 
     className: PropTypes.string,
 };
-const defaultProps = {
-    className: 'html-wrapper',
-};
 
-function RawHtml({ html, className }) {
+function RawHtml({ html, className = 'html-wrapper' }) {
     const element = useRef(null);
 
     useEffect(() => {
@@ -21,6 +18,5 @@ function RawHtml({ html, className }) {
 }
 
 RawHtml.propTypes = propTypes;
-RawHtml.defaultProps = defaultProps;
 
 export default RawHtml;

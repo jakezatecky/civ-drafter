@@ -20,21 +20,19 @@ const propTypes = {
     }),
     showPrefix: PropTypes.bool,
 };
-const defaultProps = {
-    children: null,
-    language: null,
-    showPrefix: true,
-};
 
-function Alert(props) {
-    function renderPrefix(type) {
-        const { showPrefix } = props;
-
+function Alert({
+    type,
+    children = null,
+    language = null,
+    showPrefix = true,
+}) {
+    function renderPrefix() {
         if (!showPrefix) {
             return null;
         }
 
-        // Return type prefix with enough space for the main message
+        // Return type's prefix with enough space for the main message
         return [
             prefixMap[type],
             ' ',
@@ -42,8 +40,6 @@ function Alert(props) {
     }
 
     function renderMessage() {
-        const { children, language } = props;
-
         if (children !== null) {
             return children;
         }
@@ -57,17 +53,14 @@ function Alert(props) {
         return null;
     }
 
-    const { type } = props;
-
     return (
         <div className={`alert alert-${type}`} role="alert">
-            {renderPrefix(type)}
+            {renderPrefix()}
             {renderMessage()}
         </div>
     );
 }
 
 Alert.propTypes = propTypes;
-Alert.defaultProps = defaultProps;
 
 export default Alert;
