@@ -38,22 +38,8 @@ npm run dev-server
 
 ### Remote Deployment
 
-This application is a static website and is thus ideal for deployment to S3 or Cloudflare. The current application sits on S3, although that might change in the future.
-
-#### AWS Configuration
-
-Create an IAM user with CLI access and then create a `civilization` profile:
+This application is a static website and is thus ideal for deployment to Cloudflare, S3, and other hosts. Whatever provider you are using, make sure to run the following command to build the production version of the application:
 
 ```
-$ aws configure --profile civilization
-AWS Access Key ID [None]: accesskey
-AWS Secret Access Key [None]: secretkey
-Default region name [None]: us-east-1
-Default output format [None]:
-```
-
-#### Pushing to S3
-
-```
-npm run deploy
+npm run release-prod
 ```

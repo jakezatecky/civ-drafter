@@ -6,7 +6,6 @@
   "scripts": {
     "build": "webpack",
     "build-prod": "cross-env NODE_ENV=production webpack && node ./scripts/generateSitemap.js",
-    "deploy": "npm run release-prod --loglevel=error && aws s3 sync public s3://civdrafter --delete --profile civilization",
     "dev-server": "webpack serve",
     "format:style": "prettier --write src/scss/**/*.scss",
     "lint": "npm run lint:script && npm run lint:style",
