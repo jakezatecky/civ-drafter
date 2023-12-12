@@ -29,20 +29,12 @@ footer {
   margin-bottom: 0;
   list-style: none;
 
-  .strikethrough {
-    display: none;
-  }
-
   @media (min-width: 505px) {
     flex-direction: row;
 
     > li + li::before {
       margin-left: 0.325rem;
       content: "|";
-    }
-
-    .strikethrough {
-      display: inline;
     }
   }
 }
