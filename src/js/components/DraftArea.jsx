@@ -11,14 +11,16 @@ import { LanguageContext } from 'js/contexts';
 
 const propTypes = {
     leaders: PropTypes.arrayOf(leaderShape).isRequired,
+
+    trollFactor: PropTypes.number,
 };
 
-function DraftArea({ leaders }) {
+function DraftArea({ leaders, trollFactor = 0 }) {
     const [results, setResults] = useState(null);
     const language = useContext(LanguageContext);
     const onSubmit = useCallback((settings) => {
         try {
-            setResults(withTrollResults(draftLeaders(leaders, settings)));
+            setResults(withTrollResults(draftLeaders(leaders, settings), trollFactor));
         } catch (error) {
             if (error instanceof NotEnoughLeadersError) {
                 setResults({

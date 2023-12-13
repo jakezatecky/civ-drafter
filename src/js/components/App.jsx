@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
 import DraftArea from 'js/components/DraftArea';
+import { trollFactor } from 'js/constants/calculation';
 import { ThemeContext } from 'js/contexts';
 import leaders from 'json/leaders.json';
 
@@ -28,7 +29,7 @@ function App({ initialTheme }) {
 
     return (
         <ThemeContext.Provider value={theme}>
-            <DraftArea leaders={leaders} />
+            <DraftArea leaders={leaders} trollFactor={trollFactor} />
         </ThemeContext.Provider>
     );
 }

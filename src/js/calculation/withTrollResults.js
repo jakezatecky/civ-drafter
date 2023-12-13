@@ -1,18 +1,22 @@
 import random from 'lodash/random';
 
-import { trollFactor } from 'js/constants/calculation';
-
 /**
  * Troll the user by duplicating a single leader for all players.
  *
  * @param {Object} players
+ * @param {int} trollFactor
  *
  * @returns {{trollLeader, players}|{trollLeader: null, players}}
  */
-function withTrollResults(players) {
-    // There must be more than one player and we must roll a zero
-    // Only then can Cap'n Crunch bless us
-    const timeToTroll = players.length > 1 && random(0, trollFactor) === 0;
+function withTrollResults(players, trollFactor) {
+    const timeToTroll = (
+        // Trolling must not be disabled
+        trollFactor > 0 &&
+        // There must be more than one player
+        players.length > 1 &&
+        // We must roll a zero
+        random(0, trollFactor - 1) === 0
+    );
 
     if (!timeToTroll) {
         return { players };
