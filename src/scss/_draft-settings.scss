@@ -30,6 +30,11 @@
     .rct-collapse {
       display: none;
     }
+
+    // On smaller widths, wrap the text more elegantly
+    label {
+      display: flex;
+    }
   }
 }
 
