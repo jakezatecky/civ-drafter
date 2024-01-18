@@ -72,6 +72,15 @@ module.exports = () => {
                 clientsClaim: true,
                 skipWaiting: true,
                 maximumFileSizeToCacheInBytes: isProduction ? 2097152 : 1024 * 1024 * 10,
+
+                // Exclude index.html from precaching
+                exclude: [/index\.html$/],
+
+                // Always use latest version of index.html, if available
+                runtimeCaching: [{
+                    urlPattern: /index\.html$/,
+                    handler: 'NetworkFirst',
+                }],
             }),
         );
     }
