@@ -7,7 +7,6 @@ footer {
   padding: 1.25rem 0.5rem;
   margin-top: auto;
   font-size: 14px;
-  color: $footer-color;
   text-align: center;
   background: $footer-bg;
 }
@@ -23,18 +22,21 @@ footer {
 .footer-items {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
   align-items: center;
   justify-content: center;
   padding: 0;
   margin-bottom: 0;
   list-style: none;
 
+  .btn {
+    // stylelint-disable scss/at-extend-no-missing-placeholder
+    @extend .btn-sm;
+    @extend .btn-outline-dark;
+    // stylelint-enable scss/at-extend-no-missing-placeholder
+  }
+
   @media (min-width: 505px) {
     flex-direction: row;
-
-    > li + li::before {
-      margin-left: 0.325rem;
-      content: "|";
-    }
   }
 }
