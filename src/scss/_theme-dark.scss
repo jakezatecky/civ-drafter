@@ -19,12 +19,12 @@ $draft-choice-border: $draft-player-border-hover-dark;
 
     .brand-link,
     .brand-link:hover,
-    .theme-switcher {
+    .header-action {
       color: $header-color-dark;
     }
   }
 
-  .header-actions > .theme-switcher {
+  .header-actions > .header-action {
     &:hover {
       background: $header-action-hover-bg-dark;
     }

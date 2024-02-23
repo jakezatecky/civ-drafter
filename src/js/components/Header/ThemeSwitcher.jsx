@@ -51,6 +51,7 @@ function ThemeSwitcher({ initialTheme }) {
 
     const label = isDarkMode ? language('theme.switchLight') : language('theme.switchDark');
     const className = classNames({
+        'header-action': true,
         'theme-switcher': true,
         'theme-dark': isDarkMode,
         'theme-light': !isDarkMode,

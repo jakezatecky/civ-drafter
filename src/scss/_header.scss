@@ -2,6 +2,8 @@
 // Header
 // --------------------------------------------------
 
+$header-xs-break: 350px;
+
 header {
   margin-bottom: 1.5rem;
   background: $header-bg;
@@ -13,7 +15,7 @@ header {
     align-items: center;
     padding: 1rem 0.75rem;
 
-    @media (min-width: 350px) {
+    @media (min-width: $header-xs-break) {
       flex-direction: row;
     }
   }
@@ -39,12 +41,17 @@ header {
 }
 
 .header-actions {
-  > .theme-switcher {
+  display: flex;
+  flex-direction: row;
+  gap: 0.375rem;
+
+  > .header-action {
     display: flex;
     align-items: center;
     padding: 0.5rem;
     font-size: 20px;
     color: $header-color;
+    text-decoration: none;
     background: none;
     border: 0;
     border-radius: 50%;
@@ -64,7 +71,7 @@ header {
     }
   }
 
-  @media (min-width: 350px) {
+  @media (min-width: $header-xs-break) {
     margin-left: auto;
   }
 }

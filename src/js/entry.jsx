@@ -3,7 +3,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 
 import App from 'js/components/App';
-import ThemeSwitcher from 'js/components/ThemeSwitcher';
+import HeaderActions from 'js/components/Header/HeaderActions';
 import getInitialTheme from 'js/utils/getInitialTheme';
 import getLanguageResolver from 'js/utils/getLanguageResolver';
 import { LanguageContext } from 'js/contexts';
@@ -31,4 +31,4 @@ const initialTheme = getInitialTheme();
 const root = createRoot(document.getElementById('mount'));
 const headerActions = createRoot(document.getElementById('header-actions'));
 root.render(languageWrapper(<App initialTheme={initialTheme} />));
-headerActions.render(languageWrapper(<ThemeSwitcher initialTheme={initialTheme} />));
+headerActions.render(languageWrapper(<HeaderActions initialTheme={initialTheme} />));
