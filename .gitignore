@@ -4,7 +4,7 @@
 /public/404.html
 /public/index.html
 /public/sitemap.xml
-/public/workbox-*.js
-/public/service-worker.js
+/public/workbox-*.js*
+/public/service-worker.js*
 package-lock.json
 yarn.lock

@@ -9,6 +9,7 @@ const isProduction = environment === 'production';
 module.exports = () => {
     const config = {
         mode: isProduction ? 'production' : 'development',
+        devtool: isProduction ? 'source-map' : 'eval',
         output: {
             path: path.join(__dirname, '/public'),
             publicPath: '/',
