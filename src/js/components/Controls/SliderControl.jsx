@@ -11,20 +11,22 @@ const propTypes = {
     label: PropTypes.string.isRequired,
     max: PropTypes.number.isRequired,
     min: PropTypes.number.isRequired,
+
+    id: PropTypes.string,
 };
 
 /* eslint-disable react/jsx-props-no-spreading */
-function SliderControl(props) {
-    const {
-        label,
-        max,
-        min,
-        ...otherProps
-    } = props;
+function SliderControl({
+    label,
+    min,
+    max,
+    id = null,
+    ...otherProps
+}) {
     const theme = useContext(ThemeContext);
 
     // Derive ID from label
-    const id = otherProps.id || kebabCase(label);
+    const sliderId = id || kebabCase(label);
 
     // Construct label marks underneath
     const numberOfMarks = max - min + 1;
@@ -34,13 +36,13 @@ function SliderControl(props) {
 
     return (
         <div className="control-range">
-            <label className="form-label" htmlFor={id}>
+            <label className="form-label" id={sliderId}>
                 {label}
             </label>
             <ThemeProvider theme={materialTheme(theme)}>
                 <Slider
                     aria-label={label}
-                    id={id}
+                    aria-labelledby={sliderId}
                     marks={marks}
                     max={max}
                     min={min}
