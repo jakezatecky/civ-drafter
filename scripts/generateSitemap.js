@@ -1,6 +1,10 @@
-const fs = require('node:fs/promises');
-const { XMLBuilder } = require('fast-xml-parser');
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { XMLBuilder } from 'fast-xml-parser';
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const outputPath = `${__dirname}/../public/sitemap.xml`;
 
 async function generateSitemap() {

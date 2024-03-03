@@ -1,5 +1,5 @@
-const fs = require('node:fs');
-const sharp = require('sharp');
+import fs from 'node:fs';
+import sharp  from 'sharp';
 
 const source = './data/leader-images';
 const destination = './public/assets/img/leader-icons';

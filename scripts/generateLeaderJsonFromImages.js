@@ -1,4 +1,4 @@
-const fs = require('node:fs');
+import fs from 'node:fs';
 
 const imagePath = './data/leader-images';
 const jsonPath = './src/json/leaders.json';
