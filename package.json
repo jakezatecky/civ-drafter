@@ -19,7 +19,7 @@
     "release": "npm run test && npm run build",
     "release-prod": "npm run test && npm run build-prod",
     "test": "npm run lint && npm run test:script && npm run test:style-format",
-    "test:script": "mocha test-compiled/index.js",
+    "test:script": "webpack --config=webpack.config.test.js && mocha test-compiled/index.js",
     "test:style-format": "prettier --check src/scss/**/*.scss"
   },
   "author": "Jake Zatecky",
