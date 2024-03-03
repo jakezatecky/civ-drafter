@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import LanguageText from 'js/components/Utils/LanguageText';
+import LanguageText from '#js/components/Utils/LanguageText.jsx';
 
 const prefixMap = {
     info: <span key="info" className="fa fa-info-circle" />,

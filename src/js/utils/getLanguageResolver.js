@@ -1,4 +1,4 @@
-import get from 'lodash/get';
+import get from 'lodash/get.js';
 
 export default function getLanguageResolver(language) {
     return (key, variables = {}) => {

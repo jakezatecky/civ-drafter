@@ -3,8 +3,8 @@ import sinon from 'sinon';
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 
-import App from 'js/components/App';
-import wrapper from '../languageWrapper';
+import App from '#js/components/App.jsx';
+import wrapper from '../languageWrapper.jsx';
 
 describe('<App />', () => {
     afterEach(() => {

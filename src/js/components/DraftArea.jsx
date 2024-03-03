@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { useCallback, useContext, useState } from 'react';
 
-import draftLeaders, { NotEnoughLeadersError } from 'js/calculation/draftLeaders';
-import withTrollResults from 'js/calculation/withTrollResults';
-import DraftActions from 'js/components/DraftActions';
-import DraftResults from 'js/components/DraftResults';
-import DraftSettings from 'js/components/DraftSettings';
-import leaderShape from 'js/shapes/leaderShape';
-import { LanguageContext } from 'js/contexts';
+import draftLeaders, { NotEnoughLeadersError } from '#js/calculation/draftLeaders.js';
+import withTrollResults from '#js/calculation/withTrollResults.js';
+import DraftActions from '#js/components/DraftActions.jsx';
+import DraftResults from '#js/components/DraftResults.jsx';
+import DraftSettings from '#js/components/DraftSettings.jsx';
+import leaderShape from '#js/shapes/leaderShape.js';
+import { LanguageContext } from '#js/contexts.js';
 
 const propTypes = {
     leaders: PropTypes.arrayOf(leaderShape).isRequired,

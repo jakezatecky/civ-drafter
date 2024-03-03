@@ -3,8 +3,8 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import DraftArea from 'js/components/DraftArea';
-import wrapper from '../languageWrapper';
+import DraftArea from '#js/components/DraftArea.jsx';
+import wrapper from '../languageWrapper.jsx';
 
 const baseLeaders = [
     {

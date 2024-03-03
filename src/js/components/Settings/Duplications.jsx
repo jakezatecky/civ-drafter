@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import CheckboxTree from 'react-checkbox-tree';
 
-import { LanguageContext } from 'js/contexts';
-import duplicationNodes from 'json/duplication-tree.json';
+import { LanguageContext } from '#js/contexts.js';
+import duplicationNodes from '#json/duplication-tree.json';
 
 const propTypes = {
     duplications: PropTypes.arrayOf(PropTypes.string).isRequired,

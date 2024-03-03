@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-import leaderShape from 'js/shapes/leaderShape';
+import leaderShape from '#js/shapes/leaderShape.js';
 
 const draftResultsShape = PropTypes.shape({
     players: PropTypes.arrayOf(PropTypes.shape({

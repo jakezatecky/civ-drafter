@@ -8,7 +8,7 @@ import React, {
     useState,
 } from 'react';
 
-import { LanguageContext } from 'js/contexts';
+import { LanguageContext } from '#js/contexts.js';
 
 const propTypes = {
     initialTheme: PropTypes.string.isRequired,

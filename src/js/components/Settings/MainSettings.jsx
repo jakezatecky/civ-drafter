@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 
-import SliderControl from 'js/components/Controls/SliderControl';
-import { LanguageContext } from 'js/contexts';
+import SliderControl from '#js/components/Controls/SliderControl.jsx';
+import { LanguageContext } from '#js/contexts.js';
 
 const propTypes = {
     numChoices: PropTypes.number.isRequired,

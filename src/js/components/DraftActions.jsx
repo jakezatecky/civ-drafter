@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 
-import CopyToClipboard from 'js/components/Utils/CopyToClipboard';
-import { LanguageContext } from 'js/contexts';
-import draftResultsShape from 'js/shapes/draftResultsShape';
+import CopyToClipboard from '#js/components/Utils/CopyToClipboard.jsx';
+import { LanguageContext } from '#js/contexts.js';
+import draftResultsShape from '#js/shapes/draftResultsShape.js';
 
 const propTypes = {
     results: draftResultsShape,

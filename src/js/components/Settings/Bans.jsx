@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 
-import AutocompleteControl from 'js/components/Controls/AutocompleteControl';
-import leaderShape from 'js/shapes/leaderShape';
-import { LanguageContext } from 'js/contexts';
+import AutocompleteControl from '#js/components/Controls/AutocompleteControl.jsx';
+import leaderShape from '#js/shapes/leaderShape.js';
+import { LanguageContext } from '#js/contexts.js';
 
 const propTypes = {
     bans: PropTypes.arrayOf(PropTypes.string).isRequired,

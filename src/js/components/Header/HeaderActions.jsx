@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-import ThemeSwitcher from 'js/components/Header/ThemeSwitcher';
+import ThemeSwitcher from '#js/components/Header/ThemeSwitcher.jsx';
 
 const propTypes = {
     initialTheme: PropTypes.string.isRequired,

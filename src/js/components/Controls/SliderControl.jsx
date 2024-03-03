@@ -1,11 +1,10 @@
-import kebabCase from 'lodash/kebabCase';
+import kebabCase from 'lodash/kebabCase.js';
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
-import Slider from '@mui/material/Slider';
-import { ThemeProvider } from '@mui/material/styles';
+import { Slider, ThemeProvider } from '@mui/material';
 
-import { ThemeContext } from 'js/contexts';
-import materialTheme from 'js/utils/materialTheme';
+import { ThemeContext } from '#js/contexts.js';
+import materialTheme from '#js/utils/materialTheme.js';
 
 const propTypes = {
     label: PropTypes.string.isRequired,

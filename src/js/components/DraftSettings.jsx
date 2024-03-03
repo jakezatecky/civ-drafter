@@ -4,16 +4,16 @@ import React, {
     useContext,
     useState,
 } from 'react';
-import Accordion from 'react-bootstrap/Accordion';
+import { Accordion } from 'react-bootstrap';
 
-import Bans from 'js/components/Settings/Bans';
-import Duplications from 'js/components/Settings/Duplications';
-import MainSettings from 'js/components/Settings/MainSettings';
-import Players from 'js/components/Settings/Players';
-import SettingsSection from 'js/components/Settings/SettingsSection';
-import { LanguageContext } from 'js/contexts';
-import leaderShape from 'js/shapes/leaderShape';
-import allDlc from 'json/dlc.json';
+import Bans from '#js/components/Settings/Bans.jsx';
+import Duplications from '#js/components/Settings/Duplications.jsx';
+import MainSettings from '#js/components/Settings/MainSettings.jsx';
+import Players from '#js/components/Settings/Players.jsx';
+import SettingsSection from '#js/components/Settings/SettingsSection.jsx';
+import { LanguageContext } from '#js/contexts.js';
+import leaderShape from '#js/shapes/leaderShape.js';
+import allDlc from '#json/dlc.json';
 
 const defaultSettings = {
     numPlayers: 6,

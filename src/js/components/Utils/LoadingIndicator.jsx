@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import { LanguageContext } from 'js/contexts';
+import { LanguageContext } from '#js/contexts.js';
 
 function LoadingIndicator() {
     const language = useContext(LanguageContext);

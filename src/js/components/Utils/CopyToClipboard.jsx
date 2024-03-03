@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import rgb2hex from 'rgb2hex';
 
-import { LanguageContext } from 'js/contexts';
+import { LanguageContext } from '#js/contexts.js';
 
 function hasClipboardApi() {
     return typeof ClipboardItem !== 'undefined' && 'write' in navigator.clipboard;

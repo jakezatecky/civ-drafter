@@ -1,10 +1,14 @@
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
-import { Autocomplete, Box, TextField } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
+import {
+    Autocomplete,
+    Box,
+    TextField,
+    ThemeProvider,
+} from '@mui/material';
 
-import { ThemeContext } from 'js/contexts';
-import materialTheme from 'js/utils/materialTheme';
+import { ThemeContext } from '#js/contexts.js';
+import materialTheme from '#js/utils/materialTheme.js';
 
 const propTypes = {
     label: PropTypes.node.isRequired,

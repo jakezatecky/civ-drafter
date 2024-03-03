@@ -1,12 +1,16 @@
-const path = require('node:path');
-const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
-const webpack = require('webpack');
-const WorkboxPlugin = require('workbox-webpack-plugin');
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import HtmlBundlerPlugin from 'html-bundler-webpack-plugin';
+import webpack from 'webpack';
+import WorkboxPlugin from 'workbox-webpack-plugin';
 
+/* eslint-disable no-underscore-dangle */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const environment = process.env.NODE_ENV;
 const isProduction = environment === 'production';
 
-module.exports = () => {
+export default () => {
     const config = {
         mode: isProduction ? 'production' : 'development',
         devtool: isProduction ? 'source-map' : 'eval',
@@ -15,10 +19,6 @@ module.exports = () => {
             publicPath: '/',
         },
         resolve: {
-            modules: [
-                path.join(__dirname, '/node_modules'),
-                path.join(__dirname, '/src'),
-            ],
             extensions: ['.js', '.jsx'],
         },
         module: {

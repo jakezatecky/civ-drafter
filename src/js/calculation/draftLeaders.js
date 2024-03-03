@@ -1,4 +1,4 @@
-import shuffle from 'lodash/shuffle';
+import shuffle from 'lodash/shuffle.js';
 
 class NotEnoughLeadersError extends Error {
     name = 'NotEnoughLeadersError';

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 
-import Alert from 'js/components/Utils/Alert';
-import draftResultsShape from 'js/shapes/draftResultsShape';
-import { LanguageContext } from 'js/contexts';
+import Alert from '#js/components/Utils/Alert.jsx';
+import draftResultsShape from '#js/shapes/draftResultsShape.js';
+import { LanguageContext } from '#js/contexts.js';
 
 const propTypes = {
     results: draftResultsShape.isRequired,

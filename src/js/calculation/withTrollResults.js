@@ -1,4 +1,4 @@
-import random from 'lodash/random';
+import random from 'lodash/random.js';
 
 /**
  * Troll the user by duplicating a single leader for all players.

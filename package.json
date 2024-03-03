@@ -3,6 +3,11 @@
   "version": "1.8.0",
   "description": "A modern, mobile-friendly drafting tool for Sid Meier's Civilization VI.",
   "main": "webpack.config.js",
+  "type": "module",
+  "imports": {
+    "#js/*": "./src/js/*",
+    "#json/*": "./src/json/*"
+  },
   "scripts": {
     "build": "webpack",
     "build-prod": "cross-env NODE_ENV=production webpack && node ./scripts/generateSitemap.js",
@@ -14,7 +19,7 @@
     "release": "npm run test && npm run build",
     "release-prod": "npm run test && npm run build-prod",
     "test": "npm run lint && npm run test:script && npm run test:style-format",
-    "test:script": "cross-env NODE_PATH=./src mocha test/**/*.{js,jsx}",
+    "test:script": "mocha test-compiled/index.js",
     "test:style-format": "prettier --check src/scss/**/*.scss"
   },
   "author": "Jake Zatecky",
@@ -46,11 +51,10 @@
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
     "babel-loader": "^9.0.0",
-    "chai": "^4.2.0",
-    "cross-env": "^7.0.3",
+    "chai": "^5.1.0",
     "css-loader": "^6.7.3",
     "eslint": "^8.27.0",
-    "eslint-config-takiyon-react": "^4.0.0",
+    "eslint-config-takiyon-react": "^5.0.0",
     "eslint-import-resolver-webpack": "^0.13.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
@@ -58,6 +62,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "fast-xml-parser": "^4.1.1",
     "global-jsdom": "^24.0.0",
+    "globals": "^14.0.0",
     "html-bundler-webpack-plugin": "^3.0.3",
     "jsdom": "^24.0.0",
     "mocha": "^10.0.0",

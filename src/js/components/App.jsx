@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import React, { useEffect, useState } from 'react';
 
-import DraftArea from 'js/components/DraftArea';
-import { trollFactor } from 'js/constants/calculation';
-import { ThemeContext } from 'js/contexts';
-import leaders from 'json/leaders.json';
+import DraftArea from '#js/components/DraftArea.jsx';
+import { trollFactor } from '#js/constants/calculation.js';
+import { ThemeContext } from '#js/contexts.js';
+import leaders from '#json/leaders.json';
 
 const propTypes = {
     initialTheme: PropTypes.string.isRequired,
