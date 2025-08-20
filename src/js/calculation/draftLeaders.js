@@ -1,8 +1,6 @@
 import shuffle from 'lodash/shuffle.js';
 
 class NotEnoughLeadersError extends Error {
-    name = 'NotEnoughLeadersError';
-
     constructor(totalChoices, availableLeaders) {
         super('Not enough available leaders');
 
@@ -83,9 +81,11 @@ function draftLeaders(leaders, {
     numChoices,
     bans,
     duplications,
+    mods,
 }) {
-    // Remove banned leaders from the selection pool
-    const availablePool = leaders.filter(({ longName }) => !bans.includes(longName));
+    // Remove banned leaders and leaders that don't respect mods settings from the selection pool
+    const availablePool = leaders.filter(({ longName, mod }) => (!bans.includes(longName)) &&
+        (!mod || mod.every((leaderMod) => mods.includes(leaderMod))));
 
     // Shuffle the available leaders for randomization
     const shuffledPool = shuffle(availablePool);

@@ -39,6 +39,11 @@ export default () => {
         },
         devServer: {
             open: true,
+            client: {
+                overlay: {
+                    warnings: false,
+                },
+            },
             headers: {
                 'Cache-Control': 'no-store',
             },
