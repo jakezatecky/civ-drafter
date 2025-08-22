@@ -1,12 +1,10 @@
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import HtmlBundlerPlugin from 'html-bundler-webpack-plugin';
 import webpack from 'webpack';
 import WorkboxPlugin from 'workbox-webpack-plugin';
 
 /* eslint-disable no-underscore-dangle */
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+const { dirname } = import.meta;
 const environment = process.env.NODE_ENV;
 const isProduction = environment === 'production';
 
@@ -15,7 +13,7 @@ export default () => {
         mode: isProduction ? 'production' : 'development',
         devtool: isProduction ? 'source-map' : 'eval',
         output: {
-            path: path.join(__dirname, '/public'),
+            path: path.join(dirname, '/public'),
             publicPath: '/',
         },
         resolve: {
@@ -82,7 +80,7 @@ export default () => {
                 // Exclude index.html from precaching
                 exclude: [/index\.html$/],
 
-                // Always use latest version of index.html, if available
+                // Always use the latest version of index.html, if available
                 runtimeCaching: [{
                     urlPattern: /index\.html$/,
                     handler: 'NetworkFirst',
