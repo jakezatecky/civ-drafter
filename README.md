@@ -23,7 +23,7 @@
 
 ## Support the Project
 
-Web hosting is not free, and development takes time and passion. If you found this application useful, please consider [making a donation](https://ko-fi.com/onyxfox) or [becoming a supporter](https://patreon.com/civdrafter).
+Web hosting is not free, and development takes time and passion. If you found this application useful, please consider [making a donation](https://ko-fi.com/onyxfox).
 
 ## Deployment
 
