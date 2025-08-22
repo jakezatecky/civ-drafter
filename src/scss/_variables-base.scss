@@ -14,8 +14,9 @@ $border-radius: 4px;
 
 // Let's use a font that does not have off-center issues
 // Looking at you, Bootstrap, who likes to use Segoe UI for Windows
-$font-family-base: "Work Sans", "Helvetica Neue", "Noto Sans", "Liberation Sans",
-  arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+$font-family-base:
+  "Work Sans", "Helvetica Neue", "Noto Sans", "Liberation Sans", arial,
+  sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
   "Noto Color Emoji";
 
 // Set the max container size (and thus app size) to around 992px
