@@ -8,6 +8,7 @@ import { Accordion } from 'react-bootstrap';
 
 import Bans from '#js/components/Settings/Bans.jsx';
 import Duplications from '#js/components/Settings/Duplications.jsx';
+import Mods from '#js/components/Settings/Mods.jsx';
 import MainSettings from '#js/components/Settings/MainSettings.jsx';
 import Players from '#js/components/Settings/Players.jsx';
 import SettingsSection from '#js/components/Settings/SettingsSection.jsx';
@@ -20,6 +21,7 @@ const defaultSettings = {
     numChoices: 3,
     bans: [],
     duplications: [],
+    mods: [],
 };
 
 /**
@@ -84,6 +86,7 @@ function DraftSettings({ leaders, onSubmit }) {
     const {
         bans,
         duplications,
+        mods,
         numChoices,
         numPlayers,
         players,
@@ -119,6 +122,14 @@ function DraftSettings({ leaders, onSubmit }) {
         setState({ ...state, duplications: checked });
     }, [state]);
 
+    const onModsChange = useCallback((checked) => {
+        const longNames = leaders
+            .filter(({ mod }) => !mod || mod.every((leaderMod) => checked.includes(leaderMod)))
+            .map(({ longName }) => longName);
+        const modBans = bans.filter((ban) => longNames.includes(ban));
+        setState({ ...state, bans: modBans, mods: checked });
+    }, [state]);
+
     const onPlayersChange = useCallback((playerIndex, settingsKey) => (
         (newValue) => {
             // Update the individual player setting
@@ -143,7 +154,7 @@ function DraftSettings({ leaders, onSubmit }) {
         <div className="draft-settings">
             <h2 className="visually-hidden">{language('settings.header')}</h2>
             <form className="form" id="draft-form" onSubmit={onFormSubmit}>
-                <Accordion alwaysOpen defaultActiveKey={['0', '1']}>
+                <Accordion alwaysOpen defaultActiveKey={['0', '1', '2']}>
                     <SettingsSection eventKey="0" header={language('settings.main')}>
                         <MainSettings
                             numChoices={numChoices}
@@ -153,10 +164,13 @@ function DraftSettings({ leaders, onSubmit }) {
                         />
                     </SettingsSection>
                     <SettingsSection eventKey="1" header={language('settings.secondary')}>
-                        <Bans bans={bans} leaders={leaders} onChange={onBansChange} />
+                        <Bans bans={bans} leaders={leaders} mods={mods} onChange={onBansChange} />
                         <Duplications duplications={duplications} onChange={onDuplicationsChange} />
                     </SettingsSection>
-                    <SettingsSection eventKey="2" header={language('settings.player')}>
+                    <SettingsSection eventKey="2" header={language('settings.mods')}>
+                        <Mods mods={mods} onChange={onModsChange} />
+                    </SettingsSection>
+                    <SettingsSection eventKey="3" header={language('settings.player')}>
                         <Players players={players} onChange={onPlayersChange} />
                     </SettingsSection>
                 </Accordion>

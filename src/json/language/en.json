@@ -13,6 +13,8 @@
   "settings": {
     "header": "Draft selections",
     "main": "Main settings",
+    "mods": "Mods settings",
+    "enabledMods": "Enabled Mods",
     "numPlayers": "Number of players",
     "numChoices": "Number of choices",
     "secondary": "Additional settings",

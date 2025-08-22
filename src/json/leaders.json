@@ -8,6 +8,24 @@
     "dlc": ["Leader Pass"]
   },
   {
+    "id": "Ahiram",
+    "shortName": "Ahiram",
+    "longName": "Ahiram (Phoenician)",
+    "civilization": "Phoenician",
+    "image": "Ahiram_(Civ6).png",
+    "dlc": ["Gathering Storm", "Rise and Fall"],
+    "mod": ["BBG Expanded"]
+  },
+  {
+    "id": "Al-Hasan ibn Sulaiman",
+    "shortName": "Al-Hasan ibn Sulaiman",
+    "longName": "Al-Hasan ibn Sulaiman (Swahili)",
+    "civilization": "Swahili",
+    "image": "Al-Hasan_ibn_Sulaiman_(Civ6).png",
+    "dlc": [],
+    "mod": ["BBG Expanded"]
+  },
+  {
     "id": "Alexander",
     "shortName": "Alexander",
     "longName": "Alexander (Macedonian)",
@@ -248,6 +266,15 @@
     "dlc": ["Leader Pass"]
   },
   {
+    "id": "Kiviuq",
+    "shortName": "Kiviuq",
+    "longName": "Kiviuq (Thule)",
+    "civilization": "Thule",
+    "image": "Kiviuq_(Civ6).png",
+    "dlc": ["Gathering Storm"],
+    "mod": ["BBG Expanded"]
+  },
+  {
     "id": "Kristina",
     "shortName": "Kristina",
     "longName": "Kristina (Swedish)",
@@ -358,6 +385,15 @@
     "civilization": "Kongolese",
     "image": "Nzinga_Mbande_(Civ6).png",
     "dlc": ["Leader Pass"]
+  },
+  {
+    "id": "Olympias",
+    "shortName": "Olympias",
+    "longName": "Olympias (Macedonian)",
+    "civilization": "Macedonian",
+    "image": "Olympias_(Civ6).png",
+    "dlc": ["Rise and Fall", "Persia and Macedon Civilization & Scenario Pack"],
+    "mod": ["BBG Expanded"]
   },
   {
     "id": "Pachacuti",
@@ -488,6 +524,15 @@
     "dlc": ["New Frontier Pass"]
   },
   {
+    "id": "Spearthrower Owl",
+    "shortName": "Spearthrower Owl",
+    "longName": "Spearthrower Owl (Teotihuacano)",
+    "civilization": "Teotihuacano",
+    "image": "Spearthrower_Owl_(Civ6).png",
+    "dlc": ["Rise and Fall", "Gathering Storm", "New Frontier Pass"],
+    "mod": ["BBG Expanded"]
+  },
+  {
     "id": "Suleiman",
     "shortName": "Suleiman (Kanuni)",
     "longName": "Suleiman (Kanuni) (Ottoman)",
@@ -518,6 +563,15 @@
     "civilization": "Georgian",
     "image": "Tamar_(Civ6).png",
     "dlc": ["Rise and Fall"]
+  },
+  {
+    "id": "Te' K'inich II",
+    "shortName": "Te' K'inich II",
+    "longName": "Te' K'inich II (Mayan)",
+    "civilization": "Mayan",
+    "image": "Te'_K'inich_II_(Civ6).png",
+    "dlc": ["Gathering Storm"],
+    "mod": ["BBG Expanded"]
   },
   {
     "id": "Teddy Roosevelt",
@@ -566,6 +620,24 @@
     "civilization": "Roman",
     "image": "Trajan_(Civ6).png",
     "dlc": ["Vanilla"]
+  },
+  {
+    "id": "Trisong Detsen",
+    "shortName": "Trisong Detsen",
+    "longName": "Trisong Detsen (Tibetan)",
+    "civilization": "Tibetan",
+    "image": "Trisong_Detsen_(Civ6).png",
+    "dlc": ["Rise and Fall"],
+    "mod": ["BBG Expanded"]
+  },
+  {
+    "id": "Vercingetorix",
+    "shortName": "Vercingetorix",
+    "longName": "Vercingetorix (Gallic)",
+    "civilization": "Gallic",
+    "image": "Vercingetorix_(Civ6).png",
+    "dlc": ["Rise and Fall"],
+    "mod": ["BBG Expanded"]
   },
   {
     "id": "Victoria",
