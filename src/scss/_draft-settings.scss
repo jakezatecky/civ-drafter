@@ -39,13 +39,6 @@
 }
 
 .draft-settings-players > ol {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.25rem;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-
   @include media-breakpoint-up(sm) {
     grid-template-columns: 1fr 1fr;
   }
@@ -53,6 +46,13 @@
   @include media-breakpoint-up(lg) {
     grid-template-columns: 1fr 1fr 1fr;
   }
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
 
   > li {
     padding: 0.5rem;
