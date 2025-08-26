@@ -38,7 +38,7 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-checkbox-tree": "^1.8.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^19.1.1",
     "rgb2hex": "^0.2.5"
   },
   "devDependencies": {
