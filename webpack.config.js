@@ -3,7 +3,6 @@ import HtmlBundlerPlugin from 'html-bundler-webpack-plugin';
 import webpack from 'webpack';
 import WorkboxPlugin from 'workbox-webpack-plugin';
 
-/* eslint-disable no-underscore-dangle */
 const { dirname } = import.meta;
 const environment = process.env.NODE_ENV;
 const isProduction = environment === 'production';
