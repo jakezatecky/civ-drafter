@@ -29,10 +29,6 @@
 
 .draft-results-players {
   > li {
-    @include media-breakpoint-up(lg) {
-      flex-direction: row;
-    }
-
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
@@ -40,21 +36,30 @@
     border-bottom-width: 2px;
     border-radius: $border-radius;
 
+    @include media-breakpoint-up(lg) {
+      flex-direction: row;
+    }
+
     &:hover,
     &:hover h3 {
       border-color: $draft-player-border-hover;
     }
 
     + li {
+      margin-top: 1rem;
+
       @include media-breakpoint-up(lg) {
         margin-top: 0.5rem;
       }
-
-      margin-top: 1rem;
     }
   }
 
   h3 {
+    flex-shrink: 0;
+    max-width: 400px;
+    font-size: 24px;
+    font-weight: bold;
+
     @include media-breakpoint-up(lg) {
       display: flex;
       flex-direction: column;
@@ -64,23 +69,18 @@
       font-size: 18px;
       border-right: 2px solid $draft-player-border;
     }
-
-    flex-shrink: 0;
-    max-width: 400px;
-    font-size: 24px;
-    font-weight: bold;
   }
 }
 
 .draft-results-player-choices {
-  @include media-breakpoint-up(lg) {
-    padding: 0 0.5rem;
-  }
-
   display: flex;
   flex-grow: 1;
   flex-wrap: wrap;
   gap: 0.5rem;
+
+  @include media-breakpoint-up(lg) {
+    padding: 0 0.5rem;
+  }
 
   > li {
     display: flex;
