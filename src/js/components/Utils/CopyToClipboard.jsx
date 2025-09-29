@@ -41,7 +41,7 @@ function CopyToClipboard({ domSelector }) {
         });
     }
 
-    // Some browsers (e.g., Firefox) do not yet support this feature
+    // Ensure the browser supports the clipboard API
     if (!hasClipboardApi()) {
         return null;
     }
