@@ -8,4 +8,3 @@
 /public/service-worker.js*
 /test-compiled
 package-lock.json
-yarn.lock
