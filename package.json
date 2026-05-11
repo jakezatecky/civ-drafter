@@ -35,7 +35,7 @@
     "prop-types": "^15.5.10",
     "react": "^19.2.6",
     "react-bootstrap": "^2.7.0",
-    "react-checkbox-tree": "^1.8.0",
+    "react-checkbox-tree": "^2.0.1",
     "react-dom": "^19.2.6",
     "rgb2hex": "^0.2.5"
   },
