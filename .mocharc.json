@@ -3,5 +3,8 @@
     "@babel/register",
     "global-jsdom/register"
   ],
-  "reporter": "spec"
+  "reporter": "spec",
+  "node-option": [
+    "localstorage-file=./tests/storage.json"
+  ]
 }
