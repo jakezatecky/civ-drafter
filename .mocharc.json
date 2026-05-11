@@ -5,6 +5,6 @@
   ],
   "reporter": "spec",
   "node-option": [
-    "localstorage-file=./tests/storage.json"
+    "no-experimental-webstorage"
   ]
 }
