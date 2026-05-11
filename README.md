@@ -32,8 +32,8 @@ The following assumes you have Git, Node.js, and Yarn installed.
 ### Local Deployment
 
 ```
-yarn install
-yarn dev-server
+npm install
+npm run dev-server
 ```
 
 ### Remote Deployment
@@ -41,5 +41,5 @@ yarn dev-server
 This application is a static website and is thus ideal for deployment to Cloudflare, S3, and other hosts. Whatever provider you are using, make sure to run the following command to build the production version of the application:
 
 ```
-yarn test && yarn build-prod
+npm run test && npm run build-prod
 ```
