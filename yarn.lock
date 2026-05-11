@@ -4548,7 +4548,7 @@ __metadata:
     sinon: ^22.0.0
     style-loader: ^4.0.0
     stylelint: ^17.1.1
-    stylelint-config-takiyon: ^6.0.0
+    stylelint-config-takiyon: ^7.0.0
     webpack: ^5.3.2
     webpack-cli: ^7.0.2
     webpack-dev-server: ^5.0.1
@@ -4872,7 +4872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"css-tree@npm:^3.0.0, css-tree@npm:^3.0.1, css-tree@npm:^3.2.1":
+"css-tree@npm:^3.0.0, css-tree@npm:^3.2.1":
   version: 3.2.1
   resolution: "css-tree@npm:3.2.1"
   dependencies:
@@ -7786,13 +7786,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mdn-data@npm:^2.25.0":
-  version: 2.28.1
-  resolution: "mdn-data@npm:2.28.1"
-  checksum: da5761fa5541ccd282cce9b0a8a5d80ed907880d1282594fbb601689ec00a930fb77ccd2dcef07a11ca119fa037044b5df646adb5078059c3c94ef90c01fcf66
-  languageName: node
-  linkType: hard
-
 "media-typer@npm:0.3.0":
   version: 0.3.0
   resolution: "media-typer@npm:0.3.0"
@@ -8652,12 +8645,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss-sorting@npm:^9.1.0":
-  version: 9.1.0
-  resolution: "postcss-sorting@npm:9.1.0"
+"postcss-sorting@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "postcss-sorting@npm:10.0.0"
   peerDependencies:
     postcss: ^8.4.20
-  checksum: a1c7c925ef47642bb27a3f0038398343d721de92c032d3f82bd1cf5afdfb00552e689f705e8bbe815ca0e72d3943588dde10135abadfd6d1164d490612f9f9c4
+  checksum: 61f97db54f763ce49e62c136f2a45df7112846fed9c1b4a3f3790aa00d4594590f282761ac0ccaa59ae3ccf08c93707ff0a5db06589e109476ace391ff282b8d
   languageName: node
   linkType: hard
 
@@ -8668,7 +8661,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.16, postcss@npm:^8.4.20, postcss@npm:^8.4.40, postcss@npm:^8.5.13, postcss@npm:^8.5.6":
+"postcss@npm:^8.4.16, postcss@npm:^8.4.20, postcss@npm:^8.4.40, postcss@npm:^8.5.13, postcss@npm:^8.5.8":
   version: 8.5.14
   resolution: "postcss@npm:8.5.14"
   dependencies:
@@ -10159,19 +10152,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-config-takiyon@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "stylelint-config-takiyon@npm:6.0.0"
+"stylelint-config-takiyon@npm:^7.0.0":
+  version: 7.0.0
+  resolution: "stylelint-config-takiyon@npm:7.0.0"
   dependencies:
     postcss: ^8.4.16
     postcss-scss: ^4.0.5
     stylelint-config-recess-order: ^7.2.0
     stylelint-declaration-strict-value: ^1.10.11
-    stylelint-order: ^7.0.0
-    stylelint-scss: ^6.0.0
+    stylelint-order: ^8.1.1
+    stylelint-scss: ^7.0.0
   peerDependencies:
-    stylelint: ^16.0.2
-  checksum: 4450f415fab98b522ea29acbaf9f402ee402efd3bab29e5193ed8a2ba50e1a3b4c070bc0d548bf66e43442b65d4c6f44347b8f55f0758c61b356d78dc3db39ac
+    stylelint: ^17.8.0
+  checksum: aa241aaa4bdeddd88784c6d85efcb5297a73ed199bfbe9f71bc0e67924eeca0a19dd63b108c1f5b2c3f0e8fbb5e5d5577275d5249025bf6ea87bfc85eab44a8a
   languageName: node
   linkType: hard
 
@@ -10184,33 +10177,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-order@npm:^7.0.0":
-  version: 7.0.1
-  resolution: "stylelint-order@npm:7.0.1"
+"stylelint-order@npm:^8.1.1":
+  version: 8.1.1
+  resolution: "stylelint-order@npm:8.1.1"
   dependencies:
-    postcss: ^8.5.6
-    postcss-sorting: ^9.1.0
+    postcss: ^8.5.8
+    postcss-sorting: ^10.0.0
   peerDependencies:
     stylelint: ^16.18.0 || ^17.0.0
-  checksum: 825b5420f338622e143af54f9fa020e4e86279cff71f1b4b71017583808114aad8fbf8a36b4bf521b9ceeab9194fb8f3bbda4a888c00f7d0d5eda0414878f0ed
+  checksum: 0bbb00755c6361c3350c00fbd6058bcffa6ecf0b7ec074f5ff1214e4969191ee9e19c6f87b69c1e5fa2c5a313e8c1539867d3a179d259c075b2b2e0b2500542a
   languageName: node
   linkType: hard
 
-"stylelint-scss@npm:^6.0.0":
-  version: 6.14.0
-  resolution: "stylelint-scss@npm:6.14.0"
+"stylelint-scss@npm:^7.0.0":
+  version: 7.1.0
+  resolution: "stylelint-scss@npm:7.1.0"
   dependencies:
-    css-tree: ^3.0.1
+    "@csstools/css-calc": ^3.2.0
+    "@csstools/css-parser-algorithms": ^4.0.0
+    "@csstools/css-syntax-patches-for-csstree": ^1.1.3
+    "@csstools/css-tokenizer": ^4.0.0
+    css-tree: ^3.2.1
     is-plain-object: ^5.0.0
     known-css-properties: ^0.37.0
-    mdn-data: ^2.25.0
     postcss-media-query-parser: ^0.2.3
     postcss-resolve-nested-selector: ^0.1.6
     postcss-selector-parser: ^7.1.1
     postcss-value-parser: ^4.2.0
   peerDependencies:
-    stylelint: ^16.8.2
-  checksum: 08dd304a0a2505f52491c479ab084bd7ab57b7fb0fcebc94f503d0b485c79e57ba27b65f0c0fc426dcdad994bc25f6650dc5aee2895a563f34e1357ca774b75f
+    stylelint: ^16.8.2 || ^17.0.0
+  checksum: 591b1a346bfabf878ed8a124f4e5e3c4199dd4ebbca64336c6ff5d48d06cc78e5b295b908e138b792b55d57c44a26d63b74a87ff1dd90a914fe0152073bb44a3
   languageName: node
   linkType: hard
 
