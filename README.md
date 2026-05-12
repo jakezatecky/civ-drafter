@@ -27,7 +27,7 @@ Web hosting is not free, and development takes time and passion. If you found th
 
 ## Deployment
 
-The following assumes you have Git, Node.js, and Yarn installed.
+This application is a static website, suitable for local or remote deployment. The following assumes you have Node.js installed.
 
 ### Local Deployment
 
@@ -38,7 +38,7 @@ npm run dev-server
 
 ### Remote Deployment
 
-This application is a static website and is thus ideal for deployment to Cloudflare, S3, and other hosts. Whatever provider you are using, make sure to run the following command to build the production version of the application:
+You can easily deploy this application to Cloudflare, S3, or other hosts. Run the following to build the production version of the application:
 
 ```
 npm run test && npm run build-prod
