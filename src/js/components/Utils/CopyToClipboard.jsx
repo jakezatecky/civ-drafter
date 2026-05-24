@@ -1,4 +1,3 @@
-import html2canvas from 'html2canvas';
 import PropTypes from 'prop-types';
 import React, { useContext } from 'react';
 import rgb2hex from 'rgb2hex';
@@ -17,7 +16,9 @@ function CopyToClipboard({ domSelector }) {
     const language = useContext(LanguageContext);
     const copyText = language('actions.copyToClipboard');
 
-    function onCopy() {
+    async function onCopy() {
+        // Dynamically import `html2canvas` to avoid loading it unnecessarily
+        const { default: html2canvas } = await import('html2canvas');
         const resultsArea = document.querySelector(domSelector);
 
         // Extract the background color (changes depending on theme)
