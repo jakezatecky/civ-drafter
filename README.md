@@ -12,7 +12,7 @@
 ### Features
 
 * Ban specific leaders
-* Copy results to the clipboard as an image (requires Chromium or Webkit browser)
+* Copy results to the clipboard as an image
 * Remembers draft settings when returning to the site
 * Restrict DLC leaders to certain players
 * Change the names of players
