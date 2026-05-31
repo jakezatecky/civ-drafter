@@ -12,10 +12,10 @@ const destination = './public/assets/img/leader-icons';
 async function resizeLeaderImagesForWeb() {
     const files = await fs.promises.readdir(source);
 
-    await Promise.all((files).map(async (filename) => {
+    await Promise.all(files.map(async (filename) => {
         await sharp(`${source}/${filename}`)
             .resize(32)
-            .png()
+            .webp()
             .toFile(`${destination}/${filename}`);
     }));
 }

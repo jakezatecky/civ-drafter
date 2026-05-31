@@ -4,7 +4,7 @@ const imagePath = './data/leader-images';
 const jsonPath = './src/json/leaders.json';
 
 /**
- * Generate a JSON array of image paths and labels from the PNGs pulled from the Civ wiki.
+ * Generate a JSON array of image paths and labels from the WebP images pulled from the Civ wiki.
  *
  * Note that this does not include nation data.
  *
@@ -15,7 +15,7 @@ async function generateLeaderJson() {
 
     const formatted = files.map((filename) => ({
         image: filename,
-        name: filename.split('_(Civ6).png').join('').split('_').join(' '),
+        name: filename.split('_(Civ6).webp').join('').split('_').join(' '),
     }));
 
     await fs.promises.writeFile(jsonPath, JSON.stringify(formatted, null, 2));

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import React, { useContext, useMemo } from 'react';
 import {
     Autocomplete,
     Box,
@@ -48,11 +48,12 @@ function getOptionMap(options) {
 /* eslint-disable react/jsx-props-no-spreading */
 function AutocompleteControl({ label, options, ...otherProps }) {
     const theme = useContext(ThemeContext);
+    const muiTheme = useMemo(() => materialTheme(theme), [theme]);
     const formattedOptions = options.map(({ value }) => value);
     const optionMap = getOptionMap(options);
 
     return (
-        <ThemeProvider theme={materialTheme(theme)}>
+        <ThemeProvider theme={muiTheme}>
             <Autocomplete
                 getOptionLabel={(value) => optionMap[value].name}
                 multiple
