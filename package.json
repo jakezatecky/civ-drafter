@@ -40,7 +40,7 @@
     "rgb2hex": "^0.2.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
+    "@babel/core": "^8.0.1",
     "@babel/eslint-parser": "^7.14.4",
     "@babel/preset-env": "^7.3.1",
     "@babel/preset-react": "^7.0.0",
