@@ -32,7 +32,7 @@ function MainSettings({
             <SliderControl
                 id="num-choices"
                 label={language('settings.numChoices')}
-                max={6}
+                max={8}
                 min={1}
                 value={numChoices}
                 onChange={onNumChoicesChange}
