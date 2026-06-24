@@ -40,11 +40,11 @@
     "rgb2hex": "^0.2.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/eslint-parser": "^7.14.4",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
+    "@babel/core": "^8.0.1",
+    "@babel/eslint-parser": "^8.0.1",
+    "@babel/preset-env": "^8.0.1",
+    "@babel/preset-react": "^8.0.1",
+    "@babel/register": "^8.0.1",
     "@testing-library/dom": "^10.0.0",
     "@testing-library/react": "^16.0.0",
     "@testing-library/user-event": "^14.4.3",
@@ -82,6 +82,8 @@
   },
   "overrides": {
     "eslint-config-takiyon-react": {
+      "@babel/core": "$@babel/core",
+      "@babel/eslint-parser": "$@babel/eslint-parser",
       "eslint": "$eslint",
       "eslint-plugin-react-hooks": "$eslint-plugin-react-hooks"
     },
