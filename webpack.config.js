@@ -15,9 +15,6 @@ export default () => {
             path: path.join(dirname, '/public'),
             publicPath: '/',
         },
-        resolve: {
-            extensions: ['.js', '.jsx'],
-        },
         module: {
             rules: [
                 {

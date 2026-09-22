@@ -11,9 +11,6 @@ export default {
         path: path.join(dirname, '/test-compiled'),
         publicPath: path.join(dirname, './public'),
     },
-    resolve: {
-        extensions: ['.js'],
-    },
     module: {
         parser: {
             javascript: {
