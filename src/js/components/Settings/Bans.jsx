@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 import AutocompleteControl from '#js/components/Controls/AutocompleteControl.jsx';
 import leaderShape from '#js/shapes/leaderShape.js';

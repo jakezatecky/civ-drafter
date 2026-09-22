@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, {
+import {
     useCallback,
     useContext,
     useState,
@@ -108,7 +108,7 @@ function DraftSettings({ leaders, onSubmit }) {
         }
 
         setState({ ...state, ...changes });
-    }, [state]);
+    }, [state, numPlayers, players]);
 
     const onNumChoicesChange = useCallback((event) => {
         setState({ ...state, numChoices: event.target.value });
@@ -128,7 +128,7 @@ function DraftSettings({ leaders, onSubmit }) {
             .map(({ longName }) => longName);
         const modBans = bans.filter((ban) => longNames.includes(ban));
         setState({ ...state, bans: modBans, mods: checked });
-    }, [state]);
+    }, [state, bans, leaders]);
 
     const onPlayersChange = useCallback((playerIndex, settingsKey) => (
         (newValue) => {
@@ -142,7 +142,7 @@ function DraftSettings({ leaders, onSubmit }) {
                 ],
             });
         }
-    ), [state]);
+    ), [state, players]);
 
     const onFormSubmit = useCallback((event) => {
         event.preventDefault();

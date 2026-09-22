@@ -1,6 +1,5 @@
 import { assert } from 'chai';
 import sinon from 'sinon';
-import React from 'react';
 import { render, screen } from '@testing-library/react';
 
 import App from '#js/components/App.jsx';

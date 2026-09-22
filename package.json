@@ -52,13 +52,8 @@
     "chai": "^6.0.1",
     "cross-env": "^10.0.0",
     "css-loader": "^7.0.0",
-    "eslint": "^9.34.0",
-    "eslint-config-takiyon-react": "^7.0.0",
-    "eslint-import-resolver-webpack": "^0.13.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint": "^10.11.0",
+    "eslint-config-takiyon-react": "^8.0.1",
     "fast-xml-parser": "^5.2.5",
     "global-jsdom": "^29.0.0",
     "globals": "^17.6.0",
@@ -79,16 +74,5 @@
     "webpack-cli": "^7.0.2",
     "webpack-dev-server": "^5.0.1",
     "workbox-webpack-plugin": "^7.0.0"
-  },
-  "overrides": {
-    "eslint-config-takiyon-react": {
-      "@babel/core": "$@babel/core",
-      "@babel/eslint-parser": "$@babel/eslint-parser",
-      "eslint": "$eslint",
-      "eslint-plugin-react-hooks": "$eslint-plugin-react-hooks"
-    },
-    "eslint-plugin-import": {
-      "eslint": "$eslint"
-    }
   }
 }

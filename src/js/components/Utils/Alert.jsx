@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 
 import LanguageText from '#js/components/Utils/LanguageText.jsx';
 

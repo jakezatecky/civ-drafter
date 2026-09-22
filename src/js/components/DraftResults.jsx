@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 import Alert from '#js/components/Utils/Alert.jsx';
 import draftResultsShape from '#js/shapes/draftResultsShape.js';

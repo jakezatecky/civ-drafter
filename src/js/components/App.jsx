@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import DraftArea from '#js/components/DraftArea.jsx';
 import { trollFactor } from '#js/constants/calculation.js';

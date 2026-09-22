@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useCallback, useContext, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 
 import draftLeaders, { NotEnoughLeadersError } from '#js/calculation/draftLeaders.js';
 import withTrollResults from '#js/calculation/withTrollResults.js';
@@ -33,7 +33,7 @@ function DraftArea({ leaders, trollFactor = 0 }) {
                 throw error;
             }
         }
-    }, []);
+    }, [leaders, trollFactor, language]);
 
     return (
         <section className="draft-area">

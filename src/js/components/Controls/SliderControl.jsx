@@ -1,6 +1,6 @@
 import kebabCase from 'lodash/kebabCase.js';
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { Slider, ThemeProvider } from '@mui/material';
 
 import { ThemeContext } from '#js/contexts.js';

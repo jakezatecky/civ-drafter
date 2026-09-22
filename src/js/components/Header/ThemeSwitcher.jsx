@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import React, {
+import {
     useCallback,
     useContext,
     useEffect,
@@ -31,12 +31,13 @@ function ThemeSwitcher({ initialTheme }) {
     // Set initial root theme
     useEffect(() => {
         setRootTheme(theme);
-    }, []);
+    });
 
     // Save user's changes
     useEffect(() => {
         if (isFirstRender.current) {
             isFirstRender.current = false;
+
             return;
         }
 
@@ -47,7 +48,7 @@ function ThemeSwitcher({ initialTheme }) {
     // Toggle the user's theme
     const onChange = useCallback(() => {
         setTheme(isDarkMode ? 'light' : 'dark');
-    }, [theme]);
+    }, [isDarkMode]);
 
     const label = isDarkMode ? language('theme.switchLight') : language('theme.switchDark');
     const className = classNames({

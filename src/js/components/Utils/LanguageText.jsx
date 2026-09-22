@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 
 import MarkdownText from '#js/components/Utils/MarkdownText.jsx';
 import { LanguageContext } from '#js/contexts.js';
