@@ -8,8 +8,7 @@ export default {
         index: path.join(dirname, 'test/index.js'),
     },
     output: {
-        path: path.join(dirname, '/test-compiled'),
-        publicPath: path.join(dirname, './public'),
+        path: path.join(dirname, 'test-compiled'),
     },
     module: {
         parser: {
@@ -20,7 +19,7 @@ export default {
         rules: [
             {
                 test: /\.jsx?$/,
-                exclude: /(node_modules)/,
+                exclude: /node_modules/,
                 loader: 'babel-loader',
             },
         ],

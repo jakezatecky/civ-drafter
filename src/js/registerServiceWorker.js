@@ -1,8 +1,8 @@
-/* global REGISTER_SERVICE_WORKER */
+/* global process */
 /* eslint-disable no-console */
 
 function registerServiceWorker() {
-    if ('serviceWorker' in navigator && REGISTER_SERVICE_WORKER) {
+    if ('serviceWorker' in navigator && process.env.NODE_ENV === 'production') {
         window.addEventListener('load', () => {
             navigator.serviceWorker.register('/service-worker.js').then(() => {
                 // Success

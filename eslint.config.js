@@ -4,33 +4,24 @@ import globals from 'globals';
 export default [
     ...takiyonConfig,
     {
-        // Front-end files
-        files: ['src/js/**/*.{js,jsx}'],
+        // Front-end and test files
+        files: ['src/js/**/*.{js,jsx}', 'test/**/*.{js,jsx}'],
         languageOptions: {
-            globals: {
-                APP_NAME: 'readonly',
-                ...globals.browser,
-            },
+            globals: globals.browser,
         },
     },
     {
         // Test files
         files: ['test/**/*.{js,jsx}'],
         languageOptions: {
-            globals: {
-                APP_NAME: 'readonly',
-                ...globals.browser,
-                ...globals.mocha,
-            },
+            globals: globals.mocha,
         },
     },
     {
         // Build files
-        files: ['*.{js,jsx}'],
+        files: ['*.js'],
         languageOptions: {
-            globals: {
-                ...globals.node,
-            },
+            globals: globals.node,
         },
     },
 ];
