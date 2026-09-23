@@ -1,7 +1,8 @@
 import { createContext } from 'react';
 
 const ThemeContext = createContext('light');
-const LanguageContext = createContext(() => {});
+/** @type {import('react').Context<import('#js/utils/getLanguageResolver.js').LanguageResolver>} */
+const LanguageContext = createContext((key) => key);
 
 export {
     ThemeContext,

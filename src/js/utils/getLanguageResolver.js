@@ -1,5 +1,16 @@
 import get from 'lodash/get.js';
 
+/**
+ * @callback LanguageResolver
+ * @param {string} key Dot-notation path to the language string.
+ * @param {Object<string, string|number>} [variables] Values for `{name}` placeholders.
+ * @returns {string}
+ */
+
+/**
+ * @param {Object} language
+ * @returns {LanguageResolver}
+ */
 export default function getLanguageResolver(language) {
     return (key, variables = {}) => {
         // Fetch text from dot notation string
