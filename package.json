@@ -59,7 +59,7 @@
     "prettier": "^3.0.0",
     "sass": "^1.57.1",
     "sass-loader": "^17.0.0",
-    "sharp": "^0.34.3",
+    "sharp": "^0.35.4",
     "sinon": "^22.0.0",
     "stylelint": "^17.1.1",
     "stylelint-config-takiyon": "^7.0.0",
