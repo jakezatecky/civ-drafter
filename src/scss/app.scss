@@ -1,28 +1,18 @@
-// Vendor functions
-@import "~bootstrap/scss/functions";
+// Vendor libraries (Bootstrap must come first to apply its configuration)
+@use "bootstrap";
+@use "checkbox-tree";
 
-// And vendor overrides
-@import "variables-base";
-
-// Vendor variables
-@import "~bootstrap/scss/variables";
-
-// Vendor library
-@import "bootstrap";
-@import "~react-checkbox-tree/src/scss/react-checkbox-tree";
-
-// Now use vendor variables for our own needs
-@import "theme-light";
-@import "theme-dark";
+// Global tokens
+@use "root";
 
 // Components
-@import "draft-actions";
-@import "draft-results";
-@import "draft-settings";
-@import "footer";
-@import "forms";
-@import "header";
-@import "loading-indicator";
-@import "preload";
-@import "scaffolding";
-@import "utilities";
+@use "draft-actions";
+@use "draft-results";
+@use "draft-settings";
+@use "footer";
+@use "forms";
+@use "header";
+@use "loading-indicator";
+@use "preload";
+@use "scaffolding";
+@use "utilities";

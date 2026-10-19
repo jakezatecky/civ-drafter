@@ -1,0 +1,16 @@
+//
+// Root tokens
+// --------------------------------------------------
+
+@use "bootstrap/scss/mixins/tokens" as *;
+
+$app-tokens: (
+  // Keep at least a 3:1 contrast with the background in both color modes, as these borders outline
+  // form controls
+  --draft-border-color: var(--gray-500),
+  --draft-border-hover-color: var(--fg-body)
+);
+
+:root {
+  @include tokens($app-tokens);
+}

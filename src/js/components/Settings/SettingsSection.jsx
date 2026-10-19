@@ -1,18 +1,23 @@
 import PropTypes from 'prop-types';
-import { Accordion } from 'react-bootstrap';
+
+import AccordionIcon from '#js/components/Utils/AccordionIcon.jsx';
 
 const propTypes = {
     children: PropTypes.node.isRequired,
-    eventKey: PropTypes.string.isRequired,
     header: PropTypes.node.isRequired,
+
+    defaultOpen: PropTypes.bool,
 };
 
-function SettingsSection({ eventKey, header, children }) {
+function SettingsSection({ header, children, defaultOpen = false }) {
     return (
-        <Accordion.Item eventKey={eventKey}>
-            <Accordion.Header as="h3">{header}</Accordion.Header>
-            <Accordion.Body>{children}</Accordion.Body>
-        </Accordion.Item>
+        <details className="accordion-item" open={defaultOpen}>
+            <summary className="accordion-header">
+                <h3>{header}</h3>
+                <AccordionIcon />
+            </summary>
+            <div className="accordion-body">{children}</div>
+        </details>
     );
 }
 

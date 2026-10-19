@@ -2,13 +2,19 @@
 // Footer
 // --------------------------------------------------
 
+@use "buttons";
+@use "functions" as *;
+
 footer {
   flex-shrink: 0;
   padding: 1.25rem 0.5rem;
   margin-top: auto;
   font-size: 14px;
   text-align: center;
-  background: $footer-bg;
+  background: light-dark(
+    tint(var(--primary-base), 92%),
+    shade(var(--primary-base), 85%)
+  );
 }
 
 .footer-disclaimer {
@@ -29,14 +35,11 @@ footer {
   margin-bottom: 0;
   list-style: none;
 
-  .btn {
-    // stylelint-disable scss/at-extend-no-missing-placeholder
-    @extend .btn-sm;
-    @extend .btn-outline-dark;
-    // stylelint-enable scss/at-extend-no-missing-placeholder
-  }
-
   @media (min-width: 505px) {
     flex-direction: row;
   }
+}
+
+.footer-link {
+  @extend %btn-secondary;
 }

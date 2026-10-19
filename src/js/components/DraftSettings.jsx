@@ -4,7 +4,6 @@ import {
     useContext,
     useState,
 } from 'react';
-import { Accordion } from 'react-bootstrap';
 
 import Bans from '#js/components/Settings/Bans.jsx';
 import Duplications from '#js/components/Settings/Duplications.jsx';
@@ -154,8 +153,8 @@ function DraftSettings({ leaders, onSubmit }) {
         <div className="draft-settings">
             <h2 className="visually-hidden">{language('settings.header')}</h2>
             <form className="form" id="draft-form" onSubmit={onFormSubmit}>
-                <Accordion alwaysOpen defaultActiveKey={['0', '1', '2']}>
-                    <SettingsSection eventKey="0" header={language('settings.main')}>
+                <div className="accordion">
+                    <SettingsSection defaultOpen header={language('settings.main')}>
                         <MainSettings
                             numChoices={numChoices}
                             numPlayers={numPlayers}
@@ -163,17 +162,17 @@ function DraftSettings({ leaders, onSubmit }) {
                             onNumPlayersChange={onNumPlayersChange}
                         />
                     </SettingsSection>
-                    <SettingsSection eventKey="1" header={language('settings.secondary')}>
+                    <SettingsSection defaultOpen header={language('settings.secondary')}>
                         <Bans bans={bans} leaders={leaders} mods={mods} onChange={onBansChange} />
                         <Duplications duplications={duplications} onChange={onDuplicationsChange} />
                     </SettingsSection>
-                    <SettingsSection eventKey="2" header={language('settings.mods')}>
+                    <SettingsSection defaultOpen header={language('settings.mods')}>
                         <Mods mods={mods} onChange={onModsChange} />
                     </SettingsSection>
-                    <SettingsSection eventKey="3" header={language('settings.player')}>
+                    <SettingsSection header={language('settings.player')}>
                         <Players players={players} onChange={onPlayersChange} />
                     </SettingsSection>
-                </Accordion>
+                </div>
             </form>
         </div>
     );

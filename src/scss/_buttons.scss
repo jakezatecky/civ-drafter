@@ -1,0 +1,22 @@
+//
+// Buttons
+// --------------------------------------------------
+
+// Semantic button styles built from Bootstrap's button variants and themes. Other modules should
+// extend these placeholders rather than Bootstrap's classes directly.
+
+@use "bootstrap/scss/buttons/button";
+@use "bootstrap/scss/helpers/theme-colors";
+
+// Main call-to-action buttons
+%btn-primary {
+  @extend .btn-solid;
+  @extend .theme-primary;
+}
+
+// Subdued buttons for secondary links
+%btn-secondary {
+  @extend .btn-outline;
+  @extend .btn-sm;
+  @extend .theme-inverse;
+}

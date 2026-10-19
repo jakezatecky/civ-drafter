@@ -1,0 +1,8 @@
+//
+// Checkbox tree
+// --------------------------------------------------
+
+@use "variables" as *;
+@use "react-checkbox-tree/src/scss/react-checkbox-tree" with (
+  $rct-icon-color: $primary
+);

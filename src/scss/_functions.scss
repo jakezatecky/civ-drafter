@@ -1,0 +1,13 @@
+//
+// Functions
+// --------------------------------------------------
+
+// Lighten a color by mixing it with white, resolved at runtime
+@function tint($color, $weight) {
+  @return color-mix(in srgb, var(--white) $weight, $color);
+}
+
+// Darken a color by mixing it with black, resolved at runtime
+@function shade($color, $weight) {
+  @return color-mix(in srgb, var(--black) $weight, $color);
+}

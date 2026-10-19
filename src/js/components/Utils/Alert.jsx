@@ -53,7 +53,7 @@ function Alert({
     }
 
     return (
-        <div className={`alert alert-${type}`} role="alert">
+        <div className={`alert theme-${type}`} role="alert">
             {renderPrefix()}
             {renderMessage()}
         </div>

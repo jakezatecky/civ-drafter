@@ -2,6 +2,8 @@ import path from 'node:path';
 import HtmlBundlerPlugin from 'html-bundler-webpack-plugin';
 import WorkboxPlugin from 'workbox-webpack-plugin';
 
+import sassOptions from './sass.config.js';
+
 const { dirname } = import.meta;
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -23,18 +25,16 @@ export default {
                 test: /\.s[ac]ss$/i,
                 use: [
                     'css-loader',
-                    'sass-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: { sassOptions },
+                    },
                 ],
             },
         ],
     },
     devServer: {
         open: true,
-        client: {
-            overlay: {
-                warnings: false,
-            },
-        },
         headers: {
             'Cache-Control': 'no-store',
         },
