@@ -2,6 +2,10 @@
 // Dark theme
 // --------------------------------------------------
 
+@use "variables-base" as *;
+
+$gray-300: #dee2e6;
+
 $header-bg-dark: shade-color($primary, 80%);
 $header-color-dark: $gray-300;
 $header-action-hover-bg-dark: shade-color($primary, 60%);
@@ -11,7 +15,7 @@ $footer-bg-dark: shade-color($primary, 85%);
 
 $draft-player-border-dark: tint-color($body-bg-dark, 30%);
 $draft-player-border-hover-dark: tint-color($body-bg-dark, 60%);
-$draft-choice-border: $draft-player-border-hover-dark;
+$draft-choice-border-dark: $draft-player-border-hover-dark;
 
 [data-bs-theme="dark"] {
   header {
@@ -63,8 +67,15 @@ $draft-choice-border: $draft-player-border-hover-dark;
     background: $footer-bg-dark;
 
     .btn {
-      // stylelint-disable-next-line scss/at-extend-no-missing-placeholder
-      @extend .btn-outline-light;
+      --btn-color: #{$gray-300};
+      --btn-border-color: #{$gray-300};
+
+      &:hover,
+      &:focus {
+        --btn-hover-bg: #{$gray-300};
+        --btn-hover-color: #212529;
+        --btn-hover-border-color: #{$gray-300};
+      }
     }
   }
 }

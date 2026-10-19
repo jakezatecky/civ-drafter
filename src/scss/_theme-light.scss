@@ -2,6 +2,12 @@
 // Light theme
 // --------------------------------------------------
 
+@use "variables-base" as *;
+
+$dark: #212529;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+
 $header-bg: tint-color($primary, 97%);
 $header-color: $dark;
 $header-border-color: $primary;

@@ -2,6 +2,8 @@
 // Draft actions
 // --------------------------------------------------
 
+@use "variables-base" as *;
+
 .draft-actions {
   display: flex;
   gap: 0.5rem;
@@ -9,6 +11,20 @@
   justify-content: center;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+
+  .btn-submit,
+  .btn-copy {
+    --btn-bg: #{$primary};
+    --btn-color: #fff;
+    --btn-border-color: #{$primary};
+
+    &:hover,
+    &:focus {
+      --btn-hover-bg: #{shade-color($primary, 15%)};
+      --btn-hover-border-color: #{shade-color($primary, 15%)};
+      --btn-hover-color: #fff;
+    }
+  }
 
   .btn-submit {
     width: 25%;

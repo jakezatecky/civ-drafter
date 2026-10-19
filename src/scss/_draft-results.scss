@@ -2,6 +2,10 @@
 // Draft results
 // --------------------------------------------------
 
+@use "variables-base" as *;
+@use "theme-light" as *;
+@use "bootstrap/scss/layout/breakpoints" as *;
+
 .draft-results {
   margin-bottom: 2rem;
 

@@ -2,6 +2,8 @@
 // Scaffolding
 // --------------------------------------------------
 
+@use "variables-base" as *;
+
 html,
 body {
   height: 100%;
@@ -22,4 +24,47 @@ main {
 h1 {
   margin-bottom: 1rem;
   font-weight: bold;
+}
+
+.accordion-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0;
+  font-size: inherit;
+  font-weight: bold;
+  color: inherit;
+  text-align: inherit;
+  cursor: pointer;
+  background: none;
+  border: 0;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.alert-danger {
+  --alert-bg: #{tint-color(#dc3545, 90%)};
+  --alert-border-color: #{tint-color(#dc3545, 60%)};
+  --alert-color: #{shade-color(#dc3545, 20%)};
+}
+
+.alert-warning {
+  --alert-bg: #{tint-color(#ffc107, 90%)};
+  --alert-border-color: #{tint-color(#ffc107, 60%)};
+  --alert-color: #{shade-color(#ffc107, 40%)};
+}
+
+.alert-info {
+  --alert-bg: #{tint-color(#0dcaf0, 90%)};
+  --alert-border-color: #{tint-color(#0dcaf0, 60%)};
+  --alert-color: #{shade-color(#0dcaf0, 40%)};
+}
+
+.alert-success {
+  --alert-bg: #{tint-color(#198754, 90%)};
+  --alert-border-color: #{tint-color(#198754, 60%)};
+  --alert-color: #{shade-color(#198754, 20%)};
 }

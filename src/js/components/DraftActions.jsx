@@ -14,7 +14,7 @@ function DraftActions({ results = null }) {
 
     return (
         <div className="draft-actions">
-            <button className="btn btn-primary btn-submit" form="draft-form" type="submit">
+            <button className="btn btn-submit" form="draft-form" type="submit">
                 {language('actions.draft')}
             </button>
             {hasDraftResults ? (

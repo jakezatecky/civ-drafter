@@ -2,6 +2,8 @@
 // Footer
 // --------------------------------------------------
 
+@use "theme-light" as *;
+
 footer {
   flex-shrink: 0;
   padding: 1.25rem 0.5rem;
@@ -30,10 +32,19 @@ footer {
   list-style: none;
 
   .btn {
-    // stylelint-disable scss/at-extend-no-missing-placeholder
-    @extend .btn-sm;
-    @extend .btn-outline-dark;
-    // stylelint-enable scss/at-extend-no-missing-placeholder
+    --btn-padding-y: 0.25rem;
+    --btn-padding-x: 0.5rem;
+    --btn-font-size: 0.875rem;
+    --btn-bg: transparent;
+    --btn-color: #212529;
+    --btn-border-color: #212529;
+
+    &:hover,
+    &:focus {
+      --btn-hover-bg: #212529;
+      --btn-hover-color: #fff;
+      --btn-hover-border-color: #212529;
+    }
   }
 
   @media (min-width: 505px) {

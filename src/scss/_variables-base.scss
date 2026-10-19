@@ -2,8 +2,19 @@
 // Base variables (overrides vendors)
 // --------------------------------------------------
 
+@use "sass:color";
+
 // Primary themes
 $primary: #a26638;
+
+@function tint-color($color, $weight) {
+  @return color.mix(#fff, $color, $weight);
+}
+
+@function shade-color($color, $weight) {
+  @return color.mix(#000, $color, $weight);
+}
+
 $primary-text: shade-color($primary, 10%);
 $primary-bg-subtle: tint-color($primary, 90%);
 $link-color: shade-color($primary, 5%);
@@ -13,15 +24,12 @@ $rct-icon-color: $primary;
 $border-radius: 4px;
 
 // Let's use a font that does not have off-center issues
-// Looking at you, Bootstrap, who likes to use Segoe UI for Windows
 $font-family-base:
   "Work Sans", "Helvetica Neue", "Noto Sans", "Liberation Sans", arial,
   sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
   "Noto Color Emoji";
 
 // Set the max container size (and thus app size) to around 992px
-// Note that Bootstrap's functions don't like if we repeat values, so earlier
-// values have to be smaller
 $app-width: 992px;
 $container-max-widths: (
   sm: 540px,
@@ -35,6 +43,7 @@ $container-max-widths: (
 $accordion-border-color: $primary;
 
 // Dark theme variables
+$body-bg-dark: #212529;
 $primary-bg-subtle-dark: shade-color($primary, 80%);
 $primary-text-dark: tint-color($primary, 40%);
 $link-color-dark: tint-color($primary, 40%);

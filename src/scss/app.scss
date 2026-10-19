@@ -1,28 +1,40 @@
-// Vendor functions
-@import "~bootstrap/scss/functions";
-
-// And vendor overrides
-@import "variables-base";
-
-// Vendor variables
-@import "~bootstrap/scss/variables";
-
 // Vendor library
-@import "bootstrap";
-@import "~react-checkbox-tree/src/scss/react-checkbox-tree";
+@use "bootstrap/scss/bootstrap" with (
+  $theme-colors: (
+    "primary": (
+      "base": #a26638,
+      "fg": #a26638,
+      "fg-emphasis": #82522d,
+      "bg": #a26638,
+      "bg-subtle": #f6efe9,
+      "bg-muted": #eedfcf,
+      "border": #a26638,
+      "focus-ring": #a26638,
+      "contrast": #ffffff,
+    ),
+  ),
+  $container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 990px,
+    xl: 991px,
+    xxl: 992px,
+  )
+);
+@use "react-checkbox-tree/src/scss/react-checkbox-tree";
 
-// Now use vendor variables for our own needs
-@import "theme-light";
-@import "theme-dark";
+// Theme styles
+@use "theme-light";
+@use "theme-dark";
 
-// Components
-@import "draft-actions";
-@import "draft-results";
-@import "draft-settings";
-@import "footer";
-@import "forms";
-@import "header";
-@import "loading-indicator";
-@import "preload";
-@import "scaffolding";
-@import "utilities";
+// Component styles
+@use "draft-actions";
+@use "draft-results";
+@use "draft-settings";
+@use "footer";
+@use "forms";
+@use "header";
+@use "loading-indicator";
+@use "preload";
+@use "scaffolding";
+@use "utilities";

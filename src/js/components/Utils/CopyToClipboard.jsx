@@ -50,7 +50,7 @@ function CopyToClipboard({ domSelector }) {
     return (
         <button
             aria-label={copyText}
-            className="btn btn-primary btn-copy"
+            className="btn btn-copy"
             title={copyText}
             type="button"
             onClick={onCopy}
