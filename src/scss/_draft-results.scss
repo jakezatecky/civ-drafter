@@ -2,6 +2,8 @@
 // Draft results
 // --------------------------------------------------
 
+@use "bootstrap/scss/layout/breakpoints" as *;
+
 .draft-results {
   margin-bottom: 2rem;
 
@@ -32,9 +34,9 @@
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
-    border: 1px solid $draft-player-border;
+    border: 1px solid var(--draft-border-color);
     border-bottom-width: 2px;
-    border-radius: $border-radius;
+    border-radius: var(--radius-5);
 
     @include media-breakpoint-up(lg) {
       flex-direction: row;
@@ -42,7 +44,7 @@
 
     &:hover,
     &:hover h3 {
-      border-color: $draft-player-border-hover;
+      border-color: var(--draft-border-hover-color);
     }
 
     + li {
@@ -67,7 +69,7 @@
       padding: 0 0.5rem;
       margin-bottom: 0;
       font-size: 18px;
-      border-right: 2px solid $draft-player-border;
+      border-right: 2px solid var(--draft-border-color);
     }
   }
 }
@@ -88,8 +90,8 @@
     justify-content: center;
     padding: 0.125rem 0.325rem 0.125rem 0.25rem;
     font-size: 18px;
-    border: 1px solid $draft-choice-border;
-    border-radius: 50rem;
+    border: 1px solid var(--draft-border-color);
+    border-radius: var(--radius-pill);
   }
 
   img {

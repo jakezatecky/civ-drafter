@@ -13,6 +13,16 @@ function getTheme(mode = 'light') {
                 main: secondaryColor,
             },
         },
+        components: {
+            MuiOutlinedInput: {
+                styleOverrides: {
+                    // Match the accessible border color of our other form controls
+                    notchedOutline: {
+                        borderColor: 'var(--draft-border-color)',
+                    },
+                },
+            },
+        },
     });
 }
 

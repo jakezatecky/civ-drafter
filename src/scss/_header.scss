@@ -2,12 +2,17 @@
 // Header
 // --------------------------------------------------
 
+@use "functions" as *;
+
 $header-xs-break: 350px;
 
 header {
   margin-bottom: 1.5rem;
-  background: $header-bg;
-  border-bottom: 1px solid $header-border-color;
+  background: light-dark(
+    tint(var(--primary-base), 97%),
+    shade(var(--primary-base), 80%)
+  );
+  border-bottom: 1px solid var(--primary-base);
 
   .container {
     display: flex;
@@ -25,12 +30,8 @@ header {
     align-items: center;
     font-size: 22px;
     font-weight: 600;
-    color: $header-color;
+    color: var(--fg-body);
     text-decoration: none;
-
-    &:hover {
-      color: $header-color;
-    }
   }
 
   .logo {
@@ -50,7 +51,7 @@ header {
     align-items: center;
     padding: 0.5rem;
     font-size: 20px;
-    color: $header-color;
+    color: var(--fg-body);
     text-decoration: none;
     background: none;
     border: 0;
@@ -58,15 +59,15 @@ header {
     transition: all 0.25s ease-out;
 
     &:hover {
-      background: $header-action-hover-bg;
+      background: light-dark(var(--gray-200), shade(var(--primary-base), 60%));
     }
 
     &:active,
     &:focus {
-      background: $header-action-focus-bg;
+      background: light-dark(var(--gray-300), shade(var(--primary-base), 50%));
     }
 
-    &.theme-dark {
+    &.theme-switcher-dark {
       transform: rotate(360deg);
     }
   }

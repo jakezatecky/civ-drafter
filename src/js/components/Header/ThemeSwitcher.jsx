@@ -54,8 +54,7 @@ function ThemeSwitcher({ initialTheme }) {
     const className = classNames({
         'header-action': true,
         'theme-switcher': true,
-        'theme-dark': isDarkMode,
-        'theme-light': !isDarkMode,
+        'theme-switcher-dark': isDarkMode,
     });
 
     return (

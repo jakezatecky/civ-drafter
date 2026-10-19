@@ -1,24 +1,126 @@
 //
-// Bootstrap imports
+// Bootstrap configuration and imports
 // --------------------------------------------------
 
-// To reduce file size, import only used components
+// Bootstrap modules can only be configured on their first load, so this module must be the first to
+// load any of them.
+
+@use "sass:meta";
+@use "functions" as *;
+@use "variables" as *;
 
 // Configuration
-@import "~bootstrap/scss/variables-dark";
-@import "~bootstrap/scss/maps";
-@import "~bootstrap/scss/mixins";
+@use "bootstrap/scss/config" with (
+  $radius: $radius,
+  $container-max-widths: (
+    lg: $app-width,
+    xl: $app-width,
+    2xl: $app-width,
+  )
+);
 
-// Layout & components
-@import "~bootstrap/scss/root";
-@import "~bootstrap/scss/reboot";
-@import "~bootstrap/scss/type";
-@import "~bootstrap/scss/containers";
-@import "~bootstrap/scss/forms";
-@import "~bootstrap/scss/buttons";
-@import "~bootstrap/scss/transitions";
-@import "~bootstrap/scss/accordion";
-@import "~bootstrap/scss/alert";
+// Make the primary theme use the app color, keeping the tints and shades used historically by this
+// app. Also soften the near-black dark mode surfaces.
+@use "bootstrap/scss/theme" with (
+  $theme-bgs: (
+    "body": light-dark(var(--white), var(--gray-900)),
+    "1": light-dark(
+        var(--gray-025),
+        color-mix(in oklch, var(--gray-900), var(--gray-800))
+      ),
+    "2": light-dark(var(--gray-050), var(--gray-800)),
+    "3": light-dark(var(--gray-100), var(--gray-700)),
+    "4": light-dark(var(--gray-200), var(--gray-600)),
+  ),
+  $theme-colors: (
+    "primary": (
+      "base": $primary,
+      "fg": light-dark(
+          shade(var(--primary-base), 10%),
+          tint(var(--primary-base), 40%)
+        ),
+      "fg-emphasis": light-dark(
+          shade(var(--primary-base), 60%),
+          tint(var(--primary-base), 40%)
+        ),
+      "bg": var(--primary-base),
+      "bg-subtle": light-dark(
+          tint(var(--primary-base), 90%),
+          shade(var(--primary-base), 80%)
+        ),
+      "bg-muted": light-dark(
+          tint(var(--primary-base), 80%),
+          shade(var(--primary-base), 70%)
+        ),
+      "border": light-dark(
+          tint(var(--primary-base), 60%),
+          shade(var(--primary-base), 40%)
+        ),
+      "focus-ring": light-dark(
+          color-mix(in oklch, var(--primary-base) 50%, var(--bg-body)),
+          color-mix(in oklch, var(--primary-base) 75%, var(--bg-body))
+        ),
+      "contrast": var(--white),
+    ),
+    // Use the body text color, so that inverse elements match the page text
+    "inverse": (
+        "base": var(--fg-body),
+        "fg": var(--fg-body),
+        "fg-emphasis": var(--fg-body),
+        "bg": var(--fg-body),
+        "bg-subtle": light-dark(var(--gray-100), var(--gray-800)),
+        "bg-muted": light-dark(var(--gray-200), var(--gray-700)),
+        "border": var(--fg-body),
+        "focus-ring": color-mix(in oklch, var(--fg-body) 50%, var(--bg-body)),
+        "contrast": var(--bg-body),
+      ),
+  )
+);
 
-// Helpers
-@import "~bootstrap/scss/helpers/visually-hidden";
+// Use the app font and match links to the primary color
+@use "bootstrap/scss/root" with (
+  $root-tokens: (
+    --body-font-family: meta.inspect($font-family-base),
+    --link-color: light-dark(
+        shade(var(--primary-base), 5%),
+        tint(var(--primary-base), 40%)
+      ),
+    --link-hover-color: light-dark(
+        shade(var(--link-color), 20%),
+        tint(var(--primary-base), 60%)
+      ),
+  )
+);
+
+// Make the accordion actually use the primary app color, with collapsed headers matching the rest
+// of the page text
+@use "bootstrap/scss/accordion" with (
+  $accordion-tokens: (
+    --accordion-btn-color: var(--fg-body),
+    --accordion-border-color: var(--primary-base),
+    --accordion-border-radius: var(--radius-5),
+    --accordion-active-color: var(--primary-fg-emphasis),
+    --accordion-active-bg: var(--primary-bg-subtle),
+  )
+);
+
+// Work Sans is only loaded in regular, semibold, and bold weights (see `index.html`), so use the
+// regular weight where Bootstrap would otherwise use medium
+@use "bootstrap/scss/content/reboot" with (
+  $type-tokens: (
+    --heading-font-weight: var(--font-weight-normal),
+  )
+);
+@use "bootstrap/scss/forms/labels" with (
+  $form-label-tokens: (
+    --label-font-weight: var(--font-weight-normal),
+  )
+);
+
+// To reduce file size, import only used components
+@use "bootstrap/scss/layout/containers";
+@use "bootstrap/scss/forms/form-control";
+@use "bootstrap/scss/buttons/button";
+@use "bootstrap/scss/alert";
+@use "bootstrap/scss/helpers/theme-colors";
+@use "bootstrap/scss/helpers/visually-hidden";

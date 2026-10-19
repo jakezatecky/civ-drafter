@@ -2,6 +2,8 @@
 // Draft actions
 // --------------------------------------------------
 
+@use "buttons";
+
 .draft-actions {
   display: flex;
   gap: 0.5rem;
@@ -9,8 +11,14 @@
   justify-content: center;
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
+}
 
-  .btn-submit {
-    width: 25%;
-  }
+.btn-submit {
+  width: 25%;
+
+  @extend %btn-primary;
+}
+
+.btn-copy {
+  @extend %btn-primary;
 }

@@ -2,6 +2,8 @@
 // Draft settings
 // --------------------------------------------------
 
+@use "bootstrap/scss/layout/breakpoints" as *;
+
 .leader-box {
   display: flex;
   align-items: center;
@@ -13,17 +15,25 @@
 }
 
 .draft-settings {
+  // Keep the section headings the same size as the accordion text
+  .accordion-header > h3 {
+    margin-bottom: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+  }
+
   .draft-settings-duplications {
     margin-top: 1rem;
   }
 
   .react-checkbox-tree {
     padding: 0.25rem;
-    border: 1px solid $draft-player-border;
-    border-radius: $border-radius;
+    border: 1px solid var(--draft-border-color);
+    border-radius: var(--radius-5);
 
     &:hover {
-      border-color: $draft-player-border-hover;
+      border-color: var(--draft-border-hover-color);
     }
 
     // Let's pretend this is not hierarchical tree
@@ -59,12 +69,12 @@
   }
 
   .form-control {
-    width: 100%;
+    --control-border-color: var(--draft-border-color);
+
     margin-bottom: 1rem;
-    border-color: $draft-player-border;
 
     &:hover {
-      border-color: $draft-player-border-hover;
+      --control-border-color: var(--draft-border-hover-color);
     }
   }
 }
