@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
-import rgb2hex from 'rgb2hex';
 
 import { LanguageContext } from '#js/contexts.js';
 
@@ -16,29 +15,30 @@ function CopyToClipboard({ domSelector }) {
     const language = useContext(LanguageContext);
     const copyText = language('actions.copyToClipboard');
 
-    async function onCopy() {
-        // Dynamically import `html2canvas` to avoid loading it unnecessarily
-        const { default: html2canvas } = await import('html2canvas');
+    async function renderImage() {
+        // Dynamically import `modern-screenshot` to avoid loading it unnecessarily
+        const { domToBlob } = await import('modern-screenshot');
         const resultsArea = document.querySelector(domSelector);
 
         // Extract the background color (changes depending on theme)
         const body = document.querySelector('body');
         const bodyBg = window.getComputedStyle(body).getPropertyValue('background-color');
 
-        // Convert to hex (a requirement for `html2canvas`)
-        const { hex: bodyBgHex } = rgb2hex(bodyBg);
-
-        html2canvas(resultsArea, {
-            backgroundColor: bodyBgHex,
-            logging: false,
+        return domToBlob(resultsArea, {
+            backgroundColor: bodyBg,
             scale: 1,
-        }).then((canvas) => {
-            // Write canvas to clipboard
-            canvas.toBlob((blob) => {
-                navigator.clipboard.write([
-                    new ClipboardItem({ 'image/png': blob }),
-                ]);
-            });
+            type: 'image/png',
+        });
+    }
+
+    function onCopy() {
+        // Hand the clipboard a pending image, rather than awaiting it first, as Safari rejects
+        // clipboard writes that happen after the click event has finished
+        navigator.clipboard.write([
+            new ClipboardItem({ 'image/png': renderImage() }),
+        ]).catch((error) => {
+            // eslint-disable-next-line no-console
+            console.error('Failed to copy draft results: ', error);
         });
     }
 
