@@ -8,6 +8,11 @@
     "draft": "Draft!",
     "copyToClipboard": "Copy to clipboard"
   },
+  "clipboard": {
+    "copying": "Copying...",
+    "success": "Copied to clipboard!",
+    "failure": "Unable to copy to clipboard"
+  },
   "leaderAltText": "{name} portrait",
   "loading": "Loading...",
   "settings": {

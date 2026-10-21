@@ -22,3 +22,32 @@
 .btn-copy {
   @extend %btn-primary;
 }
+
+// Bootstrap's tooltip styles, positioned above the copy button without needing Bootstrap's JS
+.copy-to-clipboard {
+  position: relative;
+}
+
+.copy-to-clipboard-message {
+  --tooltip-max-width: none;
+
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: max-content;
+  padding-bottom: var(--tooltip-arrow-height);
+  pointer-events: none;
+  transform: translateX(-50%);
+
+  .tooltip-arrow {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.copy-to-clipboard-failure {
+  --tooltip-bg: var(--danger-bg);
+  --tooltip-color: var(--danger-contrast);
+}
