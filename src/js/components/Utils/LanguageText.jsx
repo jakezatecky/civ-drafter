@@ -7,18 +7,13 @@ import { LanguageContext } from '#js/contexts.js';
 const propTypes = {
     keyName: PropTypes.string.isRequired,
 
-    parseInline: PropTypes.bool,
     variables: PropTypes.objectOf(PropTypes.string),
 };
 
-function LanguageText({
-    keyName,
-    parseInline = true,
-    variables = {},
-}) {
+function LanguageText({ keyName, variables = {} }) {
     const language = useContext(LanguageContext);
 
-    return <MarkdownText parseInline={parseInline} text={language(keyName, variables)} />;
+    return <MarkdownText text={language(keyName, variables)} />;
 }
 
 LanguageText.propTypes = propTypes;

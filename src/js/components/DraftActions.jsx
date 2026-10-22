@@ -18,7 +18,7 @@ function DraftActions({ results = null }) {
                 {language('actions.draft')}
             </button>
             {hasDraftResults ? (
-                <CopyToClipboard domSelector=".draft-results" draftResults={results} />
+                <CopyToClipboard domSelector=".draft-results" />
             ) : null}
         </div>
     );

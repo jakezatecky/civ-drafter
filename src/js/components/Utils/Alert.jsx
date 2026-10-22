@@ -17,20 +17,14 @@ const propTypes = {
         key: PropTypes.string.isRequired,
         variables: PropTypes.objectOf(PropTypes.string),
     }),
-    showPrefix: PropTypes.bool,
 };
 
 function Alert({
     type,
     children = null,
     language = null,
-    showPrefix = true,
 }) {
     function renderPrefix() {
-        if (!showPrefix) {
-            return null;
-        }
-
         // Return type's prefix with enough space for the main message
         return [
             prefixMap[type],

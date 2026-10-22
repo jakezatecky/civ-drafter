@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import { marked } from 'marked';
 import PropTypes from 'prop-types';
 
@@ -6,19 +5,15 @@ import RawHtml from '#js/components/Utils/RawHtml.jsx';
 
 const propTypes = {
     text: PropTypes.string.isRequired,
-
-    className: PropTypes.string,
-    parseInline: PropTypes.bool,
 };
 
-function MarkdownText({ text, className = null, parseInline = true }) {
-    const classes = classNames('markdown-wrapper', className, {
-        'markdown-wrapper-inline': parseInline,
-    });
-
-    const html = parseInline ? marked.parseInline(text) : marked(text);
-
-    return <RawHtml className={classes} html={html} />;
+function MarkdownText({ text }) {
+    return (
+        <RawHtml
+            className="markdown-wrapper markdown-wrapper-inline"
+            html={marked.parseInline(text)}
+        />
+    );
 }
 
 MarkdownText.propTypes = propTypes;

@@ -4,15 +4,11 @@ import { render } from '@testing-library/react';
 import MarkdownText from '#js/components/Utils/MarkdownText.jsx';
 
 describe('<MarkdownText />', () => {
-    it('should only add the wrapper classes when no class name is given', () => {
-        const { container } = render(<MarkdownText text="**Oops!**" />);
+    it('should render the markdown as an inline wrapper', () => {
+        const { container } = render(<MarkdownText text="**Oops!** All Gorgo!" />);
+        const markdownWrapper = container.firstChild;
 
-        assert.equal(container.firstChild.className, 'markdown-wrapper markdown-wrapper-inline');
-    });
-
-    it('should add the given class name', () => {
-        const { container } = render(<MarkdownText className="alert-text" text="Text" />);
-
-        assert.isTrue(container.firstChild.classList.contains('alert-text'));
+        assert.equal(markdownWrapper.className, 'markdown-wrapper markdown-wrapper-inline');
+        assert.equal(markdownWrapper.innerHTML, '<strong>Oops!</strong> All Gorgo!');
     });
 });
