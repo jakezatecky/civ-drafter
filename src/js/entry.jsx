@@ -1,4 +1,3 @@
-import { marked } from 'marked';
 import { createRoot } from 'react-dom/client';
 
 import App from '#js/components/App.jsx';
@@ -8,10 +7,6 @@ import getLanguageResolver from '#js/utils/getLanguageResolver.js';
 import { LanguageContext } from '#js/contexts.js';
 import registerServiceWorker from '#js/registerServiceWorker.js';
 import english from '#json/language/en.json';
-
-// Disable annoying deprecation warning for something we are not using
-// https://github.com/markedjs/marked/issues/2793
-marked.use({ mangle: false });
 
 // Enable service worker if conditions satisfied
 registerServiceWorker();

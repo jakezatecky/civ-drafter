@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { useEffect, useRef } from 'react';
 
 const propTypes = {
     html: PropTypes.string.isRequired,
@@ -8,13 +7,8 @@ const propTypes = {
 };
 
 function RawHtml({ html, className = 'html-wrapper' }) {
-    const element = useRef(null);
-
-    useEffect(() => {
-        element.current.innerHTML = html;
-    });
-
-    return <div className={className} ref={element} />;
+    // eslint-disable-next-line react/no-danger
+    return <div className={className} dangerouslySetInnerHTML={{ __html: html }} />;
 }
 
 RawHtml.propTypes = propTypes;
