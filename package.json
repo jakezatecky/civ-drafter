@@ -1,6 +1,6 @@
 {
   "name": "civ-drafter",
-  "version": "1.12.0",
+  "version": "1.12.1",
   "description": "A modern, mobile-friendly drafting tool for Sid Meier's Civilization VI.",
   "type": "module",
   "imports": {
