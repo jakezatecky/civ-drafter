@@ -5,6 +5,8 @@
 // Semantic button styles built from Bootstrap's button variants and themes. Other modules should
 // extend these placeholders rather than Bootstrap's classes directly.
 
+// Sass can only extend selectors from modules loaded by this one, so these must be loaded here even
+// though `_bootstrap.scss` already loads them (and determines where their CSS is output)
 @use "bootstrap/scss/buttons/button";
 @use "bootstrap/scss/helpers/theme-colors";
 

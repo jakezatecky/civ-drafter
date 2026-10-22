@@ -117,7 +117,8 @@
   )
 );
 
-// To reduce file size, import only used components
+// To reduce file size, import only used components. Load every component here so that its CSS comes
+// before app styles. Other modules should `@use` a Bootstrap module only to access its members.
 @use "bootstrap/scss/layout/containers";
 @use "bootstrap/scss/forms/form-control";
 @use "bootstrap/scss/buttons/button";
