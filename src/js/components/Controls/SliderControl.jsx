@@ -29,8 +29,8 @@ function SliderControl({
 
     // Construct label marks underneath
     const numberOfMarks = max - min + 1;
-    const marks = [...Array(numberOfMarks).keys()].map((number) => (
-        { label: number + 1, value: number + 1 }
+    const marks = [...Array(numberOfMarks).keys()].map((offset) => (
+        { label: min + offset, value: min + offset }
     ));
 
     return (
@@ -45,7 +45,6 @@ function SliderControl({
                     marks={marks}
                     max={max}
                     min={min}
-                    steps={1}
                     valueLabelDisplay="auto"
                     {...otherProps}
                 />
