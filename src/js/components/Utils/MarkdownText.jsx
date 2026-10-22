@@ -12,10 +12,8 @@ const propTypes = {
 };
 
 function MarkdownText({ text, className = null, parseInline = true }) {
-    const classes = classNames({
-        'markdown-wrapper': true,
+    const classes = classNames('markdown-wrapper', className, {
         'markdown-wrapper-inline': parseInline,
-        [className]: true,
     });
 
     const html = parseInline ? marked.parseInline(text) : marked(text);
