@@ -21,32 +21,20 @@ class NotEnoughLeadersError extends Error {
  * @returns {Array}
  */
 function deduplicateByAttribute(leaderPool, attributeKey) {
-    const reducedPool = [...leaderPool];
+    const seenValues = new Set();
 
-    // Compile the indexes of all leaders by attribute
-    const indexMap = {};
-    leaderPool.forEach((leader, index) => {
-        const value = leader[attributeKey];
+    // Keep the first leader with each value, as we have already shuffled the list
+    return leaderPool.filter((leader) => {
+        const attributeValue = leader[attributeKey];
 
-        if (indexMap[value] === undefined) {
-            indexMap[value] = [];
+        if (seenValues.has(attributeValue)) {
+            return false;
         }
 
-        indexMap[value].push(index);
-    });
+        seenValues.add(attributeValue);
 
-    // Reduce each attribute to one leader
-    Object.keys(indexMap).forEach((value) => {
-        // Keep the first leader, as we have already shuffled the list
-        // Use the remaining indexes to remove the other leaders
-        delete indexMap[value][0];
-        indexMap[value].forEach((leaderIndex) => {
-            delete reducedPool[leaderIndex];
-        });
+        return true;
     });
-
-    // Now filter out all deleted entries
-    return reducedPool.filter((leader) => leader !== undefined);
 }
 
 /**
