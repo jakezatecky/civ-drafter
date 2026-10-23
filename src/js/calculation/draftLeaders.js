@@ -60,7 +60,8 @@ function deduplicateByAttributes(leaderPool, attributes) {
  * @param {Object[]} players
  * @param {Number} numChoices
  * @param {String[]} bans
- * @param {String[]} duplications
+ * @param {String[]} duplicatedAttributes
+ * @param {String[]} mods
  *
  * @returns {Object[]}
  */
@@ -68,22 +69,26 @@ function draftLeaders(leaders, {
     players,
     numChoices,
     bans,
-    duplications,
+    duplications: duplicatedAttributes,
     mods,
 }) {
     // Remove banned leaders and leaders that don't respect mods settings from the selection pool
-    const availablePool = leaders.filter(({ longName, mod }) => (!bans.includes(longName)) &&
-        (!mod || mod.every((leaderMod) => mods.includes(leaderMod))));
+    const availablePool = leaders.filter(
+        ({ longName, mod }) => (
+            !bans.includes(longName) &&
+            (!mod || mod.every((leaderMod) => mods.includes(leaderMod)))
+        ),
+    );
 
     // Shuffle the available leaders for randomization
     const shuffledPool = shuffle(availablePool);
 
-    // Determine which, if any, attributes we will group the pool by
-    // By default Civilization restricts players to one leader per persona AND civilization, but
+    // Determine which, if any, attributes we will group the pool by.
+    // By default, Civilization restricts players to one leader per persona AND civilization, but
     // players can relax those restrictions.
     const uniqueAttributes = ['civilization', 'id'];
     const deduplicationAttributes = uniqueAttributes.filter(
-        (attribute) => !duplications.includes(attribute),
+        (attribute) => !duplicatedAttributes.includes(attribute),
     );
     const finalPool = deduplicateByAttributes(shuffledPool, deduplicationAttributes);
 
