@@ -12,7 +12,7 @@ header {
     tint(var(--primary-base), 97%),
     shade(var(--primary-base), 80%)
   );
-  border-bottom: 1px solid var(--primary-base);
+  border-bottom: 1px solid var(--structure-border-color);
 
   .container {
     display: flex;

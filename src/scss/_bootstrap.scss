@@ -93,11 +93,11 @@
 );
 
 // Make the accordion actually use the primary app color, with collapsed headers matching the rest
-// of the page text
+// of the page text and borders matching the header's
 @use "bootstrap/scss/accordion" with (
   $accordion-tokens: (
     --accordion-btn-color: var(--fg-body),
-    --accordion-border-color: var(--primary-base),
+    --accordion-border-color: var(--structure-border-color),
     --accordion-border-radius: var(--radius-5),
     --accordion-active-color: var(--primary-fg-emphasis),
     --accordion-active-bg: var(--primary-bg-subtle),

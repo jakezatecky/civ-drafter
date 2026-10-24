@@ -5,6 +5,8 @@
 @use "buttons";
 @use "functions" as *;
 
+// A deeper tint than the header's sets the footer apart as its own region, while a faint edge
+// (rather than a brand-colored one like the header's) keeps it from meeting the page abruptly
 footer {
   flex-shrink: 0;
   padding: 1.25rem 0.5rem;
@@ -12,9 +14,11 @@ footer {
   font-size: 14px;
   text-align: center;
   background: light-dark(
-    tint(var(--primary-base), 92%),
+    tint(var(--primary-base), 89%),
     shade(var(--primary-base), 85%)
   );
+  border-top: 1px solid
+    light-dark(tint(var(--primary-base), 80%), shade(var(--primary-base), 70%));
 }
 
 .footer-disclaimer {

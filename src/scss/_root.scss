@@ -3,12 +3,25 @@
 // --------------------------------------------------
 
 @use "bootstrap/scss/mixins/tokens" as *;
+@use "functions" as *;
+
+// A gray warmed toward the brand color, so that control outlines sit with the structural borders
+$warm-gray: color-mix(in oklab, var(--gray-500), var(--primary-base) 50%);
 
 $app-tokens: (
   // Keep at least a 3:1 contrast with the background in both color modes, as these borders outline
-  // form controls
-  --draft-border-color: var(--gray-500),
-  --draft-border-hover-color: var(--fg-body)
+  // form controls (currently about 3.6:1 in light mode and 3.4:1 in dark mode)
+  --draft-border-color: light-dark(
+      tint($warm-gray, 10%),
+      shade($warm-gray, 10%)
+    ),
+  --draft-border-hover-color: var(--fg-body),
+  // Borders that only group or separate regions (the header and settings sections), softened from
+  // the full brand color so that they do not draw focus away from the content
+  --structure-border-color: light-dark(
+      tint(var(--primary-base), 50%),
+      shade(var(--primary-base), 50%)
+    )
 );
 
 :root {
