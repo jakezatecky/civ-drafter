@@ -51,10 +51,12 @@
   }
 }
 
+// Space players further apart than each player's own controls.
+// This makes the association of a player name with the DLC list clearer.
 .draft-settings-players > ol {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 0.25rem;
+  gap: 1.5rem 1rem;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -67,14 +69,10 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  > li {
-    padding: 0.5rem;
-  }
-
   .form-control {
     --control-border-color: var(--draft-border-color);
 
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 
     &:hover {
       --control-border-color: var(--draft-border-hover-color);
