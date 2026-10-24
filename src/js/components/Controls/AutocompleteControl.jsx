@@ -1,14 +1,5 @@
 import PropTypes from 'prop-types';
-import { useContext, useMemo } from 'react';
-import {
-    Autocomplete,
-    Box,
-    TextField,
-    ThemeProvider,
-} from '@mui/material';
-
-import { ThemeContext } from '#js/contexts.js';
-import materialTheme from '#js/utils/materialTheme.js';
+import { Autocomplete, Box, TextField } from '@mui/material';
 
 const propTypes = {
     label: PropTypes.node.isRequired,
@@ -47,31 +38,28 @@ function getOptionMap(options) {
 
 /* eslint-disable react/jsx-props-no-spreading */
 function AutocompleteControl({ label, options, ...otherProps }) {
-    const theme = useContext(ThemeContext);
-    const muiTheme = useMemo(() => materialTheme(theme), [theme]);
     const formattedOptions = options.map(({ value }) => value);
     const optionMap = getOptionMap(options);
 
     return (
-        <ThemeProvider theme={muiTheme}>
-            <Autocomplete
-                getOptionLabel={(value) => optionMap[value].name}
-                multiple
-                options={formattedOptions}
-                renderInput={(params) => (
-                    <TextField
-                        {...params}
-                        label={label}
-                    />
-                )}
-                renderOption={(props, value) => (
-                    <Box component="li" {...props}>
-                        {optionMap[value].label || optionMap[value].name}
-                    </Box>
-                )}
-                {...otherProps}
-            />
-        </ThemeProvider>
+        <Autocomplete
+            getOptionLabel={(value) => optionMap[value].name}
+            multiple
+            options={formattedOptions}
+            renderInput={(params) => (
+                <TextField
+                    {...params}
+                    label={label}
+                />
+            )}
+            // React requires `key` to be passed directly, rather than spread with the other props
+            renderOption={({ ...props }, value) => (
+                <Box component="li" {...props}>
+                    {optionMap[value].label || optionMap[value].name}
+                </Box>
+            )}
+            {...otherProps}
+        />
     );
 }
 

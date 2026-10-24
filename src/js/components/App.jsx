@@ -1,11 +1,17 @@
 import PropTypes from 'prop-types';
-import { useCallback, useEffect, useState } from 'react';
+import {
+    useCallback,
+    useEffect,
+    useMemo,
+    useState,
+} from 'react';
 import { createPortal } from 'react-dom';
+import { ThemeProvider } from '@mui/material';
 
 import DraftArea from '#js/components/DraftArea.jsx';
 import HeaderActions from '#js/components/Header/HeaderActions.jsx';
 import { trollFactor } from '#js/constants/calculation.js';
-import { ThemeContext } from '#js/contexts.js';
+import materialTheme from '#js/utils/materialTheme.js';
 import leaders from '#json/leaders.json';
 
 const propTypes = {
@@ -15,6 +21,7 @@ const propTypes = {
 
 function App({ headerActionsContainer, initialTheme }) {
     const [theme, setTheme] = useState(initialTheme);
+    const muiTheme = useMemo(() => materialTheme(theme), [theme]);
 
     // Apply the theme to the whole page, including the parts that React does not render
     useEffect(() => {
@@ -28,14 +35,14 @@ function App({ headerActionsContainer, initialTheme }) {
     }, []);
 
     return (
-        <ThemeContext.Provider value={theme}>
+        <ThemeProvider theme={muiTheme}>
             <DraftArea leaders={leaders} trollFactor={trollFactor} />
             {/* The header sits outside of the main mount point */}
             {createPortal(
                 <HeaderActions theme={theme} onThemeChange={onThemeChange} />,
                 headerActionsContainer,
             )}
-        </ThemeContext.Provider>
+        </ThemeProvider>
     );
 }
 

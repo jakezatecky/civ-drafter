@@ -1,10 +1,6 @@
 import kebabCase from 'lodash/kebabCase.js';
 import PropTypes from 'prop-types';
-import { useContext } from 'react';
-import { Slider, ThemeProvider } from '@mui/material';
-
-import { ThemeContext } from '#js/contexts.js';
-import materialTheme from '#js/utils/materialTheme.js';
+import { Slider } from '@mui/material';
 
 const propTypes = {
     label: PropTypes.string.isRequired,
@@ -22,8 +18,6 @@ function SliderControl({
     id = null,
     ...otherProps
 }) {
-    const theme = useContext(ThemeContext);
-
     // Derive ID from label
     const sliderId = id || kebabCase(label);
 
@@ -38,17 +32,15 @@ function SliderControl({
             <label className="form-label" id={sliderId}>
                 {label}
             </label>
-            <ThemeProvider theme={materialTheme(theme)}>
-                <Slider
-                    aria-label={label}
-                    aria-labelledby={sliderId}
-                    marks={marks}
-                    max={max}
-                    min={min}
-                    valueLabelDisplay="auto"
-                    {...otherProps}
-                />
-            </ThemeProvider>
+            <Slider
+                aria-label={label}
+                aria-labelledby={sliderId}
+                marks={marks}
+                max={max}
+                min={min}
+                valueLabelDisplay="auto"
+                {...otherProps}
+            />
         </div>
     );
 }
