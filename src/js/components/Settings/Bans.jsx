@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useContext } from 'react';
 
 import AutocompleteControl from '#js/components/Controls/AutocompleteControl.jsx';
+import { leaderIconSize } from '#js/constants/theme.js';
 import leaderShape from '#js/shapes/leaderShape.js';
 import { LanguageContext } from '#js/contexts.js';
 
@@ -29,7 +30,9 @@ function Bans({
                     <img
                         alt={language('leaderAltText', { name: longName })}
                         className="leader-icon"
+                        height={leaderIconSize}
                         src={`/assets/img/leader-icons/${image}`}
+                        width={leaderIconSize}
                     />
                     <span className="leader-name">{`${longName}`}</span>
                 </div>

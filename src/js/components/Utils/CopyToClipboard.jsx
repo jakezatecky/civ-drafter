@@ -12,6 +12,10 @@ import { LanguageContext } from '#js/contexts.js';
 // How long the success or failure message remains visible
 const messageDuration = 2500;
 
+// Render the image at double resolution, so that it stays crisp on the high-density displays that
+// it is often viewed on, regardless of the display that copied it
+const imageScale = 2;
+
 const statusIcons = {
     copying: 'fa-solid fa-circle-notch fa-spin',
     success: 'fa-solid fa-check',
@@ -47,7 +51,7 @@ function CopyToClipboard({ domSelector }) {
 
         return domToBlob(resultsArea, {
             backgroundColor: bodyBg,
-            scale: 1,
+            scale: imageScale,
             type: 'image/png',
         });
     }

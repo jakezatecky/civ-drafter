@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 
 import Alert from '#js/components/Utils/Alert.jsx';
+import { leaderIconSize } from '#js/constants/theme.js';
 import draftResultsShape from '#js/shapes/draftResultsShape.js';
 import { LanguageContext } from '#js/contexts.js';
 
@@ -23,7 +24,12 @@ function DraftResults({ results }) {
             <ul className="draft-results-player-choices">
                 {choices.map(({ id: choiceId, shortName, image }) => (
                     <li key={`${playerName}-${choiceId}-${shortName}`}>
-                        <img alt={`${shortName} icon`} src={`/assets/img/leader-icons/${image}`} />
+                        <img
+                            alt={`${shortName} icon`}
+                            height={leaderIconSize}
+                            src={`/assets/img/leader-icons/${image}`}
+                            width={leaderIconSize}
+                        />
                         {shortName}
                     </li>
                 ))}
