@@ -16,6 +16,7 @@ import SettingsSection from '#js/components/Settings/SettingsSection.jsx';
 import Alert from '#js/components/Utils/Alert.jsx';
 import { LanguageContext } from '#js/contexts.js';
 import leaderShape from '#js/shapes/leaderShape.js';
+import validateDraftSettings from '#js/utils/validateDraftSettings.js';
 import allDlc from '#json/dlc.json';
 
 const defaultSettings = {
@@ -26,23 +27,52 @@ const defaultSettings = {
     mods: [],
 };
 
+// The language key naming each setting, for listing any that were reset
+const settingLabels = {
+    numPlayers: 'settings.numPlayers',
+    numChoices: 'settings.numChoices',
+    duplications: 'settings.duplications',
+    mods: 'settings.enabledMods',
+    bans: 'settings.bans',
+    players: 'settings.player',
+};
+
 /**
- * Fetch any draft settings from the user's previous run, noting whether they could not be read.
+ * Fetch the valid draft settings from the user's previous run, noting whether they could not be
+ * read at all or which individual settings were invalid.
  *
- * @returns {{settings: Object, isInvalid: boolean}}
+ * @param {Object[]} leaders
+ *
+ * @returns {{settings: Object, isUnreadable: boolean, invalidSettings: string[]}}
  */
-function getStoredSettings() {
+function getStoredSettings(leaders) {
     const storedSettings = localStorage.getItem('draftSettings');
+    const unreadable = { settings: {}, isUnreadable: true, invalidSettings: [] };
 
     if (storedSettings === null) {
-        return { settings: {}, isInvalid: false };
+        return { settings: {}, isUnreadable: false, invalidSettings: [] };
     }
 
+    let settings;
+
     try {
-        return { settings: JSON.parse(storedSettings), isInvalid: false };
+        settings = JSON.parse(storedSettings);
     } catch {
-        return { settings: {}, isInvalid: true };
+        return unreadable;
     }
+
+    // Anything other than an object is as unusable as corrupt JSON
+    if (typeof settings !== 'object' || settings === null || Array.isArray(settings)) {
+        return unreadable;
+    }
+
+    const { validSettings, invalidSettings } = validateDraftSettings(
+        settings,
+        leaders,
+        defaultSettings,
+    );
+
+    return { settings: validSettings, isUnreadable: false, invalidSettings };
 }
 
 /**
@@ -92,7 +122,7 @@ const propTypes = {
 
 function DraftSettings({ leaders, onSubmit }) {
     const language = useContext(LanguageContext);
-    const storedSettings = useMemo(() => getStoredSettings(), []);
+    const storedSettings = useMemo(() => getStoredSettings(leaders), [leaders]);
     const [state, setState] = useState(() => getInitialState(storedSettings.settings));
     const {
         bans,
@@ -155,12 +185,34 @@ function DraftSettings({ leaders, onSubmit }) {
         }
     ), [state, players]);
 
-    // Remove unreadable settings, so that they are not loaded again
+    // Remove or correct invalid settings, so that they are not loaded again
     useEffect(() => {
-        if (storedSettings.isInvalid) {
+        if (storedSettings.isUnreadable) {
             localStorage.removeItem('draftSettings');
+        } else if (storedSettings.invalidSettings.length > 0) {
+            saveSettings(storedSettings.settings);
         }
     }, [storedSettings]);
+
+    function renderLoadErrors() {
+        const { isUnreadable, invalidSettings } = storedSettings;
+
+        if (isUnreadable) {
+            return <Alert type="warning">{language('error.unreadableStoredSettings')}</Alert>;
+        }
+
+        if (invalidSettings.length > 0) {
+            const settingNames = invalidSettings.map((key) => language(settingLabels[key]));
+
+            return (
+                <Alert type="warning">
+                    {language('error.invalidStoredSettings', { settings: settingNames.join(', ') })}
+                </Alert>
+            );
+        }
+
+        return null;
+    }
 
     const onFormSubmit = useCallback((event) => {
         event.preventDefault();
@@ -171,9 +223,7 @@ function DraftSettings({ leaders, onSubmit }) {
     return (
         <div className="draft-settings">
             <h2 className="visually-hidden">{language('settings.header')}</h2>
-            {storedSettings.isInvalid ? (
-                <Alert type="warning">{language('error.invalidStored')}</Alert>
-            ) : null}
+            {renderLoadErrors()}
             <form className="form" id="draft-form" onSubmit={onFormSubmit}>
                 <div className="accordion">
                     <SettingsSection defaultOpen header={language('settings.main')}>

@@ -23,6 +23,7 @@
     "numChoices": "Number of choices",
     "secondary": "Additional settings",
     "bans": "Banned leaders",
+    "duplications": "Duplication settings",
     "player": "Player settings",
     "playerName": "Player name",
     "playerDlc": "Enabled DLC"
@@ -31,7 +32,8 @@
     "header": "Draft results"
   },
   "error": {
-    "invalidStored": "Your saved settings could not be loaded and have been reset to the defaults.",
+    "unreadableStoredSettings": "Your saved settings could not be loaded and have been reset to the defaults.",
+    "invalidStoredSettings": "The following saved settings could not be loaded and have been reset to their defaults: {settings}.",
     "notEnoughLeaders": "The settings call for {totalChoices} total choices, but there are only {availableLeaders} leaders available after randomization and DLC exclusion. Adjust the settings and try again."
   },
   "easterEgg": {

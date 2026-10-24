@@ -51,8 +51,55 @@ describe('<DraftSettings />', () => {
 
         renderSettings();
 
-        assert.equal(screen.getByRole('alert').textContent.trim(), english.error.invalidStored);
+        assert.equal(
+            screen.getByRole('alert').textContent.trim(),
+            english.error.unreadableStoredSettings,
+        );
         assert.equal(getPlayerNames().length, 6);
         assert.isNull(localStorage.getItem('draftSettings'));
+    });
+
+    it('should treat stored settings that are not an object as corrupt', () => {
+        localStorage.setItem('draftSettings', '[4]');
+
+        renderSettings();
+
+        assert.equal(
+            screen.getByRole('alert').textContent.trim(),
+            english.error.unreadableStoredSettings,
+        );
+        assert.isNull(localStorage.getItem('draftSettings'));
+    });
+
+    it('should reset and list only the invalid settings', () => {
+        localStorage.setItem('draftSettings', JSON.stringify({
+            numPlayers: 2,
+            numChoices: 99,
+            bans: ['Removed Leader (Nowhere)'],
+            players: [
+                { name: 'Alex', enabledDlc: ['Vanilla'] },
+                { name: 'Emma', enabledDlc: ['Vanilla'] },
+            ],
+        }));
+
+        renderSettings();
+
+        assert.include(
+            screen.getByRole('alert').textContent,
+            'have been reset to their defaults: Number of choices, Banned leaders.',
+        );
+
+        // Valid settings are kept
+        assert.deepEqual(getPlayerNames(), ['Alex', 'Emma']);
+        assert.isNull(screen.queryByText('Removed Leader (Nowhere)'));
+
+        // The corrected settings are saved, so that the alert does not return
+        assert.deepEqual(JSON.parse(localStorage.getItem('draftSettings')), {
+            numPlayers: 2,
+            players: [
+                { name: 'Alex', enabledDlc: ['Vanilla'] },
+                { name: 'Emma', enabledDlc: ['Vanilla'] },
+            ],
+        });
     });
 });
