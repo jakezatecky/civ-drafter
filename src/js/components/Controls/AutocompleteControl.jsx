@@ -41,9 +41,14 @@ function AutocompleteControl({ label, options, ...otherProps }) {
     const formattedOptions = options.map(({ value }) => value);
     const optionMap = getOptionMap(options);
 
+    // MUI keeps rendering the options from when the list was last open, so that the list can fade
+    // out, and those may no longer be among the current options (such as when disabling a mod
+    // removes its leaders). Fall back to the value itself for any option that is now missing.
+    const getOption = (value) => optionMap[value] ?? { name: String(value) };
+
     return (
         <Autocomplete
-            getOptionLabel={(value) => optionMap[value].name}
+            getOptionLabel={(value) => getOption(value).name}
             multiple
             options={formattedOptions}
             renderInput={(params) => (
@@ -55,7 +60,7 @@ function AutocompleteControl({ label, options, ...otherProps }) {
             // React requires `key` to be passed directly, rather than spread with the other props
             renderOption={({ key, ...props }, value) => (
                 <Box key={key} component="li" {...props}>
-                    {optionMap[value].label || optionMap[value].name}
+                    {getOption(value).label || getOption(value).name}
                 </Box>
             )}
             {...otherProps}
