@@ -14,7 +14,11 @@ function Duplications({ duplications, onChange }) {
     const language = useContext(LanguageContext);
 
     return (
-        <div aria-label={language('settings.duplications')} className="draft-settings-duplications">
+        <div
+            aria-label={language('settings.duplications')}
+            className="draft-settings-duplications"
+            role="group"
+        >
             <CheckboxTree
                 checked={duplications}
                 expanded={[]}

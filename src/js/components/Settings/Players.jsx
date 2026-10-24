@@ -34,7 +34,11 @@ function Players({ players, onChange }) {
                 value={name}
                 onChange={onNameChange(playerIndex)}
             />
-            <div aria-label={language('settings.playerDlc')} className="draft-settings-dlc">
+            <div
+                aria-label={language('settings.playerDlc')}
+                className="draft-settings-dlc"
+                role="group"
+            >
                 <CheckboxTree
                     checked={enabledDlc}
                     expanded={[]}

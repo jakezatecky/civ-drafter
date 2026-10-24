@@ -14,7 +14,7 @@ function Mods({ mods, onChange }) {
     const language = useContext(LanguageContext);
 
     return (
-        <div aria-label={language('settings.enabledMods')}>
+        <div aria-label={language('settings.enabledMods')} role="group">
             <CheckboxTree
                 checked={mods}
                 expanded={[]}
