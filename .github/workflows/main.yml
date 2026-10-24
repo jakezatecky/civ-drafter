@@ -31,10 +31,13 @@ jobs:
           node-version: ${{ matrix.node }}
       -
         name: Install dependencies
-        run: npm install
+        run: npm ci
       -
         name: Run tests
         run: npm run test
       -
         name: Build the application
         run: npm run build
+      -
+        name: Build the application for production
+        run: npm run build-prod
