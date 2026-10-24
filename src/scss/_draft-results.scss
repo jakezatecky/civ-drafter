@@ -16,13 +16,16 @@
   list-style: none;
 }
 
+// Like the settings sections, give the cards the soft structural border and leave the stronger
+// border to the leaders within them. The header's tint gives the cards some weight, which also
+// keeps them distinct when copied as an image.
 .draft-results-players {
   > li {
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
-    border: 1px solid var(--draft-border-color);
-    border-bottom-width: 2px;
+    background: var(--surface-bg-color);
+    border: 1px solid var(--structure-border-color);
     border-radius: var(--radius-5);
 
     @include media-breakpoint-up(lg) {
@@ -31,7 +34,7 @@
 
     &:hover,
     &:hover h3 {
-      border-color: var(--draft-border-hover-color);
+      border-color: var(--draft-border-color);
     }
 
     + li {
@@ -56,7 +59,7 @@
       padding: 0 0.5rem;
       margin-bottom: 0;
       font-size: 18px;
-      border-right: 2px solid var(--draft-border-color);
+      border-right: 1px solid var(--structure-border-color);
     }
   }
 }

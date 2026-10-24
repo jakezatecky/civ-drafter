@@ -8,10 +8,7 @@ $header-xs-break: 350px;
 
 header {
   margin-bottom: 1.5rem;
-  background: light-dark(
-    tint(var(--primary-base), 97%),
-    shade(var(--primary-base), 80%)
-  );
+  background: var(--surface-bg-color);
   border-bottom: 1px solid var(--structure-border-color);
 
   .container {
