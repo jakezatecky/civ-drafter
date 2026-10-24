@@ -7,11 +7,6 @@
 .draft-results {
   margin-bottom: 2rem;
 
-  // Bootstrap 6 alerts have no margin of their own
-  > .alert {
-    margin-bottom: 1rem;
-  }
-
   > ul {
     margin-bottom: 0;
   }

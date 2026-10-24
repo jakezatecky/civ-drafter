@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import {
     useCallback,
     useContext,
+    useEffect,
+    useMemo,
     useState,
 } from 'react';
 
@@ -11,6 +13,7 @@ import Mods from '#js/components/Settings/Mods.jsx';
 import MainSettings from '#js/components/Settings/MainSettings.jsx';
 import Players from '#js/components/Settings/Players.jsx';
 import SettingsSection from '#js/components/Settings/SettingsSection.jsx';
+import Alert from '#js/components/Utils/Alert.jsx';
 import { LanguageContext } from '#js/contexts.js';
 import leaderShape from '#js/shapes/leaderShape.js';
 import allDlc from '#json/dlc.json';
@@ -24,14 +27,22 @@ const defaultSettings = {
 };
 
 /**
- * Fetch any draft settings from the user's previous run.
+ * Fetch any draft settings from the user's previous run, noting whether they could not be read.
  *
- * @returns {Object}
+ * @returns {{settings: Object, isInvalid: boolean}}
  */
 function getStoredSettings() {
     const storedSettings = localStorage.getItem('draftSettings');
 
-    return storedSettings !== null ? JSON.parse(storedSettings) : {};
+    if (storedSettings === null) {
+        return { settings: {}, isInvalid: false };
+    }
+
+    try {
+        return { settings: JSON.parse(storedSettings), isInvalid: false };
+    } catch {
+        return { settings: {}, isInvalid: true };
+    }
 }
 
 /**
@@ -60,10 +71,10 @@ function generatePlayers(numPlayers, startIndex = 1) {
     }));
 }
 
-function getInitialState() {
+function getInitialState(storedSettings) {
     const state = {
         ...defaultSettings,
-        ...getStoredSettings(),
+        ...storedSettings,
     };
     const { numPlayers, players } = state;
 
@@ -81,7 +92,8 @@ const propTypes = {
 
 function DraftSettings({ leaders, onSubmit }) {
     const language = useContext(LanguageContext);
-    const [state, setState] = useState(getInitialState());
+    const storedSettings = useMemo(() => getStoredSettings(), []);
+    const [state, setState] = useState(() => getInitialState(storedSettings.settings));
     const {
         bans,
         duplications,
@@ -143,6 +155,13 @@ function DraftSettings({ leaders, onSubmit }) {
         }
     ), [state, players]);
 
+    // Remove unreadable settings, so that they are not loaded again
+    useEffect(() => {
+        if (storedSettings.isInvalid) {
+            localStorage.removeItem('draftSettings');
+        }
+    }, [storedSettings]);
+
     const onFormSubmit = useCallback((event) => {
         event.preventDefault();
         saveSettings(state);
@@ -152,6 +171,9 @@ function DraftSettings({ leaders, onSubmit }) {
     return (
         <div className="draft-settings">
             <h2 className="visually-hidden">{language('settings.header')}</h2>
+            {storedSettings.isInvalid ? (
+                <Alert type="warning">{language('error.invalidStored')}</Alert>
+            ) : null}
             <form className="form" id="draft-form" onSubmit={onFormSubmit}>
                 <div className="accordion">
                     <SettingsSection defaultOpen header={language('settings.main')}>

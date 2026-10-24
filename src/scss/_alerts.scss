@@ -4,4 +4,7 @@
 
 .alert {
   align-items: center;
+
+  // Bootstrap 6 alerts have no margin of their own
+  margin-bottom: 1rem;
 }
