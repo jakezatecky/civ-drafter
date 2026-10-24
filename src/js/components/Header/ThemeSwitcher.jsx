@@ -1,54 +1,22 @@
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
-import {
-    useCallback,
-    useContext,
-    useEffect,
-    useRef,
-    useState,
-} from 'react';
+import { useCallback, useContext } from 'react';
 
 import { LanguageContext } from '#js/contexts.js';
 
 const propTypes = {
-    initialTheme: PropTypes.string.isRequired,
+    theme: PropTypes.string.isRequired,
+    onChange: PropTypes.func.isRequired,
 };
 
-function setRootTheme(theme) {
-    document.querySelector('html').dataset.bsTheme = theme;
-}
-
-function saveTheme(theme) {
-    localStorage.setItem('theme', theme);
-}
-
-function ThemeSwitcher({ initialTheme }) {
+function ThemeSwitcher({ theme, onChange }) {
     const language = useContext(LanguageContext);
-    const [theme, setTheme] = useState(initialTheme);
-    const isFirstRender = useRef(true);
     const isDarkMode = theme === 'dark';
 
-    // Set initial root theme
-    useEffect(() => {
-        setRootTheme(theme);
-    });
-
-    // Save user's changes
-    useEffect(() => {
-        if (isFirstRender.current) {
-            isFirstRender.current = false;
-
-            return;
-        }
-
-        setRootTheme(theme);
-        saveTheme(theme);
-    }, [theme]);
-
     // Toggle the user's theme
-    const onChange = useCallback(() => {
-        setTheme(isDarkMode ? 'light' : 'dark');
-    }, [isDarkMode]);
+    const onClick = useCallback(() => {
+        onChange(isDarkMode ? 'light' : 'dark');
+    }, [isDarkMode, onChange]);
 
     const label = isDarkMode ? language('theme.switchLight') : language('theme.switchDark');
     const className = classNames({
@@ -63,7 +31,7 @@ function ThemeSwitcher({ initialTheme }) {
             className={className}
             title={label}
             type="button"
-            onClick={onChange}
+            onClick={onClick}
         >
             <span className="fa fa-circle-half-stroke" />
         </button>

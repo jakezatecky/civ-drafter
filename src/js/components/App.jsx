@@ -1,35 +1,40 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 
 import DraftArea from '#js/components/DraftArea.jsx';
+import HeaderActions from '#js/components/Header/HeaderActions.jsx';
 import { trollFactor } from '#js/constants/calculation.js';
 import { ThemeContext } from '#js/contexts.js';
 import leaders from '#json/leaders.json';
 
 const propTypes = {
+    headerActionsContainer: PropTypes.instanceOf(Element).isRequired,
     initialTheme: PropTypes.string.isRequired,
 };
 
-function App({ initialTheme }) {
+function App({ headerActionsContainer, initialTheme }) {
     const [theme, setTheme] = useState(initialTheme);
 
-    // Observe the HTML root for any theme changes.
+    // Apply the theme to the whole page, including the parts that React does not render
     useEffect(() => {
-        const htmlRoot = document.querySelector('html');
-        const observer = new MutationObserver((mutationList) => {
-            mutationList.forEach((mutation) => {
-                if (mutation.type === 'attributes') {
-                    setTheme(htmlRoot.dataset.bsTheme);
-                }
-            });
-        });
+        document.documentElement.dataset.bsTheme = theme;
+    }, [theme]);
 
-        observer.observe(htmlRoot, { attributes: true });
+    // Save the user's choice for future visits
+    const onThemeChange = useCallback((newTheme) => {
+        setTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
     }, []);
 
     return (
         <ThemeContext.Provider value={theme}>
             <DraftArea leaders={leaders} trollFactor={trollFactor} />
+            {/* The header sits outside of the main mount point */}
+            {createPortal(
+                <HeaderActions theme={theme} onThemeChange={onThemeChange} />,
+                headerActionsContainer,
+            )}
         </ThemeContext.Provider>
     );
 }

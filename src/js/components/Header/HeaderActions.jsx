@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 import ThemeSwitcher from '#js/components/Header/ThemeSwitcher.jsx';
 
 const propTypes = {
-    initialTheme: PropTypes.string.isRequired,
+    theme: PropTypes.string.isRequired,
+    onThemeChange: PropTypes.func.isRequired,
 };
 
-function HeaderActions({ initialTheme }) {
-    return <ThemeSwitcher initialTheme={initialTheme} />;
+function HeaderActions({ theme, onThemeChange }) {
+    return <ThemeSwitcher theme={theme} onChange={onThemeChange} />;
 }
 
 HeaderActions.propTypes = propTypes;
