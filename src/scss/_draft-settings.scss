@@ -23,8 +23,11 @@
     line-height: inherit;
   }
 
-  .draft-settings-duplications {
-    margin-top: 1rem;
+  // Space the controls within each section evenly
+  .accordion-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
   }
 
   .react-checkbox-tree {

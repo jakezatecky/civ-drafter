@@ -7,4 +7,9 @@
 
   // Bootstrap 6 alerts have no margin of their own
   margin-bottom: 1rem;
+
+  // Leave the spacing after the last item to its container
+  &:last-child {
+    margin-bottom: 0;
+  }
 }

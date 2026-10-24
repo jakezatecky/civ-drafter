@@ -22,6 +22,15 @@ function getTheme(mode = 'light') {
                     },
                 },
             },
+            MuiSlider: {
+                styleOverrides: {
+                    // Reserve only the room the mark labels need, so that sliders are followed by
+                    // the same spacing as other controls
+                    marked: {
+                        marginBottom: '0.75rem',
+                    },
+                },
+            },
         },
     });
 }

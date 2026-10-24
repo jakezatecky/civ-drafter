@@ -1,0 +1,10 @@
+//
+// Draft area
+// --------------------------------------------------
+
+// Space the settings, actions, and results evenly, whichever of them are shown
+.draft-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
