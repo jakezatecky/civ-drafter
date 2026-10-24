@@ -53,8 +53,8 @@ function AutocompleteControl({ label, options, ...otherProps }) {
                 />
             )}
             // React requires `key` to be passed directly, rather than spread with the other props
-            renderOption={({ ...props }, value) => (
-                <Box component="li" {...props}>
+            renderOption={({ key, ...props }, value) => (
+                <Box key={key} component="li" {...props}>
                     {optionMap[value].label || optionMap[value].name}
                 </Box>
             )}
