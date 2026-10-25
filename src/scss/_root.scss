@@ -12,8 +12,8 @@
 $warm-gray: color-mix(in oklab, var(--gray-500), var(--primary-base) 50%);
 
 // Keep at least a 3:1 contrast with the background in both color modes, as these borders outline
-// form controls (currently about 3.6:1 in light mode and 3.4:1 in dark mode)
-$draft-border-color: light-dark(tint($warm-gray, 10%), shade($warm-gray, 10%));
+// form controls (currently about 3.3:1 in light mode and 3.4:1 in dark mode)
+$draft-border-color: light-dark(tint($warm-gray, 15%), shade($warm-gray, 10%));
 
 // Borders that only group or separate regions (the header and settings sections), softened from
 // the full brand color so that they do not draw focus away from the content
