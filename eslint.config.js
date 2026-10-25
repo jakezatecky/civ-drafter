@@ -24,4 +24,18 @@ export default [
             globals: globals.node,
         },
     },
+    {
+        // Command-line scripts for generating assets, which report their progress to the console
+        files: ['scripts/**/*.js'],
+        languageOptions: {
+            globals: globals.node,
+        },
+        rules: {
+            'import-x/no-extraneous-dependencies': ['error', {
+                devDependencies: true,
+                optionalDependencies: false,
+            }],
+            'no-console': 'off',
+        },
+    },
 ];

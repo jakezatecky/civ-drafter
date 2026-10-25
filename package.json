@@ -13,7 +13,7 @@
     "dev-server": "webpack serve",
     "format:style": "prettier --write src/scss",
     "lint": "npm run lint:script && npm run lint:style",
-    "lint:script": "eslint src/js test *.js",
+    "lint:script": "eslint src/js test scripts *.js",
     "lint:style": "stylelint \"src/scss/**/*.scss\"",
     "test": "npm run lint && npm run test:script && npm run test:style && npm run test:style-format",
     "test:script": "webpack --config=webpack.config.test.js && mocha test-compiled/index.js",
