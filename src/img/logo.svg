@@ -1,0 +1,20 @@
+<svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 38">
+  <!--! Adapted from Font Awesome Pro 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+  <!--
+    The header's logo, which the HTML bundler inlines into the pages at build time (see the logo
+    image in src/index.html). Its colors come from the page through the logo-outline-color and
+    logo-fill-color custom properties. Keep this comment free of markup and double hyphens, which
+    break the inlining and XML parsing.
+
+    It is drawn for display at 38px. The outer and inner outlines are scaled slightly differently,
+    so that the hexagon's flat edges fall on whole pixels (y 2-4 and 33-35) rather than blurring
+    across two rows.
+  -->
+  <g fill="var(--logo-outline-color, #a26638)" transform="matrix(0.073661,0,0,0.073661,0.1429,-0.3571)">
+    <path d="M169.1,32L342,32C367.1,32 390.5,45.1 403.5,66.56L496,218.6C510,241.6 510,270.4 496,293.4L403.5,445.4C390.5,466.9 367.1,480 342,480L169.1,480C144.9,480 121.5,466.9 108.5,445.4L15.96,293.4C1.962,270.4 1.962,241.6 15.96,218.6L108.5,66.56C121.5,45.1 144.9,32 169.1,32Z" />
+  </g>
+  <path fill="var(--logo-fill-color, #f1e8e1)" d="M43.29,235.2C35.52,247.1 35.52,264 43.29,276.8L135.8,428.8C143.1,440.7 156,448 169.1,448L342,448C355.1,448 368.9,440.7 376.2,428.8L468.7,276.8C476.5,264 476.5,247.1 468.7,235.2L376.2,83.2C368.9,71.28 355.1,64 342,64L169.1,64C156,64 143.1,71.28 135.8,83.2L43.29,235.2Z" transform="matrix(0.075521,0,0,0.075521,-0.3333,-0.8333)" />
+  <g fill="var(--logo-outline-color, #a26638)" transform="matrix(0.073661,0,0,0.073661,0.1429,-0.3571)">
+    <path d="M235.3,331.3C229.1,337.6 218.9,337.6 212.7,331.3L148.7,267.3C142.4,261.1 142.4,250.9 148.7,244.7C154.9,238.4 165.1,238.4 171.3,244.7L223.1,297.4L340.7,180.7C346.9,174.4 357.1,174.4 363.3,180.7C369.6,186.9 369.6,197.1 363.3,203.3L235.3,331.3Z" />
+  </g>
+</svg>

@@ -22,6 +22,14 @@ export default {
                 loader: 'babel-loader',
             },
             {
+                // The HTML bundler replaces `<img src="*.svg?inline=embed">` with the SVG's
+                // markup, so that the page's styles can reach it and it renders without a separate
+                // request
+                test: /\.svg$/i,
+                resourceQuery: /inline/,
+                type: 'asset/inline',
+            },
+            {
                 test: /\.s[ac]ss$/i,
                 use: [
                     'css-loader',

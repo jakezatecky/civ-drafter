@@ -6,6 +6,16 @@
 
 $header-xs-break: 350px;
 
+// Outline the logo in the brand color, with a soft fill, to match the rest of the palette
+$logo-outline-color: light-dark(
+  var(--primary-base),
+  tint(var(--primary-base), 25%)
+);
+$logo-fill-color: light-dark(
+  tint(var(--primary-base), 85%),
+  shade(var(--primary-base), 55%)
+);
+
 header {
   margin-bottom: 1.5rem;
   background: var(--surface-bg-color);
@@ -31,7 +41,15 @@ header {
     text-decoration: none;
   }
 
+  // Keep this size in step with the logo's pixel snapping (see `public/assets/img/logo.svg`). The
+  // custom properties pass the colors into the logo file, which the page's styles cannot reach.
   .logo {
+    // Interpolate the values, as Sass otherwise outputs custom property values without evaluating
+    // their functions
+    --logo-outline-color: #{$logo-outline-color};
+    --logo-fill-color: #{$logo-fill-color};
+
+    flex-shrink: 0;
     width: 38px;
     height: 38px;
     margin-right: 0.5rem;
