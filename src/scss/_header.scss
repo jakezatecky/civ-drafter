@@ -6,6 +6,14 @@
 
 $header-xs-break: 350px;
 
+// Use the brand's dark text color, matching the logo and the open settings headings, rather than
+// the cooler body text, which looks colder against the header's warm tint. In dark mode, that color
+// is much dimmer than the body text, so blend it most of the way toward the body text.
+$header-text-color: light-dark(
+  var(--primary-fg-emphasis),
+  color-mix(in oklab, var(--primary-fg-emphasis), var(--fg-body) 60%)
+);
+
 // Outline the logo in the brand color, with a soft fill, to match the rest of the palette
 $logo-outline-color: light-dark(
   var(--primary-base),
@@ -37,12 +45,12 @@ header {
     align-items: center;
     font-size: 22px;
     font-weight: 600;
-    color: var(--fg-body);
+    color: $header-text-color;
     text-decoration: none;
   }
 
-  // Keep this size in step with the logo's pixel snapping (see `public/assets/img/logo.svg`). The
-  // custom properties pass the colors into the logo file, which the page's styles cannot reach.
+  // Keep this size in step with the logo's pixel snapping (see `src/img/logo.svg`). The custom
+  // properties pass the colors into the logo's markup.
   .logo {
     // Interpolate the values, as Sass otherwise outputs custom property values without evaluating
     // their functions
@@ -66,7 +74,7 @@ header {
     align-items: center;
     padding: 0.5rem;
     font-size: 20px;
-    color: var(--fg-body);
+    color: $header-text-color;
     text-decoration: none;
     background: none;
     border: 0;
