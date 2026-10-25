@@ -32,6 +32,13 @@ $app-tokens: (
     tint(var(--primary-base), 99%),
     shade(var(--primary-base), 80%)
   ),
+  // Muted text, such as placeholders. Bootstrap's muted text looks dimmer against the dark
+  // background than the light one, so lighten it in dark mode (about 5.9:1 contrast in light mode
+  // and 7.7:1 in dark mode).
+  --placeholder-color: light-dark(
+    var(--fg-3),
+    color-mix(in oklab, var(--fg-3), var(--fg-body) 40%)
+  ),
 );
 
 :root {
