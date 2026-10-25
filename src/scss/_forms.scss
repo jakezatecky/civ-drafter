@@ -2,6 +2,12 @@
 // Forms
 // --------------------------------------------------
 
+// Keep labels at the regular weight of the body text, rather than Bootstrap's medium weight. This
+// cannot be configured through Bootstrap, which declares label tokens but never outputs them.
+.form-label {
+  font-weight: var(--font-weight-normal);
+}
+
 .control-range {
   max-width: 600px;
   text-align: left;

@@ -104,18 +104,14 @@
   )
 );
 
-// Work Sans is only loaded in regular, semibold, and bold weights (see `index.html`), so use the
-// regular weight where Bootstrap would otherwise use medium
+// Keep headings at the regular weight of the body text, where Bootstrap would otherwise use medium
+// (form labels do the same in `_forms.scss`)
 @use "bootstrap/scss/content/reboot" with (
   $type-tokens: (
     --heading-font-weight: var(--font-weight-normal),
   )
 );
-@use "bootstrap/scss/forms/labels" with (
-  $form-label-tokens: (
-    --label-font-weight: var(--font-weight-normal),
-  )
-);
+@use "bootstrap/scss/forms/labels";
 
 // To reduce file size, import only used components. Load every component here so that its CSS comes
 // before app styles. Other modules should `@use` a Bootstrap module only to access its members.

@@ -21,7 +21,13 @@ main {
   margin-bottom: 1.5rem;
 }
 
+// Work Sans is only loaded up to its semibold weight (see `index.html`), so use that for bold text
 h1 {
   margin-bottom: 1rem;
-  font-weight: bold;
+  font-weight: var(--font-weight-semibold);
+}
+
+b,
+strong {
+  font-weight: var(--font-weight-semibold);
 }

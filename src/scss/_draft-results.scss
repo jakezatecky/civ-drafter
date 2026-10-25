@@ -50,7 +50,7 @@
     flex-shrink: 0;
     max-width: 400px;
     font-size: 24px;
-    font-weight: bold;
+    font-weight: var(--font-weight-semibold);
 
     @include media-breakpoint-up(lg) {
       display: flex;
