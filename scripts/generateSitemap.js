@@ -1,5 +1,5 @@
 import fs from 'node:fs/promises';
-import { XMLBuilder } from 'fast-xml-parser';
+import XMLBuilder from 'fast-xml-builder';
 
 const { dirname } = import.meta;
 const outputPath = `${dirname}/../public/sitemap.xml`;
