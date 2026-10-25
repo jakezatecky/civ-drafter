@@ -5,40 +5,50 @@
 @use "bootstrap/scss/mixins/tokens" as *;
 @use "functions" as *;
 
+// Multi-line values are defined as variables, rather than within the token map, as Prettier
+// otherwise misaligns their parentheses and drops the map's trailing comma
+
 // A gray warmed toward the brand color, so that control outlines sit with the structural borders
 $warm-gray: color-mix(in oklab, var(--gray-500), var(--primary-base) 50%);
 
+// Keep at least a 3:1 contrast with the background in both color modes, as these borders outline
+// form controls (currently about 3.6:1 in light mode and 3.4:1 in dark mode)
+$draft-border-color: light-dark(tint($warm-gray, 10%), shade($warm-gray, 10%));
+
+// Borders that only group or separate regions (the header and settings sections), softened from
+// the full brand color so that they do not draw focus away from the content
+$structure-border-color: light-dark(
+  tint(var(--primary-base), 50%),
+  shade(var(--primary-base), 50%)
+);
+
+// A light brand tint for surfaces that stand apart from the page (the header)
+$surface-bg-color: light-dark(
+  tint(var(--primary-base), 97%),
+  shade(var(--primary-base), 80%)
+);
+
+// Give an even lighter tint for the result cards
+$result-card-bg-color: light-dark(
+  tint(var(--primary-base), 99%),
+  shade(var(--primary-base), 80%)
+);
+
+// Muted text, such as placeholders. Bootstrap's muted text looks dimmer against the dark
+// background than the light one, so lighten it in dark mode (about 5.9:1 contrast in light mode
+// and 7.7:1 in dark mode).
+$placeholder-color: light-dark(
+  var(--fg-3),
+  color-mix(in oklab, var(--fg-3), var(--fg-body) 40%)
+);
+
 $app-tokens: (
-  // Keep at least a 3:1 contrast with the background in both color modes, as these borders outline
-  // form controls (currently about 3.6:1 in light mode and 3.4:1 in dark mode)
-  --draft-border-color: light-dark(
-    tint($warm-gray, 10%),
-    shade($warm-gray, 10%)
-  ),
+  --draft-border-color: $draft-border-color,
   --draft-border-hover-color: var(--fg-body),
-  // Borders that only group or separate regions (the header and settings sections), softened from
-  // the full brand color so that they do not draw focus away from the content
-  --structure-border-color: light-dark(
-    tint(var(--primary-base), 50%),
-    shade(var(--primary-base), 50%)
-  ),
-  // A light brand tint for surfaces that stand apart from the page (the header)
-  --surface-bg-color: light-dark(
-    tint(var(--primary-base), 97%),
-    shade(var(--primary-base), 80%)
-  ),
-  // Give an even lighter tint for the result cards
-  --result-card-bg-color: light-dark(
-    tint(var(--primary-base), 99%),
-    shade(var(--primary-base), 80%)
-  ),
-  // Muted text, such as placeholders. Bootstrap's muted text looks dimmer against the dark
-  // background than the light one, so lighten it in dark mode (about 5.9:1 contrast in light mode
-  // and 7.7:1 in dark mode).
-  --placeholder-color: light-dark(
-    var(--fg-3),
-    color-mix(in oklab, var(--fg-3), var(--fg-body) 40%)
-  ),
+  --structure-border-color: $structure-border-color,
+  --surface-bg-color: $surface-bg-color,
+  --result-card-bg-color: $result-card-bg-color,
+  --placeholder-color: $placeholder-color,
 );
 
 :root {
