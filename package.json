@@ -22,7 +22,7 @@
     "test:style-format": "prettier --check src/scss"
   },
   "author": "Jake Zatecky",
-  "license": "GPL-3.0-or-later",
+  "license": "AGPL-3.0-or-later",
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
