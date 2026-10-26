@@ -1,14 +1,16 @@
 import { assert } from 'chai';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import AutocompleteControl from '#js/components/Controls/AutocompleteControl.tsx';
+import AutocompleteControl, {
+    type AutocompleteOption,
+} from '#js/components/Controls/AutocompleteControl.tsx';
 
-const options = [
+const options: AutocompleteOption[] = [
     { value: 'Alexander (Macedonian)', name: 'Alexander (Macedonian)' },
     { value: 'Ahiram (Phoenician)', name: 'Ahiram (Phoenician)' },
 ];
 
-function renderControl(controlOptions) {
+function renderControl(controlOptions: AutocompleteOption[]) {
     return (
         <AutocompleteControl
             label="Banned leaders"

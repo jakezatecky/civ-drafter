@@ -2,10 +2,11 @@ import { assert } from 'chai';
 import { render, screen } from '@testing-library/react';
 
 import DraftSettings from '#js/components/DraftSettings.tsx';
+import type { Leader } from '#js/types.ts';
 import english from '#json/language/en.json';
-import wrapper from '../languageWrapper.jsx';
+import wrapper from '../languageWrapper.tsx';
 
-const leaders = [
+const leaders: Leader[] = [
     {
         id: 'Alexander',
         civilization: 'Macedonian',
@@ -21,7 +22,9 @@ function renderSettings() {
 }
 
 function getPlayerNames() {
-    return screen.getAllByRole('textbox', { name: 'Player name' }).map(({ value }) => value);
+    return screen
+        .getAllByRole<HTMLInputElement>('textbox', { name: 'Player name' })
+        .map(({ value }) => value);
 }
 
 describe('<DraftSettings />', () => {
@@ -94,7 +97,7 @@ describe('<DraftSettings />', () => {
         assert.isNull(screen.queryByText('Removed Leader (Nowhere)'));
 
         // The corrected settings are saved, so that the alert does not return
-        assert.deepEqual(JSON.parse(localStorage.getItem('draftSettings')), {
+        assert.deepEqual(JSON.parse(localStorage.getItem('draftSettings') ?? 'null'), {
             numPlayers: 2,
             players: [
                 { name: 'Alex', enabledDlc: ['Vanilla'] },

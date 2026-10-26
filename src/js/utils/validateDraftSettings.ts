@@ -6,6 +6,9 @@ import modNodes from '#json/mods-tree.json';
 
 type SettingKey = keyof DraftSettings;
 
+// Settings read from storage, which have not yet been checked
+type UnvalidatedSettings = Partial<Record<SettingKey, unknown>>;
+
 interface ValidationResult {
     validSettings: Partial<DraftSettings>;
     invalidSettings: SettingKey[];
@@ -42,10 +45,12 @@ function isValidPlayer(player: unknown): player is PlayerSettings {
  * Missing settings (such as those saved before a setting existed) are neither valid nor invalid,
  * and are left for the defaults to fill in.
  *
+ * @param settings
+ * @param leaders
  * @param defaults The default value of each setting.
  */
 function validateDraftSettings(
-    settings: Partial<Record<SettingKey, unknown>>,
+    settings: UnvalidatedSettings,
     leaders: Leader[],
     defaults: Omit<DraftSettings, 'players'>,
 ): ValidationResult {
@@ -95,4 +100,5 @@ function validateDraftSettings(
     return { validSettings, invalidSettings };
 }
 
+export type { UnvalidatedSettings };
 export default validateDraftSettings;

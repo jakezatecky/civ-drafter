@@ -1,18 +1,31 @@
 import { assert } from 'chai';
 
-import validateDraftSettings from '#js/utils/validateDraftSettings.ts';
+import type { DraftSettings, Leader } from '#js/types.ts';
+import validateDraftSettings, {
+    type UnvalidatedSettings,
+} from '#js/utils/validateDraftSettings.ts';
 
-const leaders = [
+const leaders: Leader[] = [
     {
+        id: 'Alexander',
+        civilization: 'Macedonian',
+        shortName: 'Alexander',
         longName: 'Alexander (Macedonian)',
+        image: 'blank.png',
+        dlc: ['Vanilla'],
     },
     {
+        id: 'Ahiram',
+        civilization: 'Phoenician',
+        shortName: 'Ahiram',
         longName: 'Ahiram (Phoenician)',
+        image: 'blank.png',
+        dlc: ['Vanilla'],
         mod: ['BBG Expanded'],
     },
 ];
 
-const defaults = {
+const defaults: Omit<DraftSettings, 'players'> = {
     numPlayers: 6,
     numChoices: 3,
     bans: [],
@@ -20,7 +33,7 @@ const defaults = {
     mods: [],
 };
 
-const validSettings = {
+const validSettings: DraftSettings = {
     numPlayers: 2,
     numChoices: 3,
     duplications: ['civilization'],
@@ -32,11 +45,11 @@ const validSettings = {
     ],
 };
 
-function validate(settings) {
+function validate(settings: UnvalidatedSettings) {
     return validateDraftSettings(settings, leaders, defaults);
 }
 
-function getInvalidSettings(overrides) {
+function getInvalidSettings(overrides: UnvalidatedSettings) {
     return validate({ ...validSettings, ...overrides }).invalidSettings;
 }
 

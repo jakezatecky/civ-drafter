@@ -1,5 +1,5 @@
 import { assert } from 'chai';
-import sinon from 'sinon';
+import sinon, { type SinonStub } from 'sinon';
 import {
     act,
     fireEvent,
@@ -8,39 +8,32 @@ import {
 } from '@testing-library/react';
 
 import CopyToClipboard from '#js/components/Utils/CopyToClipboard.tsx';
-import wrapper from '../languageWrapper.jsx';
+import wrapper from '../languageWrapper.tsx';
 
 // jsdom has no Clipboard API, so stand in for the parts the component uses
 class FakeClipboardItem {
-    constructor(items) {
+    items: Record<string, unknown>;
+
+    constructor(items: Record<string, unknown>) {
         this.items = items;
 
         // The image cannot render in jsdom, so silence that rejection, as a browser would
-        Object.values(items).forEach((item) => Promise.resolve(item).catch(() => {}));
+        Object.values(items).forEach((item) => {
+            Promise.resolve(item).catch(() => {});
+        });
     }
 }
 
-/**
- * Create a promise that the test resolves or rejects on demand.
- *
- * @returns {{promise: Promise, resolve: Function, reject: Function}}
- */
-function createDeferred() {
-    const deferred = {};
-    deferred.promise = new Promise((resolve, reject) => {
-        deferred.resolve = resolve;
-        deferred.reject = reject;
-    });
-
-    return deferred;
-}
+// The test adds and removes these globals, which jsdom lacks
+const testGlobals = globalThis as { ClipboardItem?: unknown };
+const testNavigator = navigator as { clipboard?: unknown };
 
 describe('<CopyToClipboard />', () => {
-    let write;
+    let write: SinonStub<[FakeClipboardItem[]], Promise<void>>;
 
     beforeEach(() => {
         write = sinon.stub();
-        globalThis.ClipboardItem = FakeClipboardItem;
+        testGlobals.ClipboardItem = FakeClipboardItem;
         Object.defineProperty(navigator, 'clipboard', {
             configurable: true,
             value: { write },
@@ -49,8 +42,8 @@ describe('<CopyToClipboard />', () => {
 
     afterEach(() => {
         sinon.restore();
-        delete globalThis.ClipboardItem;
-        delete navigator.clipboard;
+        delete testGlobals.ClipboardItem;
+        delete testNavigator.clipboard;
     });
 
     function renderButton() {
@@ -60,7 +53,7 @@ describe('<CopyToClipboard />', () => {
     }
 
     it('should not render when the browser lacks the Clipboard API', () => {
-        delete globalThis.ClipboardItem;
+        delete testGlobals.ClipboardItem;
 
         render(<CopyToClipboard domSelector=".draft-results" />, { wrapper });
 
@@ -69,7 +62,7 @@ describe('<CopyToClipboard />', () => {
 
     // Safari rejects clipboard writes that happen after the click event has finished
     it('should write a PNG to the clipboard during the click', () => {
-        write.returns(createDeferred().promise);
+        write.returns(Promise.withResolvers<void>().promise);
 
         fireEvent.click(renderButton());
 
@@ -80,7 +73,7 @@ describe('<CopyToClipboard />', () => {
     });
 
     it('should show a message while copying and on success', async () => {
-        const deferred = createDeferred();
+        const deferred = Promise.withResolvers<void>();
         write.returns(deferred.promise);
 
         fireEvent.click(renderButton());
@@ -97,7 +90,7 @@ describe('<CopyToClipboard />', () => {
 
     it('should show a message on failure', async () => {
         const consoleError = sinon.stub(console, 'error');
-        const deferred = createDeferred();
+        const deferred = Promise.withResolvers<void>();
         write.returns(deferred.promise);
 
         fireEvent.click(renderButton());
@@ -123,14 +116,16 @@ describe('<CopyToClipboard />', () => {
         const status = screen.getByRole('status');
         assert.isTrue(status.classList.contains('show'));
 
-        act(() => clock.tick(2500));
+        act(() => {
+            clock.tick(2500);
+        });
 
         assert.isFalse(status.classList.contains('show'));
     });
 
     // Firefox cancels a pending clipboard write when another one starts
     it('should ignore clicks while a copy is underway', async () => {
-        const deferred = createDeferred();
+        const deferred = Promise.withResolvers<void>();
         write.returns(deferred.promise);
 
         const button = renderButton();
@@ -142,7 +137,7 @@ describe('<CopyToClipboard />', () => {
         // Once finished, copying is allowed again
         deferred.resolve();
         await screen.findByText('Copied to clipboard!');
-        write.returns(createDeferred().promise);
+        write.returns(Promise.withResolvers<void>().promise);
         fireEvent.click(button);
 
         assert.isTrue(write.calledTwice);

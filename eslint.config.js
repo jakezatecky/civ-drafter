@@ -46,14 +46,14 @@ export default [
     },
     {
         // Front-end and test files
-        files: ['src/js/**/*.{ts,tsx}', 'test/**/*.{js,jsx}'],
+        files: ['src/js/**/*.{ts,tsx}', 'test/**/*.{js,ts,tsx}'],
         languageOptions: {
             globals: globals.browser,
         },
     },
     {
         // Test files
-        files: ['test/**/*.{js,jsx}'],
+        files: ['test/**/*.{js,ts,tsx}'],
         languageOptions: {
             globals: globals.mocha,
         },

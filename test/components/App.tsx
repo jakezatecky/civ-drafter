@@ -3,10 +3,11 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import App from '#js/components/App.tsx';
-import wrapper from '../languageWrapper.jsx';
+import type { Theme } from '#js/types.ts';
+import wrapper from '../languageWrapper.tsx';
 
 describe('<App />', () => {
-    let headerActionsContainer;
+    let headerActionsContainer: HTMLDivElement;
 
     beforeEach(() => {
         headerActionsContainer = document.createElement('div');
@@ -19,7 +20,7 @@ describe('<App />', () => {
         delete document.documentElement.dataset.bsTheme;
     });
 
-    function renderApp(initialTheme = 'light') {
+    function renderApp(initialTheme: Theme = 'light') {
         render(
             <App headerActionsContainer={headerActionsContainer} initialTheme={initialTheme} />,
             { wrapper },

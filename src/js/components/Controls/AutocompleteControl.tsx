@@ -79,4 +79,5 @@ function AutocompleteControl({
     );
 }
 
+export type { AutocompleteOption };
 export default AutocompleteControl;

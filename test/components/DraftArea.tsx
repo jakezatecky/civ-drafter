@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 import DraftArea from '#js/components/DraftArea.tsx';
-import wrapper from '../languageWrapper.jsx';
+import wrapper from '../languageWrapper.tsx';
 
 const baseLeaders = [
     {
@@ -65,10 +65,10 @@ describe('<DraftArea />', () => {
 
         // Randomizing 20 times should be sufficient for testing purposes
         // (2/3)^20 = ~0.03% chance the banned leader could evade this test if the code is improper
-        await Promise.all([...Array(20)].map(async () => {
+        await Promise.all(Array.from({ length: 20 }, async () => {
             await user.click(submit);
-            const bannedElement = await screen.queryByText('Alexander');
-            const allowedElement = await screen.queryByText('Amanitore');
+            const bannedElement = screen.queryByText('Alexander');
+            const allowedElement = screen.queryByText('Amanitore');
 
             if (bannedElement !== null) {
                 numBannedAppeared += 1;
@@ -99,8 +99,8 @@ describe('<DraftArea />', () => {
         const submit = await screen.findByText('Draft!');
 
         await user.click(submit);
-        const abraham = await screen.queryByText('Abraham Lincoln');
-        const teddy = await screen.queryByText('Teddy Roosevelt (Bull Moose)');
+        const abraham = screen.queryByText('Abraham Lincoln');
+        const teddy = screen.queryByText('Teddy Roosevelt (Bull Moose)');
 
         // Confirm that both men appear in the result
         assert.isNotNull(abraham);

@@ -5,7 +5,7 @@ const { dirname } = import.meta;
 export default {
     mode: 'development',
     entry: {
-        index: path.join(dirname, 'test/index.js'),
+        index: path.join(dirname, 'test/index.ts'),
     },
     output: {
         path: path.join(dirname, 'test-compiled'),
