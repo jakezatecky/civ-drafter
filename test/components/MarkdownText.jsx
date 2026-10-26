@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { render } from '@testing-library/react';
 
-import MarkdownText from '#js/components/Utils/MarkdownText.jsx';
+import MarkdownText from '#js/components/Utils/MarkdownText.tsx';
 
 describe('<MarkdownText />', () => {
     it('should render the markdown as an inline wrapper', () => {

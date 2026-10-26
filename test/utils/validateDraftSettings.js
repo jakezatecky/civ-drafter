@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 
-import validateDraftSettings from '#js/utils/validateDraftSettings.js';
+import validateDraftSettings from '#js/utils/validateDraftSettings.ts';
 
 const leaders = [
     {

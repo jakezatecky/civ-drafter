@@ -7,7 +7,7 @@ import {
     screen,
 } from '@testing-library/react';
 
-import CopyToClipboard from '#js/components/Utils/CopyToClipboard.jsx';
+import CopyToClipboard from '#js/components/Utils/CopyToClipboard.tsx';
 import wrapper from '../languageWrapper.jsx';
 
 // jsdom has no Clipboard API, so stand in for the parts the component uses

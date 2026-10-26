@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 
-import draftLeaders, { NotEnoughLeadersError } from '#js/calculation/draftLeaders.js';
+import draftLeaders, { NotEnoughLeadersError } from '#js/calculation/draftLeaders.ts';
 
 const leaders = [
     {

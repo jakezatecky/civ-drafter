@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import DraftArea from '#js/components/DraftArea.jsx';
+import DraftArea from '#js/components/DraftArea.tsx';
 import wrapper from '../languageWrapper.jsx';
 
 const baseLeaders = [

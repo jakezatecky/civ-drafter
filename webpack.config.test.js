@@ -18,7 +18,7 @@ export default {
         },
         rules: [
             {
-                test: /\.jsx?$/,
+                test: /\.[jt]sx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
             },

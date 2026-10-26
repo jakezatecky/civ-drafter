@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import App from '#js/components/App.jsx';
+import App from '#js/components/App.tsx';
 import wrapper from '../languageWrapper.jsx';
 
 describe('<App />', () => {

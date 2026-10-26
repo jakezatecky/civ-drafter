@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { fireEvent, render, screen } from '@testing-library/react';
 
-import AutocompleteControl from '#js/components/Controls/AutocompleteControl.jsx';
+import AutocompleteControl from '#js/components/Controls/AutocompleteControl.tsx';
 
 const options = [
     { value: 'Alexander (Macedonian)', name: 'Alexander (Macedonian)' },

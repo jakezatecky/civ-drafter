@@ -1,7 +1,7 @@
 import { assert } from 'chai';
 import { render, screen } from '@testing-library/react';
 
-import DraftSettings from '#js/components/DraftSettings.jsx';
+import DraftSettings from '#js/components/DraftSettings.tsx';
 import english from '#json/language/en.json';
 import wrapper from '../languageWrapper.jsx';
 
